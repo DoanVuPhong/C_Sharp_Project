@@ -1,0 +1,12 @@
+E:\C_Book\C_Sharp_Project\DataLayer\TestDrive\bin\Debug\TestDrive.exe.config
+E:\C_Book\C_Sharp_Project\DataLayer\TestDrive\bin\Debug\TestDrive.exe
+E:\C_Book\C_Sharp_Project\DataLayer\TestDrive\bin\Debug\TestDrive.pdb
+E:\C_Book\C_Sharp_Project\DataLayer\TestDrive\obj\Debug\TestDrive.csprojResolveAssemblyReference.cache
+E:\C_Book\C_Sharp_Project\DataLayer\TestDrive\obj\Debug\TestDrive.exe
+E:\C_Book\C_Sharp_Project\DataLayer\TestDrive\obj\Debug\TestDrive.pdb
+E:\C_Book\C_Sharp_Project\DataLayer\TestDrive\bin\Debug\DataLayer.dll
+E:\C_Book\C_Sharp_Project\DataLayer\TestDrive\bin\Debug\EntityFramework.dll
+E:\C_Book\C_Sharp_Project\DataLayer\TestDrive\bin\Debug\DataLayer.pdb
+E:\C_Book\C_Sharp_Project\DataLayer\TestDrive\bin\Debug\EntityFramework.xml
+E:\C_Book\C_Sharp_Project\DataLayer\TestDrive\bin\Debug\EntityFramework.SqlServer.dll
+E:\C_Book\C_Sharp_Project\DataLayer\TestDrive\bin\Debug\EntityFramework.SqlServer.xml
