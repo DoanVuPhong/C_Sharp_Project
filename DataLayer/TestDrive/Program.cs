@@ -12,7 +12,7 @@ namespace TestDrive
         static void Main(string[] args)
         {
             Account c = new Account();
-            c.username = "phongdv2";
+            c.username = "Tu nv";
             c.password = "cu teo";
            bool result=  DataLayer.Services.AccountServices.Add(c);
 
