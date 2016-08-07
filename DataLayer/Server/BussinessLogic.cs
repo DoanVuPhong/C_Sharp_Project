@@ -37,5 +37,33 @@ namespace Server
             bool result=AuthorService.Update(author);
             return result;
         }
+
+        public bool AddOrder(OrderData od)
+        {
+            Order o = new Order()
+            {
+                ID = od.ID,
+                account_ID = od.account_ID,
+                customer_name = od.customer_name,
+                status = od.status,
+                date = od.date
+            };
+            bool result = OrderService.Add(o);
+            return result;
+        }
+
+        public bool UpdateOrder(OrderData od)
+        {
+            Order o = new Order()
+            {
+                ID = od.ID,
+                account_ID = od.account_ID,
+                customer_name = od.customer_name,
+                status = od.status,
+                date = od.date
+            };
+            bool result = OrderService.Update(o);
+            return result;
+        }
     }
 }
