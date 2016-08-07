@@ -25,7 +25,7 @@ namespace TestConsole
 
             Console.WriteLine(proxy.UpdateOrder(new OrderData() {
                 ID = 3,
-                customer_name = "Nghia ABC",
+                customer_name = "Nghia ABCss",
                 date = new DateTime(2016,02,02),
                 status="complete"
             }));
