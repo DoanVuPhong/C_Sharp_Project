@@ -3,11 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace Server.Services
 {
     class AuthorService
     {
+
+        static String SqlURL = "server=.\\SQL2012;database=Book_Sale_Manager;uid=sa;pwd=123";
+        static String GET_ALL = "SELECT * FROM Author";
+
+
+        public static DataTable GetAllAuthor()
+        {
+            SqlConnection con = new SqlConnection(SqlURL);
+            SqlCommand prepareStatement = new SqlCommand(GET_ALL, con);
+            SqlDataAdapter adapte = new SqlDataAdapter(prepareStatement);
+            DataTable table = new DataTable("Author");
+            try
+            {
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                adapte.Fill(table);
+                Console.WriteLine("Client Get All Author");
+                return table;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+                Console.WriteLine(e.StackTrace);
+            }
+            return null;
+        }
+
+
+
+
 
         public static bool Add(Author a)
         {
@@ -18,6 +52,7 @@ namespace Server.Services
                 {
                     context.Authors.Add(a);
                     context.SaveChanges();
+                    Console.WriteLine("[AuthorService]: Add Author Successful!"+a.name);
                     return true;
                 }
             }
@@ -44,6 +79,7 @@ namespace Server.Services
                     {
                         context.Authors.Remove(author);
                         context.SaveChanges();
+                        Console.WriteLine("[AuthorService]: Remove Author Successful!" + a.name);
                         return true;
                     }
                     else
@@ -60,7 +96,8 @@ namespace Server.Services
         }
 
 
-        public static bool Update(Author a) {
+        public static bool Update(Author a)
+        {
 
             try
             {
@@ -72,6 +109,7 @@ namespace Server.Services
                     {
                         author.name = a.name;
                         context.SaveChanges();
+                        Console.WriteLine("[AuthorService]: Update Author Successful!" + a.name);
                         return true;
                     }
                     else
