@@ -243,3 +243,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/DataLayer/.vs/DataLayer/v14/*.suo
