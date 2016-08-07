@@ -21,7 +21,7 @@ namespace Interface_Data
         bool Update(AuthorData a);
         
         
-        //Author Bussiness Logic Implement
+        //Book Bussiness Logic Implement
 
 
     }
