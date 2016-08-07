@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using Server.Const;
 
 namespace Server.Services
 {
     class AuthorService
     {
 
-        static String SqlURL = "server=.\\SQL2012;database=Book_Sale_Manager;uid=sa;pwd=123";
+        static String SqlURL = Const.Const.ConnectionString;
         static String GET_ALL = "SELECT * FROM Author";
 
 
@@ -45,7 +46,6 @@ namespace Server.Services
 
         public static bool Add(Author a)
         {
-
             try
             {
                 using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
@@ -62,9 +62,6 @@ namespace Server.Services
                 return false;
             }
         }
-
-
-
 
         public static bool Remove(Author a)
         {

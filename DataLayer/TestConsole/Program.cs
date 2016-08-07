@@ -15,13 +15,22 @@ namespace TestConsole
         {
             ChannelFactory<IBussinessLogic> chanel = new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             IBussinessLogic proxy = chanel.CreateChannel();
-            Console.WriteLine(proxy.UpdateOrder(new OrderData()
+            CategoryData c = new CategoryData();
+          
+            c.name = "Maria ozawa";
+            Console.WriteLine(proxy.AddCategory(c));
+
+            DataTable table = proxy.GetAllCategory();
+
+            
+                Console.WriteLine(table.ToString());
+            foreach (DataRow item in table.Rows)
             {
-                ID = 3,
-                customer_name = "Nghia ABC",
-                date = new DateTime(2016, 02, 02),
-                status = "complete"
-            }));
+                Console.WriteLine(item["name"].ToString());
+            }
+
+            Console.ReadLine();
+
 
         }
     }

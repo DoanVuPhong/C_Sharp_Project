@@ -29,10 +29,13 @@ namespace Interface_Data
         /*==========================================================================================*/
         [OperationContract]
         bool AddCategory(CategoryData c);
-        
-        
-        
-        
+        [OperationContract]
+        bool RemoveCategory(CategoryData c);
+        [OperationContract]
+        bool UpdateCategory(CategoryData c);
+        [OperationContract]
+        DataTable GetAllCategory();
+
         /*==========================================================================================*/
 
 

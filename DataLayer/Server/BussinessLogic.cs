@@ -79,5 +79,28 @@ namespace Server
             bool result = OrderService.Update(o);
             return result;
         }
+
+        public bool RemoveCategory(CategoryData c)
+        {
+            Category category = new Category();
+            category.name = c.name;
+            category.ID = c.ID;
+            category.status = c.status;
+            return CategoryService.Remove(category);    
+        }
+
+        public bool UpdateCategory(CategoryData c)
+        {
+            Category category = new Category();
+            category.ID = c.ID;
+            category.name = c.name;
+            category.status = c.status;
+            return CategoryService.Update(category);
+        }
+
+        public DataTable GetAllCategory()
+        {
+            return CategoryService.getAllCategory();
+        }
     }
 }
