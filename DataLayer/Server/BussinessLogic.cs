@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using Server.Services;
+using System.Data;
 
 namespace Server
 {
@@ -20,7 +21,20 @@ namespace Server
             return result;
         }
 
-        public bool Remove(AuthorData a)
+        public bool AddCategory(CategoryData c)
+        {
+            Category category = new Category();
+            category.name = c.name;
+            category.status = c.status;
+            return CategoryService.Add(category);
+        }
+
+        public DataTable GetAllAuthor()
+        {
+          return  AuthorService.GetAllAuthor();
+        }
+
+        public bool RemoveAuthor(AuthorData a)
         {
             Author author = new Author();
             author.ID = a.ID;
@@ -29,13 +43,64 @@ namespace Server
             return result;
         }
 
-        public bool Update(AuthorData a)
+        public bool UpdateAuthor(AuthorData a)
         {
             Author author = new Author();
             author.name = a.name;
             author.ID = a.ID;
             bool result=AuthorService.Update(author);
             return result;
+        }
+
+        public bool AddOrder(OrderData od)
+        {
+            Order o = new Order()
+            {
+                ID = od.ID,
+                account_ID = od.account_ID,
+                customer_name = od.customer_name,
+                status = od.status,
+                date = od.date
+            };
+            bool result = OrderService.Add(o);
+            return result;
+        }
+
+        public bool UpdateOrder(OrderData od)
+        {
+            Order o = new Order()
+            {
+                ID = od.ID,
+                account_ID = od.account_ID,
+                customer_name = od.customer_name,
+                status = od.status,
+                date = od.date
+            };
+            bool result = OrderService.Update(o);
+            return result;
+        }
+
+        public bool RemoveCategory(CategoryData c)
+        {
+            Category category = new Category();
+            category.name = c.name;
+            category.ID = c.ID;
+            category.status = c.status;
+            return CategoryService.Remove(category);    
+        }
+
+        public bool UpdateCategory(CategoryData c)
+        {
+            Category category = new Category();
+            category.ID = c.ID;
+            category.name = c.name;
+            category.status = c.status;
+            return CategoryService.Update(category);
+        }
+
+        public DataTable GetAllCategory()
+        {
+            return CategoryService.getAllCategory();
         }
     }
 }

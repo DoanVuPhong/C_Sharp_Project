@@ -1,6 +1,7 @@
 ﻿using Interface_Data;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -14,12 +15,23 @@ namespace TestConsole
         {
             ChannelFactory<IBussinessLogic> chanel = new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             IBussinessLogic proxy = chanel.CreateChannel();
-            AuthorData a = new AuthorData();
-            a.ID = 1;
-            a.name = "test update222222";
-            bool rs = proxy.Update(a);
-            Console.WriteLine(rs);
+            CategoryData c = new CategoryData();
+          
+            c.name = "Maria ozawa";
+            Console.WriteLine(proxy.AddCategory(c));
+
+            DataTable table = proxy.GetAllCategory();
+
+            
+                Console.WriteLine(table.ToString());
+            foreach (DataRow item in table.Rows)
+            {
+                Console.WriteLine(item["name"].ToString());
+            }
+
             Console.ReadLine();
+
+
         }
     }
 }
