@@ -19,9 +19,18 @@ namespace Interface_Data
         bool Remove(AuthorData a);
         [OperationContract]
         bool Update(AuthorData a);
-        
-        
+
+
         //Author Bussiness Logic Implement
+
+        //Begin Bussiness Order
+
+        [OperationContract]
+        bool AddOrder(OrderData a);
+        [OperationContract]
+        bool UpdateOrder(OrderData a);
+        //End bussiness Order
+
 
 
     }
