@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthorData.cs" />
+    <Compile Include="CategoryData.cs" />
     <Compile Include="IBussinessLogic.cs" />
     <Compile Include="OrderData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

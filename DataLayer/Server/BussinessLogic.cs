@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using Server.Services;
+using System.Data;
 
 namespace Server
 {
@@ -20,7 +21,20 @@ namespace Server
             return result;
         }
 
-        public bool Remove(AuthorData a)
+        public bool AddCategory(CategoryData c)
+        {
+            Category category = new Category();
+            category.name = c.name;
+            category.status = c.status;
+            return CategoryService.Add(category);
+        }
+
+        public DataTable GetAllAuthor()
+        {
+          return  AuthorService.GetAllAuthor();
+        }
+
+        public bool RemoveAuthor(AuthorData a)
         {
             Author author = new Author();
             author.ID = a.ID;
@@ -29,7 +43,7 @@ namespace Server
             return result;
         }
 
-        public bool Update(AuthorData a)
+        public bool UpdateAuthor(AuthorData a)
         {
             Author author = new Author();
             author.name = a.name;
