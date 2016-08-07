@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Interface_Data
 {
-    class BookData
+    public class BookData
     {
         public int ID { get; set; }
         public string ISBN { get; set; }

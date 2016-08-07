@@ -19,10 +19,15 @@ namespace Interface_Data
         bool Remove(AuthorData a);
         [OperationContract]
         bool Update(AuthorData a);
-        
-        
-        //Book Bussiness Logic Implement
 
+
+        //Book Bussiness Logic Implement
+        [OperationContract]
+        bool IAddBook(BookData b);
+        [OperationContract]
+        bool IUpdateBook(BookData b);
+        [OperationContract]
+        bool IRemoveBook(BookData b);
 
     }
 }

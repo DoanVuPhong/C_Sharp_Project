@@ -20,6 +20,54 @@ namespace Server
             return result;
         }
 
+        public bool IAddBook(BookData b)
+        {
+            Book book = new Book();
+            book.ID = b.ID;
+            book.name = b.Name;
+            book.description = b.Description;
+            book.thumbnail = b.Thumnail;
+            book.quantity = b.Quantity;
+            book.price = b.Price;
+            book.status = b.Status;
+            book.year = b.Year;
+            book.publisher_ID = b.Publisher_ID;
+            bool result = BookService.AddBook(book);
+            return result;
+        }
+
+        public bool IRemoveBook(BookData b)
+        {
+            Book book = new Book();
+            book.ID = b.ID;
+            book.name = b.Name;
+            book.description = b.Description;
+            book.thumbnail = b.Thumnail;
+            book.quantity = b.Quantity;
+            book.price = b.Price;
+            book.status = b.Status;
+            book.year = b.Year;
+            book.publisher_ID = b.Publisher_ID;
+            bool result = BookService.DeleteBook(book);
+            return result;
+        }
+
+        public bool IUpdateBook(BookData b)
+        {
+            Book book = new Book();
+            book.ID = b.ID;
+            book.name = b.Name;
+            book.description = b.Description;
+            book.thumbnail = b.Thumnail;
+            book.quantity = b.Quantity;
+            book.price = b.Price;
+            book.status = b.Status;
+            book.year = b.Year;
+            book.publisher_ID = b.Publisher_ID;
+            bool result = BookService.UpdateBook(book);
+            return result;
+        }
+
         public bool Remove(AuthorData a)
         {
             Author author = new Author();
@@ -37,5 +85,6 @@ namespace Server
             bool result=AuthorService.Update(author);
             return result;
         }
+
     }
 }

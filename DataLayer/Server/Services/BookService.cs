@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Server.Services
 {
-    class BookService
+    public class BookService
     {
-        public bool AddBook(Book b)
+        public static bool AddBook(Book b)
         {
             try
             {
@@ -26,7 +26,7 @@ namespace Server.Services
             return false;
         }
 
-        public bool DeleteBook(Book b)
+        public static bool DeleteBook(Book b)
         {
             try
             {
@@ -52,24 +52,24 @@ namespace Server.Services
             return false;
         }
 
-        public bool UpdateBook(Book b)
+        public static bool UpdateBook(Book b)
         {
             try
             {
                 using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
                 {
                     Book book = context.Books.FirstOrDefault(t => t.ID == b.ID);
-                    if(book != null)
+                    if (book != null)
                     {
-                        book.ISBN = b.ISBN;
-                        book.name = b.name;
-                        book.description = b.description;
-                        book.thumbnail = b.thumbnail;
-                        book.quantity = b.quantity;
-                        book.price = b.price;
-                        book.status = b.status;
-                        book.year = b.year;
-                        book.publisher_ID = b.publisher_ID;
+                        if (book.ISBN != null) book.ISBN = b.ISBN;
+                        if (book.name != null) book.name = b.name;
+                        if (book.description != null) book.description = b.description;
+                        if (book.thumbnail != null) book.thumbnail = b.thumbnail;
+                        if (book.quantity != null) book.quantity = b.quantity;
+                        if (book.price != null) book.price = b.price;
+                        if (book.status != null) book.status = b.status;
+                        if (book.year != null) book.year = b.year;
+                        if (book.publisher_ID != null) book.publisher_ID = b.publisher_ID;
                         context.SaveChanges();
                         return true;
                     }
