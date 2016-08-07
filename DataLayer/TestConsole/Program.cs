@@ -16,7 +16,7 @@ namespace TestConsole
             ChannelFactory<IBussinessLogic> chanel = new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             IBussinessLogic proxy = chanel.CreateChannel();
             CategoryData c = new CategoryData();
-            c.name = "Porn";
+            c.name = "Porn2";
             c.status = "fuck U";
             Console.WriteLine(proxy.AddCategory(c));
             Console.ReadLine();
