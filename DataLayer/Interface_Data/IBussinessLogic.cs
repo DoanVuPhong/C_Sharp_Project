@@ -34,6 +34,7 @@ namespace Interface_Data
         [OperationContract]
         bool UpdateCategory(CategoryData c);
         [OperationContract]
+
         DataTable GetAllCategory();
 
         /*==========================================================================================*/
@@ -52,6 +53,14 @@ namespace Interface_Data
         [OperationContract]
         bool UpdateOrder(OrderData a);
         //End bussiness Order
+        //Account Business Logic Implement
+        [OperationContract]
+        bool AddAccount(AccountData b);
+        [OperationContract]
+        bool RemoveAccount(AccountData b);
+        [OperationContract]
+        bool checkLogin(string username, string password);
+        //End Account Busiiness
 
 
 

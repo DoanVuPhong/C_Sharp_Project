@@ -102,6 +102,7 @@
     <Compile Include="Publisher.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\AuthorService.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\OrderService.cs" />
