@@ -9,27 +9,21 @@ using System.Threading.Tasks;
 
 namespace TestConsole
 {
-    class Program
+    class console
     {
         static void Main(string[] args)
         {
             ChannelFactory<IBussinessLogic> chanel = new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             IBussinessLogic proxy = chanel.CreateChannel();
-            CategoryData c = new CategoryData();
-          
-            c.name = "Maria ozawa";
-            Console.WriteLine(proxy.AddCategory(c));
-
-            DataTable table = proxy.GetAllCategory();
-
-            
-                Console.WriteLine(table.ToString());
-            foreach (DataRow item in table.Rows)
-            {
-                Console.WriteLine(item["name"].ToString());
+            DataTable t = proxy.GetAllAuthor();
+            foreach (DataRow i in t.Rows) {
+                Console.WriteLine(i["name"].ToString());
             }
-
             Console.ReadLine();
+            {
+
+            }
+              
 
 
         }
