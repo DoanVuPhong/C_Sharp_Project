@@ -19,8 +19,16 @@ namespace Interface_Data
         bool Remove(AuthorData a);
         [OperationContract]
         bool Update(AuthorData a);
-        
-        
+
+        //Account Business Logic Implement
+        [OperationContract]
+        bool AddAccount(AccountData b);
+        [OperationContract]
+        bool RemoveAccount(AccountData b);
+        [OperationContract]
+        bool checkLogin(string username, string password);
+
+
         //Author Bussiness Logic Implement
 
 
