@@ -26,7 +26,7 @@ namespace Interface_Data
         [OperationContract]
         bool RemoveAccount(AccountData b);
         [OperationContract]
-        bool checkLogin(String username, String password);
+        bool checkLogin(string username, string password);
 
 
         //Author Bussiness Logic Implement

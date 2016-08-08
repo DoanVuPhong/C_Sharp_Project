@@ -46,5 +46,27 @@ namespace Server.Services
                 return false;
             }
         }
+
+        public static bool checkLogin (string username, string password)
+        {
+            try
+            {
+                using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
+                {
+                    Account account = context.Accounts.FirstOrDefault(temp => temp.username == username && temp.password == password);
+                    if (account != null)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Login fail. Detail: {0}", ex);
+                return false;
+            }
+        }
     }
 }

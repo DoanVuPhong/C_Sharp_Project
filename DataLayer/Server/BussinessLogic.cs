@@ -35,7 +35,11 @@ namespace Server
 
         public bool checkLogin(string username, string password)
         {
-            throw new NotImplementedException();
+            Account account = new Account();
+            account.username = username;
+            account.password = password;
+            bool result = AccountService.checkLogin(account.username, account.password);
+            return result;
         }
 
         public bool Remove(AuthorData a)
