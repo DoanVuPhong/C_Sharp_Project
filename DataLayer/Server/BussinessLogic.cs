@@ -13,6 +13,19 @@ namespace Server
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "BussinessLogic" in both code and config file together.
     public class BussinessLogic : IBussinessLogic
     {
+
+        public bool AddAccount(AccountData b)
+        {
+            Account account = new Account();
+            account.username = b.username;
+            account.password = b.password;
+            account.phone = b.phone;
+            account.email = b.email;
+            account.type = b.type;
+            bool result = AccountService.Add(account);
+            return result;
+        }
+
         public bool AddAuthor(AuthorData a)
         {
             Author author = new Author();
@@ -21,7 +34,16 @@ namespace Server
             return result;
         }
 
-        public bool AddCategory(CategoryData c)
+        public bool checkLogin(string username, string password)
+        {
+            Account account = new Account();
+            account.username = username;
+            account.password = password;
+            bool result = AccountService.checkLogin(account.username, account.password);
+            return result;
+        }
+
+        public bool Remove(AuthorData a)
         {
             Category category = new Category();
             category.name = c.name;
@@ -43,7 +65,20 @@ namespace Server
             return result;
         }
 
-        public bool UpdateAuthor(AuthorData a)
+        public bool RemoveAccount(AccountData b)
+        {
+            Account account = new Account();
+            account.ID = b.ID;
+            account.username = b.username;
+            account.password = b.password;
+            account.phone = b.phone;
+            account.email = b.email;
+            account.type = b.type;
+            bool result = AccountService.Remove(account);
+            return result;
+        }
+
+        public bool Update(AuthorData a)
         {
             Author author = new Author();
             author.name = a.name;
