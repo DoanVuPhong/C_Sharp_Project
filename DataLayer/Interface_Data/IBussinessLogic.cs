@@ -33,7 +33,7 @@ namespace Interface_Data
 
         bool UpdateOrder(OrderData a);
         [OperationContract]
-        DataTable SearchByDate();
+        DataTable SearchByDate(DateTime date);
 
         //End bussiness Order
 
@@ -43,8 +43,16 @@ namespace Interface_Data
         [OperationContract]
         bool UpdatePublisher(PublisherData p);
         [OperationContract]
-        bool DeletePublisher(PublisherData p); 
+        bool DeletePublisher(PublisherData p);
 
         //End Bussiness Publisher
+
+        //Begin Bussiness OrderDetail
+        [OperationContract]
+        bool AddOrderDetail(OrderDetailData p);
+        [OperationContract]
+        bool UpdateOrderDetail(OrderDetailData p);
+
+        //End Bussiness OrderDetail
     }
 }
