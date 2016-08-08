@@ -23,7 +23,6 @@ namespace Server
         public bool IAddBook(BookData b)
         {
             Book book = new Book();
-            book.ID = b.ID;
             book.name = b.Name;
             book.description = b.Description;
             book.thumbnail = b.Thumnail;
