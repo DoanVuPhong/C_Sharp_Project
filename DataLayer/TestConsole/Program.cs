@@ -14,10 +14,11 @@ namespace TestConsole
         {
             ChannelFactory<IBussinessLogic> chanel = new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             IBussinessLogic proxy = chanel.CreateChannel();
-            AuthorData a = new AuthorData();
+            AccountData a = new AccountData();
             a.ID = 1;
-            a.name = "test update222222";
-            bool rs = proxy.Update(a);
+            a.username = "test update222222";
+            a.password = "123";
+            bool rs = proxy.AddAccount(a);
             Console.WriteLine(rs);
             Console.ReadLine();
         }
