@@ -42,9 +42,9 @@ namespace DXApp
             if (result == 1)
             {
                 Form1 form= new Form1();
-                form.ShowDialog();
                 this.Hide();
-
+                form.Show();
+                
             }
             else if (result == 0)
             {
