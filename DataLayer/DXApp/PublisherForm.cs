@@ -56,6 +56,7 @@ namespace DXApp
             if (string.IsNullOrEmpty(txtName.Text))
             {
                 errName.SetError(txtName, "Name is not empty!");
+                return false;
             }
             else
             {
