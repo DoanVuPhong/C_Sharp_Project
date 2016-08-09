@@ -75,6 +75,8 @@ namespace Interface_Data
         [OperationContract]
         bool DeletePublisher(PublisherData p);
 
+        [OperationContract]
+        DataTable GetAllPublisher();
         //End Bussiness Publisher
 
         //Begin Bussiness OrderDetail

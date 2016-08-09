@@ -277,12 +277,9 @@ namespace Server
             return result;
         }
 
-       
-
-      
-
-
-       
-
+        public DataTable GetAllPublisher()
+        {
+            return PublisherService.GetAll();
+        }
     }
 }

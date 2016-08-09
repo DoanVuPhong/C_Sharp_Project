@@ -50,9 +50,9 @@ namespace DXApp
                 binding = new BindingSource();
                 table = proxy.GetAllAuthor();
                 binding.DataSource = table;
-                dgv.DataSource = binding;
-                txtName.DataBindings.Clear();
-                txtName.DataBindings.Add("Text", binding, "name");
+                //dgv.DataSource = binding;
+                //txtName.DataBindings.Clear();
+                //txtName.DataBindings.Add("Text", binding, "name");
             }
             catch (Exception ex)
             {
