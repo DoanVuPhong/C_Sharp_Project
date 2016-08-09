@@ -58,6 +58,14 @@ namespace Interface_Data
         DataTable SearchByDate(DateTime date);
 
         //End bussiness Order
+        //Account Business Logic Implement
+        [OperationContract]
+        bool AddAccount(AccountData b);
+        [OperationContract]
+        bool RemoveAccount(AccountData b);
+        [OperationContract]
+        bool checkLogin(string username, string password);
+
 
         //Begin Bussiness Publisher
         [OperationContract]
