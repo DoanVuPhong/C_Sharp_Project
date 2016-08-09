@@ -31,10 +31,9 @@ namespace Interface_Data
         bool AddCategory(CategoryData c);
         [OperationContract]
         bool RemoveCategory(CategoryData c);
+        
+      
         [OperationContract]
-        bool UpdateCategory(CategoryData c);
-        [OperationContract]
-
         DataTable GetAllCategory();
 
         /*==========================================================================================*/
@@ -60,8 +59,9 @@ namespace Interface_Data
         bool RemoveAccount(AccountData b);
         [OperationContract]
         bool checkLogin(string username, string password);
-        //End Account Busiiness
 
+
+        //Author Bussiness Logic Implement
 
 
     }
