@@ -7,7 +7,6 @@ using System.ServiceModel;
 using System.Text;
 using Server.Services;
 using System.Data;
-
 namespace Server
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "BussinessLogic" in both code and config file together.
@@ -64,6 +63,28 @@ namespace Server
             bool result=AuthorService.Update(author);
             return result;
         }
+        public bool RemoveCategory(CategoryData c)
+        {
+            Category category = new Category();
+            category.name = c.name;
+            category.ID = c.ID;
+            category.status = c.status;
+            return CategoryService.Remove(category);
+        }
+
+        public bool UpdateCategory(CategoryData c)
+        {
+            Category category = new Category();
+            category.ID = c.ID;
+            category.name = c.name;
+            category.status = c.status;
+            return CategoryService.Update(category);
+        }
+
+        public DataTable GetAllCategory()
+        {
+            return CategoryService.getAllCategory();
+        }
 
         public bool AddOrder(OrderData od)
         {
@@ -93,27 +114,57 @@ namespace Server
             return result;
         }
 
-        public bool RemoveCategory(CategoryData c)
+        public DataTable SearchByDate(DateTime date)
         {
-            Category category = new Category();
-            category.name = c.name;
-            category.ID = c.ID;
-            category.status = c.status;
-            return CategoryService.Remove(category);    
+            DataTable data = OrderService.SearchByDate(date);
+            return data;
         }
 
-        public bool UpdateCategory(CategoryData c)
+        public bool AddPublisher(PublisherData p)
         {
-            Category category = new Category();
-            category.ID = c.ID;
-            category.name = c.name;
-            category.status = c.status;
-            return CategoryService.Update(category);
+            return PublisherService.Add(new Publisher() {
+                ID = p.ID,
+                name = p.name
+            });
         }
 
-        public DataTable GetAllCategory()
+        public bool UpdatePublisher(PublisherData p)
         {
-            return CategoryService.getAllCategory();
+            return PublisherService.Update(new Publisher()
+            {
+                ID = p.ID,
+                name = p.name
+            });
+        }
+
+        public bool DeletePublisher(PublisherData p)
+        {
+            return PublisherService.Delete(new Publisher()
+            {
+                ID = p.ID,
+                name = p.name
+            });
+        }
+
+        public bool AddOrderDetail(OrderDetailData od)
+        {
+            return OrderDetailService.Add(new Order_Detail() {
+                ID = od.ID,
+                book_ID = od.book_ID,
+                order_ID = od.order_ID,
+                quantity = od.quantity
+            });
+        }
+
+        public bool UpdateOrderDetail(OrderDetailData od)
+        {
+            return OrderDetailService.Update(new Order_Detail()
+            {
+                ID = od.ID,
+                book_ID = od.book_ID,
+                order_ID = od.order_ID,
+                quantity = od.quantity
+            });
         }
         public bool checkLogin(string username, string password)
         {

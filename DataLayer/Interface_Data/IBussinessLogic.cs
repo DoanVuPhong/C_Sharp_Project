@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Data;
 
 namespace Interface_Data
 {
@@ -49,8 +50,13 @@ namespace Interface_Data
 
         [OperationContract]
         bool AddOrder(OrderData a);
+
         [OperationContract]
+
         bool UpdateOrder(OrderData a);
+        [OperationContract]
+        DataTable SearchByDate(DateTime date);
+
         //End bussiness Order
         //Account Business Logic Implement
         [OperationContract]
@@ -61,8 +67,22 @@ namespace Interface_Data
         bool checkLogin(string username, string password);
 
 
-        //Author Bussiness Logic Implement
+        //Begin Bussiness Publisher
+        [OperationContract]
+        bool AddPublisher(PublisherData p);
+        [OperationContract]
+        bool UpdatePublisher(PublisherData p);
+        [OperationContract]
+        bool DeletePublisher(PublisherData p);
 
+        //End Bussiness Publisher
 
+        //Begin Bussiness OrderDetail
+        [OperationContract]
+        bool AddOrderDetail(OrderDetailData p);
+        [OperationContract]
+        bool UpdateOrderDetail(OrderDetailData p);
+
+        //End Bussiness OrderDetail
     }
 }
