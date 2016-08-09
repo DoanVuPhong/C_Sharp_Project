@@ -131,5 +131,21 @@ namespace Server
                 quantity = od.quantity
             });
         }
+
+        public bool RemoveCategory(CategoryData c)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateCategory(CategoryData c)
+        {
+            throw new NotImplementedException();
+        }
+
+        public DataTable GetAllCategory()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
