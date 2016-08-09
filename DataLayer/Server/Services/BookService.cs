@@ -90,7 +90,7 @@ namespace Server.Services
             }
         }
 
-        public static SqlConnection cnn = new SqlConnection("server = .\\SQLEXPRESS; database=Book_Sale_Manager;uid=sa;pwd=12345678");
+        public static SqlConnection cnn = new SqlConnection("server = .\\SQL2012; database=Book_Sale_Manager;uid=sa;pwd=123");
 
         public static DataTable GetAllBook()
         {
