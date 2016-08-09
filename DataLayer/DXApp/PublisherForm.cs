@@ -23,20 +23,33 @@ namespace DXApp
             ChannelFactory<IBussinessLogic> chanel = new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             proxy = chanel.CreateChannel();
         }
-        private void loadData()
+        private bool loadData()
         {
-            datatable = proxy.GetAllPublisher();
+            try
+            {
+                datatable = proxy.GetAllPublisher();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Can't connect to server!");
+                return false;
+            }
+            return true;
+            
         }
         private void refeshForm()
         {
             loadData();
-            datatable.PrimaryKey = new DataColumn[] { datatable.Columns["ID"] };
-
+            if (loadData() == true)
+            {
+                datatable.PrimaryKey = new DataColumn[] { datatable.Columns["ID"] };
+                dgvPublisher.DataSource = datatable;
+            }
             //txtID.DataBindings.Clear();
             //txtName.DataBindings.Clear();
             //txtID.DataBindings.Add("Text", datatable, "ID");
             //txtName.DataBindings.Add("Text", datatable, "Name");
-            dgvPublisher.DataSource = datatable;
+            
         }
         private bool validate()
         {
