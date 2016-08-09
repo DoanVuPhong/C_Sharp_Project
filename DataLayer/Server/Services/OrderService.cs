@@ -66,7 +66,7 @@ namespace Server.Services
 
             DataTable listOrder = new DataTable("OrderByDate");
 
-            SqlConnection conn = new SqlConnection("server=PHONGDVSE61654//SQL2012;database=Book_Sale_Manager;uid=sa;pwd=123");
+            SqlConnection conn = new SqlConnection("server=.\\SQL2012;database=Book_Sale_Manager;uid=sa;pwd=123");
 
             SqlCommand cmd = new SqlCommand("select * from [Order] where [date] = @datetime", conn);
             cmd.Parameters.AddWithValue("@datetime", date.ToString());
