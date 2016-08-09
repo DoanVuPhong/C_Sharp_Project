@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -12,17 +13,38 @@ namespace Interface_Data
     [ServiceContract]
     public interface IBussinessLogic
     {
-
+        /*-----------------------------------------------------------------------------------------*/
         //Author Bussiness Logic Implement
         [OperationContract]
         bool AddAuthor(AuthorData a);
         [OperationContract]
-        bool Remove(AuthorData a);
+        bool RemoveAuthor(AuthorData a);
+        
         [OperationContract]
-        bool Update(AuthorData a);
-
-
+        bool UpdateAuthor(AuthorData a);
+        [OperationContract]
+        DataTable GetAllAuthor();
         //Author Bussiness Logic Implement
+        /*-----------------------------------------------------------------------------------------*/
+        /* Category Bussiness Logic*/
+        /*==========================================================================================*/
+        [OperationContract]
+        bool AddCategory(CategoryData c);
+        [OperationContract]
+        bool RemoveCategory(CategoryData c);
+        [OperationContract]
+        bool UpdateCategory(CategoryData c);
+        [OperationContract]
+        DataTable GetAllCategory();
+
+        /*==========================================================================================*/
+
+
+
+
+
+
+
 
         //Begin Bussiness Order
 

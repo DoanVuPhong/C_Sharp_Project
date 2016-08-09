@@ -18,9 +18,6 @@ namespace Server
                 Console.WriteLine("Press <Enter> to close server!");
                 Console.ReadLine();
             }
-
-
-
         }
     }
 }
