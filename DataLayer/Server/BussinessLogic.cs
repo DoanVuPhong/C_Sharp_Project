@@ -6,6 +6,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using Server.Services;
+using System.Data;
 
 namespace Server
 {
@@ -18,6 +19,37 @@ namespace Server
             author.name = a.name;
             bool result = AuthorService.Add(author);
             return result;
+        }
+
+        public DataTable FilterBookByCategory(string category)
+        {
+            DataTable listBook = BookService.FilterByCategory(category);
+            return listBook;
+        }
+
+        public DataTable GetAllBook()
+        {
+            DataTable listBook = BookService.GetAllBook();
+            return listBook;
+        }
+
+        public BookData GetBookByID(int ID)
+        {
+            Book b = BookService.GetBookByID(ID);
+            BookData book = new BookData()
+            {
+                ID = b.ID,
+                ISBN = b.ISBN,
+                Name = b.name,
+                Description = b.description,
+                Thumnail = b.thumbnail,
+                Quantity = int.Parse(b.quantity.ToString()),
+                Price = int.Parse(b.price.ToString()),
+                Status = b.status,
+                Year = b.year,
+                Publisher_ID = int.Parse(b.publisher_ID.ToString())
+            };
+            return book;
         }
 
         public bool IAddBook(BookData b)
@@ -74,6 +106,18 @@ namespace Server
             author.name = a.name;
             bool result = AuthorService.Remove(author);
             return result;
+        }
+
+        public DataTable SearchBookByAuthor(string author)
+        {
+            DataTable ListBook = BookService.SearchBookByAuthor(author);
+            return ListBook;
+        }
+
+        public DataTable SearchBookByPublisher(string publisher)
+        {
+            DataTable ListBook = BookService.SearchBookByPublisher(publisher);
+            return ListBook;
         }
 
         public bool Update(AuthorData a)

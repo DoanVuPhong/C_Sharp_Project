@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Data;
 
 namespace Interface_Data
 {
@@ -28,6 +29,15 @@ namespace Interface_Data
         bool IUpdateBook(BookData b);
         [OperationContract]
         bool IRemoveBook(BookData b);
-
+        [OperationContract]
+        DataTable GetAllBook();
+        [OperationContract]
+        BookData GetBookByID(int ID);
+        [OperationContract]
+        DataTable SearchBookByAuthor(string author);
+        [OperationContract]
+        DataTable SearchBookByPublisher(string publisher);
+        [OperationContract]
+        DataTable FilterBookByCategory(string category);
     }
 }
