@@ -64,7 +64,7 @@ namespace Interface_Data
         [OperationContract]
         bool RemoveAccount(AccountData b);
         [OperationContract]
-        bool checkLogin(string username, string password);
+        int checkLogin(string username, string password);
 
 
         //Begin Bussiness Publisher

@@ -8,7 +8,7 @@ namespace Server.Services
 {
     class AccountService
     {
-        public static bool Add (Account b)
+        public static bool Add(Account b)
         {
             try
             {
@@ -22,16 +22,16 @@ namespace Server.Services
             catch (Exception ex)
             {
 
-                throw new Exception ("Can't add account to database. Detail: {0}", ex);
+                throw new Exception("Can't add account to database. Detail: {0}", ex);
                 return false;
-            }           
+            }
         }
 
-        public static bool Remove (Account b)
+        public static bool Remove(Account b)
         {
             try
             {
-                using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities()) 
+                using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
                 {
                     Account account = context.Accounts.FirstOrDefault(temp => temp.ID == b.ID);
                     context.Accounts.Remove(account);
@@ -42,12 +42,12 @@ namespace Server.Services
             catch (Exception ex)
             {
 
-                throw new Exception ("Can't remove account from database. Detail: {0}", ex);
+                throw new Exception("Can't remove account from database. Detail: {0}", ex);
                 return false;
             }
         }
 
-        public static bool checkLogin (string username, string password)
+        public static int checkLogin(string username, string password)
         {
             try
             {
@@ -56,16 +56,26 @@ namespace Server.Services
                     Account account = context.Accounts.FirstOrDefault(temp => temp.username == username && temp.password == password);
                     if (account != null)
                     {
-                        return true;
+                        if (account.type == "ADMIN")
+                        {
+                            LogService.log("Info",username+"Login Successful");
+                            return 1;
+                        }
+
+                        else
+                        {
+                            LogService.log("Info", username + "Login Successful");
+                            return 0;
+                        }
                     }
-                    return false;
+                    return -1;
                 }
             }
             catch (Exception ex)
             {
 
-                throw new Exception("Login fail. Detail: {0}", ex);
-                return false;
+                LogService.log("Infor", username + "Login Fail!");
+                return -1;
             }
         }
     }

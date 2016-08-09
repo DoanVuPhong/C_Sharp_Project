@@ -256,12 +256,12 @@ namespace Server
                 quantity = od.quantity
             });
         }
-        public bool checkLogin(string username, string password)
+        public int checkLogin(string username, string password)
         {
             Account account = new Account();
             account.username = username;
             account.password = password;
-            bool result = AccountService.checkLogin(account.username, account.password);
+            int result = AccountService.checkLogin(account.username, account.password);
             return result;
         }
         public bool RemoveAccount(AccountData b)
