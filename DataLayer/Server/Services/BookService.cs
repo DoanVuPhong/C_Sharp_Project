@@ -24,9 +24,9 @@ namespace Server.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Can't add Book to database. Detail: {0}");
+                LogService.log("BOOK", ex.Message);
+                return false;
             }
-            return false;
         }
 
         public static bool DeleteBook(Book b)
@@ -51,7 +51,7 @@ namespace Server.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Can't Remove Book to database. Detail: {0}", ex);
+                LogService.log("BOOK", ex.Message);
             }
             return false;
         }
@@ -86,7 +86,8 @@ namespace Server.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Can't Update Book to database. Detail: {0}", ex);
+                LogService.log("BOOK", ex.Message);
+                return false;
             }
         }
 
@@ -108,9 +109,9 @@ namespace Server.Services
                 da.Fill(ListBook);
                 return ListBook;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw new Exception(e.Message);
+                LogService.log("BOOK", ex.Message);
             }
             finally
             {
@@ -187,9 +188,9 @@ namespace Server.Services
                 da.Fill(ListBook);
                 return ListBook;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw new Exception(e.Message);
+                LogService.log("BOOK", ex.Message);
             }
             finally
             {
@@ -216,9 +217,9 @@ namespace Server.Services
                 da.Fill(ListBook);
                 return ListBook;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw new Exception(e.Message);
+                LogService.log("BOOK", ex.Message);
             }
             finally
             {
@@ -248,9 +249,9 @@ namespace Server.Services
                 da.Fill(ListBook);
                 return ListBook;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw new Exception(e.Message);
+                LogService.log("BOOK", ex.Message);
             }
             finally
             {

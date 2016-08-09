@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="AccountData.cs" />
     <Compile Include="AuthorData.cs" />
+    <Compile Include="BookData.cs" />
     <Compile Include="CategoryData.cs" />
     <Compile Include="IBussinessLogic.cs" />
     <Compile Include="OrderData.cs" />

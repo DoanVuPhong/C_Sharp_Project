@@ -60,9 +60,9 @@
             this.label1.BackColor = System.Drawing.Color.DimGray;
             this.label1.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(270, 9);
+            this.label1.Location = new System.Drawing.Point(315, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(270, 25);
+            this.label1.Size = new System.Drawing.Size(349, 33);
             this.label1.TabIndex = 1;
             this.label1.Text = "Book Store Management";
             // 
@@ -90,9 +90,11 @@
             this.btnCategory.Groups.Add(this.tileGroup4);
             this.btnCategory.ItemTextShowMode = DevExpress.XtraEditors.TileItemContentShowMode.Always;
             this.btnCategory.Location = new System.Drawing.Point(0, 0);
+            this.btnCategory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCategory.MaxId = 17;
             this.btnCategory.Name = "btnCategory";
-            this.btnCategory.Size = new System.Drawing.Size(895, 478);
+            this.btnCategory.Padding = new System.Windows.Forms.Padding(21, 22, 21, 22);
+            this.btnCategory.Size = new System.Drawing.Size(1044, 588);
             this.btnCategory.TabIndex = 0;
             this.btnCategory.Text = "Category";
             // 
@@ -119,6 +121,7 @@
             this.tileItem3.ItemSize = DevExpress.XtraEditors.TileItemSize.Large;
             this.tileItem3.Name = "tileItem3";
             this.tileItem3.Padding = new System.Windows.Forms.Padding(0);
+            this.tileItem3.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItem3_ItemClick);
             // 
             // tileItem2
             // 
@@ -131,6 +134,7 @@
             this.tileItem2.Id = 8;
             this.tileItem2.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem2.Name = "tileItem2";
+            this.tileItem2.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItem2_ItemClick);
             // 
             // btnUsermanagement
             // 
@@ -225,11 +229,12 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 478);
+            this.ClientSize = new System.Drawing.Size(1044, 588);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCategory);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
