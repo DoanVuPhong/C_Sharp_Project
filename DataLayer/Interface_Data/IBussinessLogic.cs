@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -12,15 +13,77 @@ namespace Interface_Data
     [ServiceContract]
     public interface IBussinessLogic
     {
-
+        /*-----------------------------------------------------------------------------------------*/
         //Author Bussiness Logic Implement
         [OperationContract]
         bool AddAuthor(AuthorData a);
         [OperationContract]
-        bool Remove(AuthorData a);
+        bool RemoveAuthor(AuthorData a);
+        
         [OperationContract]
-        bool Update(AuthorData a);
+        bool UpdateAuthor(AuthorData a);
+        [OperationContract]
+        DataTable GetAllAuthor();
+        //Author Bussiness Logic Implement
+        /*-----------------------------------------------------------------------------------------*/
+        /* Category Bussiness Logic*/
+        /*==========================================================================================*/
+        [OperationContract]
+        bool AddCategory(CategoryData c);
+        [OperationContract]
+        bool RemoveCategory(CategoryData c);
+        [OperationContract]
+        bool UpdateCategory(CategoryData c);
+        [OperationContract]
+        DataTable GetAllCategory();
 
+        /*==========================================================================================*/
+
+
+
+
+
+
+
+
+        //Begin Bussiness Order
+
+        [OperationContract]
+        bool AddOrder(OrderData a);
+
+        [OperationContract]
+
+        bool UpdateOrder(OrderData a);
+        [OperationContract]
+        DataTable SearchByDate(DateTime date);
+
+        //End bussiness Order
+        //Account Business Logic Implement
+        [OperationContract]
+        bool AddAccount(AccountData b);
+        [OperationContract]
+        bool RemoveAccount(AccountData b);
+        [OperationContract]
+        bool checkLogin(string username, string password);
+
+
+        //Begin Bussiness Publisher
+        [OperationContract]
+        bool AddPublisher(PublisherData p);
+        [OperationContract]
+        bool UpdatePublisher(PublisherData p);
+        [OperationContract]
+        bool DeletePublisher(PublisherData p);
+
+        //End Bussiness Publisher
+
+        //Begin Bussiness OrderDetail
+        [OperationContract]
+        bool AddOrderDetail(OrderDetailData p);
+        [OperationContract]
+        bool UpdateOrderDetail(OrderDetailData p);
+
+        //End Bussiness OrderDetail
 
         //Book Bussiness Logic Implement
         [OperationContract]
@@ -39,5 +102,6 @@ namespace Interface_Data
         DataTable SearchBookByPublisher(string publisher);
         [OperationContract]
         DataTable FilterBookByCategory(string category);
+        // end business logic book
     }
 }

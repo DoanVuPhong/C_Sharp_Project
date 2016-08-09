@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Server.Services
 {
@@ -55,6 +58,43 @@ namespace Server.Services
             }
             return false;
         }
+
+        public static DataTable SearchByDate(DateTime date)
+        {
+
+
+
+            DataTable listOrder = new DataTable("OrderByDate");
+
+            SqlConnection conn = new SqlConnection("server=.\\SQL2012;database=Book_Sale_Manager;uid=sa;pwd=123");
+
+            SqlCommand cmd = new SqlCommand("select * from [Order] where [date] = @datetime", conn);
+            cmd.Parameters.AddWithValue("@datetime", date.ToString());
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                da.Fill(listOrder);
+                return listOrder;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                if (conn!=null){
+                    conn.Close();
+                }
+            }
+            return null;
+        }
+
 
     }
 }
