@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using Server.Services;
-
+using System.Data;
 namespace Server
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "BussinessLogic" in both code and config file together.
@@ -64,6 +64,59 @@ namespace Server
             };
             bool result = OrderService.Update(o);
             return result;
+        }
+
+        public DataTable SearchByDate(DateTime date)
+        {
+            DataTable data = OrderService.SearchByDate(date);
+            return data;
+        }
+
+        public bool AddPublisher(PublisherData p)
+        {
+            return PublisherService.Add(new Publisher() {
+                ID = p.ID,
+                name = p.name
+            });
+        }
+
+        public bool UpdatePublisher(PublisherData p)
+        {
+            return PublisherService.Update(new Publisher()
+            {
+                ID = p.ID,
+                name = p.name
+            });
+        }
+
+        public bool DeletePublisher(PublisherData p)
+        {
+            return PublisherService.Delete(new Publisher()
+            {
+                ID = p.ID,
+                name = p.name
+            });
+        }
+
+        public bool AddOrderDetail(OrderDetailData od)
+        {
+            return OrderDetailService.Add(new Order_Detail() {
+                ID = od.ID,
+                book_ID = od.book_ID,
+                order_ID = od.order_ID,
+                quantity = od.quantity
+            });
+        }
+
+        public bool UpdateOrderDetail(OrderDetailData od)
+        {
+            return OrderDetailService.Update(new Order_Detail()
+            {
+                ID = od.ID,
+                book_ID = od.book_ID,
+                order_ID = od.order_ID,
+                quantity = od.quantity
+            });
         }
     }
 }
