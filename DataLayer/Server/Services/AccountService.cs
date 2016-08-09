@@ -61,7 +61,7 @@ namespace Server.Services
                     return false;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw new Exception("Login fail. Detail: {0}", ex);

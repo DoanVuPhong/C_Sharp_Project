@@ -31,8 +31,8 @@ namespace Interface_Data
         bool AddCategory(CategoryData c);
         [OperationContract]
         bool RemoveCategory(CategoryData c);
-        
-      
+        [OperationContract]
+        bool UpdateCategory(CategoryData c);
         [OperationContract]
         DataTable GetAllCategory();
 

@@ -113,7 +113,7 @@ namespace DXApp
             }
             else
             {
-                MessageBox.Show("Update Category Fail [Error]");
+                MessageBox.Show("Remove Category Fail [Error]");
 
             }
         }
