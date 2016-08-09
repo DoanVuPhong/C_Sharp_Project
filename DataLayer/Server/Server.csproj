@@ -75,6 +75,7 @@
     <Compile Include="Category.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Const\Const.cs" />
     <Compile Include="DataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,6 +104,7 @@
     </Compile>
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\AuthorService.cs" />
+    <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\OrderService.cs" />
   </ItemGroup>
   <ItemGroup>

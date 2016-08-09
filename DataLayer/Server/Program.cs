@@ -17,13 +17,7 @@ namespace Server
                 Console.WriteLine("Server Start!!!!!!!");
                 Console.WriteLine("Press <Enter> to close server!");
                 Console.ReadLine();
-
-
-
             }
-
-
-
         }
     }
 }
