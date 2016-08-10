@@ -11,21 +11,48 @@ namespace Server.Services
 {
     public class BookService
     {
-        public static bool AddBook(Book b)
+        public static bool AddBook(BookData b)
         {
+            Book book = new Book();
+            book.ISBN = b.ISBN;
+            book.name = b.Name;
+            book.price = b.Price;
+            book.quantity = b.Quantity;
+            book.status = b.Status;
+            book.year = b.Year;
+            book.publisher_ID = b.Publisher_ID;
             try
             {
                 using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
                 {
-                    context.Books.Add(b);
+                    Console.WriteLine(b.Author.Count);
+                    for (int i = 0; i < b.Author.Count; i++)
+                    {
+                        int ID = b.Author[i].ID;
+                        Author author = context.Authors.FirstOrDefault(a => a.ID ==ID); 
+                        Book_Author BA = new Book_Author();
+                        BA.Author = author;
+                        BA.Book = book;
+                        book.Book_Author.Add(BA);
+                    }
+                    for (int i = 0; i < b.Category.Count; i++)
+                    {
+                        int ID = b.Category[i].ID;
+                        Category category=context.Categories.FirstOrDefault(c=>c.ID==ID);
+                        Book_Category temp = new Book_Category();
+                        temp.Category = category;
+                        temp.Book = book;
+                        book.Book_Category.Add(temp);
+                    }
+
+                    context.Books.Add(book);
                     context.SaveChanges();
-                    Console.WriteLine(b.ID);
                     return true;
                 }
             }
             catch (Exception ex)
             {
-                LogService.log("BOOK", ex.Message);
+                LogService.log("BOOK", ex.StackTrace);
                 return false;
             }
         }
@@ -272,6 +299,48 @@ namespace Server.Services
                 }
                 return result;
             }
+
+        }
+
+        public static List<CategoryData> GetAllBookCategoryData()
+        {
+            using (Book_Sale_ManagerEntities contex = new Book_Sale_ManagerEntities())
+            {
+                List<Category> categories = contex.Categories.ToList();
+
+                List<CategoryData> result = new List<CategoryData>();
+                foreach (var item in categories)
+                {
+                    CategoryData i = new CategoryData();
+                    i.ID = item.ID;
+                    i.name = item.name;
+                    i.status = item.status;
+                    result.Add(i);
+                }
+                return result;
+            }
+        }
+
+        public static List<AuthorData> GetAllBookAuthorData()
+        {
+            using (Book_Sale_ManagerEntities contex = new Book_Sale_ManagerEntities())
+            {
+                List<Author> authors = contex.Authors.ToList();
+
+                List<AuthorData> result = new List<AuthorData>();
+                foreach (var item in authors)
+                {
+                    AuthorData a = new AuthorData();
+                    a.ID = item.ID;
+                    a.name = item.name;
+                    result.Add(a);
+                }
+                return result;
+            }
+
+
+
+
 
         }
     }

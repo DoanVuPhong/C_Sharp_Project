@@ -68,27 +68,7 @@ namespace Server
 
         public bool IAddBook(BookData b)
         {
-            Book book = new Book();
-            if (b.ISBN != null) book.ISBN = b.ISBN;
-            if(b.Name != null) book.name = b.Name;
-            book.description = b.Description;
-            book.thumbnail = b.Thumnail;
-            book.quantity = b.Quantity;
-            book.price = b.Price;
-            book.status = b.Status;
-            book.year = b.Year;
-            book.publisher_ID = b.Publisher_ID;
-            bool result = BookService.AddBook(book);
-            if (result == true)
-            {
-                Console.WriteLine("Add a new book successful");
-            }
-            else
-            {
-                Console.WriteLine("Add a new book fail");
-            }
-            Console.WriteLine(result);
-            return result;
+            return BookService.AddBook(b);
         }
 
         public bool IRemoveBook(BookData b)
@@ -311,6 +291,16 @@ namespace Server
         public List<PublisherData> getAllPublisher()
         {
             return BookService.getAllPublisher();
+        }
+
+        public List<AuthorData> GetAllBookAuthor()
+        {
+            return BookService.GetAllBookAuthorData();
+        }
+
+        public List<CategoryData> GetBookAllCategory()
+        {
+            return BookService.GetAllBookCategoryData();
         }
     }
 }

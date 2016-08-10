@@ -101,6 +101,10 @@ namespace Interface_Data
         DataTable FilterBookByCategory(string category);
         [OperationContract]
         List<PublisherData> getAllPublisher();
+        [OperationContract]
+        List<AuthorData> GetAllBookAuthor();
+        [OperationContract]
+        List<CategoryData> GetBookAllCategory();
         // end business logic book
     }
 }
