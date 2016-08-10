@@ -5,7 +5,6 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
-using System.Data;
 
 namespace Interface_Data
 {
@@ -38,8 +37,6 @@ namespace Interface_Data
         DataTable GetAllCategory();
 
         /*==========================================================================================*/
-
-
 
 
 
@@ -102,6 +99,12 @@ namespace Interface_Data
         DataTable SearchBookByPublisher(string publisher);
         [OperationContract]
         DataTable FilterBookByCategory(string category);
+        [OperationContract]
+        List<PublisherData> getAllPublisher();
+        [OperationContract]
+        List<AuthorData> GetAllBookAuthor();
+        [OperationContract]
+        List<CategoryData> GetBookAllCategory();
         // end business logic book
     }
 }

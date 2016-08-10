@@ -36,6 +36,7 @@ namespace Server
         public DataTable FilterBookByCategory(string category)
         {
             DataTable listBook = BookService.FilterByCategory(category);
+            Console.WriteLine("Filter Book By Category");
             return listBook;
         }
 
@@ -61,22 +62,13 @@ namespace Server
                 Year = b.year,
                 Publisher_ID = int.Parse(b.publisher_ID.ToString())
             };
+            Console.WriteLine("Search Book By ID");
             return book;
         }
 
         public bool IAddBook(BookData b)
         {
-            Book book = new Book();
-            book.name = b.Name;
-            book.description = b.Description;
-            book.thumbnail = b.Thumnail;
-            book.quantity = b.Quantity;
-            book.price = b.Price;
-            book.status = b.Status;
-            book.year = b.Year;
-            book.publisher_ID = b.Publisher_ID;
-            bool result = BookService.AddBook(book);
-            return result;
+            return BookService.AddBook(b);
         }
 
         public bool IRemoveBook(BookData b)
@@ -92,6 +84,15 @@ namespace Server
             book.year = b.Year;
             book.publisher_ID = b.Publisher_ID;
             bool result = BookService.DeleteBook(book);
+            if (result)
+            {
+                Console.WriteLine("Delete a Book successful");
+            }
+            else
+            {
+                Console.WriteLine("Delete book fail");
+            }
+            
             return result;
         }
 
@@ -108,6 +109,14 @@ namespace Server
             book.year = b.Year;
             book.publisher_ID = b.Publisher_ID;
             bool result = BookService.UpdateBook(book);
+            if (result)
+            {
+                Console.WriteLine("Update book successful");
+            }
+            else
+            {
+                Console.WriteLine("Update book fail");
+            }
             return result;
         }
 
@@ -136,12 +145,14 @@ namespace Server
         public DataTable SearchBookByAuthor(string author)
         {
             DataTable ListBook = BookService.SearchBookByAuthor(author);
+            Console.WriteLine("Search Book By Author");
             return ListBook;
         }
 
         public DataTable SearchBookByPublisher(string publisher)
         {
             DataTable ListBook = BookService.SearchBookByPublisher(publisher);
+            Console.WriteLine("Search Book By Publisher");
             return ListBook;
         }
 
@@ -277,12 +288,19 @@ namespace Server
             return result;
         }
 
-       
+        public List<PublisherData> getAllPublisher()
+        {
+            return BookService.getAllPublisher();
+        }
 
-      
+        public List<AuthorData> GetAllBookAuthor()
+        {
+            return BookService.GetAllBookAuthorData();
+        }
 
-
-       
-
+        public List<CategoryData> GetBookAllCategory()
+        {
+            return BookService.GetAllBookCategoryData();
+        }
     }
 }

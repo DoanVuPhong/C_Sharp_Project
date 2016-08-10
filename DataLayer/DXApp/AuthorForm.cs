@@ -23,7 +23,8 @@ namespace DXApp
             InitializeComponent();
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv.MultiSelect = false;
-            ChannelFactory<IBussinessLogic> chanel = new ChannelFactory<IBussinessLogic>("ClientEndPoint");
+            ChannelFactory<IBussinessLogic> chanel =
+                new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             proxy = chanel.CreateChannel();
             getDataScource();
          

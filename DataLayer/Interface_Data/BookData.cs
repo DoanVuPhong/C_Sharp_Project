@@ -18,5 +18,8 @@ namespace Interface_Data
         public double Price { get; set; }
         public string Year { get; set; }
         public int Publisher_ID { get; set; }
+        public List<CategoryData> Category { get; set; }
+        public List<AuthorData> Author { get; set; }
+        
     }
 }
