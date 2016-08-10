@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using Interface_Data;
 
 namespace Server.Services
 {
@@ -18,7 +19,7 @@ namespace Server.Services
                 {
                     context.Books.Add(b);
                     context.SaveChanges();
-                    Console.WriteLine("Add a new book successful");
+                    Console.WriteLine(b.ID);
                     return true;
                 }
             }
@@ -35,12 +36,25 @@ namespace Server.Services
             {
                 using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
                 {
+                    Book_Author book_author = context.Book_Author.FirstOrDefault(t => t.ID == b.ID);
+                    while (book_author != null)
+                    {
+                        context.Book_Author.Remove(book_author);
+                        context.SaveChanges();
+                        book_author = context.Book_Author.FirstOrDefault(t => t.ID == b.ID);
+                    }
+                    Book_Category book_category = context.Book_Category.FirstOrDefault(t => t.ID == b.ID);
+                    while (book_category != null)
+                    {
+                        context.Book_Category.Remove(book_category);
+                        context.SaveChanges();
+                        book_category = context.Book_Category.FirstOrDefault(t => t.ID == b.ID);
+                    }
                     Book book = context.Books.FirstOrDefault(t => t.ID == b.ID);
                     if (book != null)
                     {
                         context.Books.Remove(b);
                         context.SaveChanges();
-                        Console.WriteLine("Delete a Book successful");
                         return true;
                     }
                     else
@@ -75,7 +89,6 @@ namespace Server.Services
                         if (book.year != null) book.year = b.year;
                         if (book.publisher_ID != null) book.publisher_ID = b.publisher_ID;
                         context.SaveChanges();
-                        Console.WriteLine("Update book successful");
                         return true;
                     }
                     else
@@ -99,7 +112,7 @@ namespace Server.Services
             SqlCommand cmd = new SqlCommand("select b.ID, b.ISBN, b.description, b.name, b.price, b.quantity,"
                 + " b.status, b.thumbnail, b.year ,p.name as Publihser_Name from Book b, Publisher p where b.publisher_ID = p.ID", cnn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
-            
+
             try
             {
                 if (cnn.State == ConnectionState.Closed)
@@ -144,28 +157,7 @@ namespace Server.Services
                 b.publisher_ID = rd.GetInt32(9);
             }
             return b;
-            //SqlDataAdapter da = new SqlDataAdapter(cmd);
-            //try
-            //{
-            //    if (cnn.State == ConnectionState.Closed)
-            //    {
-            //        cnn.Open();
-            //    }
-            //    da.Fill(ListBook);
-            //    return ListBook;
-            //}
-            //catch (Exception e)
-            //{
-            //    throw new Exception(e.Message);
-            //}
-            //finally
-            //{
-            //    if (cnn != null)
-            //    {
-            //        cnn.Close();
-            //    }
-            //}
-            //return null;
+
         }
 
         public static DataTable SearchBookByAuthor(string author)
@@ -176,7 +168,7 @@ namespace Server.Services
                 + "where b.ID in (select ba.book_ID from Book_Author ba where ba.author_ID in (select a.ID from Author a where a.name like @Author))"
                 + " and p.ID = b.publisher_ID", cnn);
             cmd.Parameters.AddWithValue("@Author", "%" + author + "%"
-                
+
                 );
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             try
@@ -261,6 +253,26 @@ namespace Server.Services
                 }
             }
             return null;
+        }
+
+        public static List<PublisherData> getAllPublisher()
+        {
+            using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
+            {
+                List<Publisher> publishers = context.Publishers.ToList();
+                List<PublisherData> result = new List<PublisherData>();
+                foreach (var item in publishers)
+                {
+                    PublisherData p = new PublisherData()
+                    {
+                        ID = item.ID,
+                        name = item.name
+                    };
+                    result.Add(p);
+                }
+                return result;
+            }
+
         }
     }
 }

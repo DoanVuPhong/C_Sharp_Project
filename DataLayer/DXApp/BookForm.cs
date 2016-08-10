@@ -15,6 +15,7 @@ namespace DXApp
     public partial class BookForm : Form
     {
         IBussinessLogic proxy;
+        DataTable table = new DataTable();
         public BookForm()
         {
             InitializeComponent();
@@ -25,6 +26,41 @@ namespace DXApp
             this.MaximizeBox = false;
             ChannelFactory<IBussinessLogic> chanel = new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             proxy = chanel.CreateChannel();
+        }
+
+        public void getDataSource()
+        {
+            try
+            {
+                table = proxy.GetAllBook();
+                bindingBook.DataSource = table;
+                if (bindingBook != null)
+                {
+                    txtName.DataBindings.Clear();
+                    txtStatus.DataBindings.Clear();
+                    txtISBN.DataBindings.Clear();
+                    txtDesc.DataBindings.Clear();
+                    txtPrice.DataBindings.Clear();
+                    txtQuantity.DataBindings.Clear();
+                    txtThumbnail.DataBindings.Clear();
+                    txtYear.DataBindings.Clear();
+                    
+                    //txtName.DataBindings.Add("Text", bindingBook, "name");
+                    //txtStatus.DataBindings.Add("Text", bindingBook, "status");
+                    //txtDesc.DataBindings.Add("Text", bindingBook, "description");
+                    //txtYear.DataBindings.Add("Text", bindingBook, "year");
+                    //txtPrice.DataBindings.Add("Text", bindingBook, "price");
+                    //txtQuantity.DataBindings.Add("Text", bindingBook, "quantity");
+                    //txtThumbnail.DataBindings.Add("Text", bindingBook, "thumbnail");
+                    //txtISBN.DataBindings.Add("Text", bindingBook, "ISBN");
+                    //cboPublisher.DataBindings.Add("Text", bindingBook, "publisher_ID");
+                    dgvBook.DataSource = bindingBook;
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -38,7 +74,8 @@ namespace DXApp
                 Thumnail = txtThumbnail.Text,
                 Quantity = int.Parse(txtQuantity.Text.ToString()),
                 Price = float.Parse(txtPrice.Text.ToString()),
-                Publisher_ID = int.Parse(publisher.Publisher_ID.ToString()),
+                //Publisher_ID = int.Parse(publisher.ID.ToString()),
+                Publisher_ID = publisher.ID,
                 Status = txtStatus.Text,
                 Year = txtYear.Text
             };
@@ -47,14 +84,11 @@ namespace DXApp
 
         private void BookForm_Load(object sender, EventArgs e)
         {
-            List<dynamic> Publishers = new List<dynamic>
-            {
-                new {Publisher_ID = 1, Name = "LT"},
-                new {Publisher_ID = 2, Name = "TL"}
-            };
+            List<PublisherData> Publishers = proxy.getAllPublisher();
             cboPublisher.DataSource = Publishers;
-            cboPublisher.DisplayMember = "Name";
-            cboPublisher.ValueMember = "Publisher_ID";
+            cboPublisher.DisplayMember = "name";
+            cboPublisher.ValueMember = "ID";
+            getDataSource();
         }
     }
 }
