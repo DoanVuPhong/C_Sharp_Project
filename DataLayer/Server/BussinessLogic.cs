@@ -317,5 +317,12 @@ namespace Server
         {
             return OrderDetailService.GetAllByID(ID);
         }
+        public List<AuthorData> GetAllBookAuthor()
+        {
+            return BookService.GetAllBookAuthorData();
+        }
+
+     
+
     }
 }
