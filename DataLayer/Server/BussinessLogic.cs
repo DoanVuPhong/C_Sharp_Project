@@ -43,6 +43,7 @@ namespace Server
         public DataTable GetAllBook()
         {
             DataTable listBook = BookService.GetAllBook();
+            Console.WriteLine("Get All Book from Database");
             return listBook;
         }
 
