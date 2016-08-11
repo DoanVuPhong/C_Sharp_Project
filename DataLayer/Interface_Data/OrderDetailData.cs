@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Interface_Data
 {
-   public class AuthorData
+    public class OrderDetailData
     {
         public int ID { get; set; }
-        public string name { get; set; }
+        public Nullable<int> book_ID { get; set; }
+        public Nullable<int> order_ID { get; set; }
+        public Nullable<int> quantity { get; set; }
     }
 }

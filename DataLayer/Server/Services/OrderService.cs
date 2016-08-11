@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Server.Services
 {
@@ -56,5 +59,145 @@ namespace Server.Services
             return false;
         }
 
+        public static DataTable SearchByDate(DateTime date)
+        {
+
+
+
+            DataTable listOrder = new DataTable("OrderByDate");
+
+            SqlConnection conn = new SqlConnection(Const.Const.ConnectionString);
+
+            SqlCommand cmd = new SqlCommand("select * from [Order] where [date] = @date", conn);
+            cmd.Parameters.AddWithValue("@date", date.ToString());
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                da.Fill(listOrder);
+                return listOrder;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+
+            }
+            finally
+            {
+                if (conn!=null){
+                    conn.Close();
+                }
+            }
+            return null;
+        }
+
+        public static DataTable SearchByCustomerName(string name)
+        {
+
+            DataTable listOrder = new DataTable("OrderByDate");
+
+            SqlConnection conn = new SqlConnection(Const.Const.ConnectionString);
+
+            SqlCommand cmd = new SqlCommand("select * from [Order] where [customer_name] like @name", conn);
+            cmd.Parameters.AddWithValue("@name", "%" + name+"%");
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                da.Fill(listOrder);
+                return listOrder;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return null;
+        }
+
+        public static DataTable SearchByRangeDate(DateTime from, DateTime to)
+        {
+
+
+
+            DataTable listOrder = new DataTable("OrderByDate");
+
+            SqlConnection conn = new SqlConnection(Const.Const.ConnectionString);
+
+            SqlCommand cmd = new SqlCommand("select * from [Order] where [date] >= @from AND [date] <= @to", conn);
+            cmd.Parameters.AddWithValue("@from", from.ToString());
+            cmd.Parameters.AddWithValue("@to", to.ToString());
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                da.Fill(listOrder);
+                return listOrder;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return null;
+        }
+
+        public static DataTable SearchByID(int ID)
+        {
+            DataTable listOrder = new DataTable("OrderByDate");
+
+            SqlConnection conn = new SqlConnection(Const.Const.ConnectionString);
+
+            SqlCommand cmd = new SqlCommand("select * from [Order] where ID = @ID", conn);
+            cmd.Parameters.AddWithValue("@ID", ID);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                da.Fill(listOrder);
+                return listOrder;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return null;
+        }
     }
 }

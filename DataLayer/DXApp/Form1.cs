@@ -36,9 +36,24 @@ namespace DXApp
 
         private void tileItem4_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
+
+            //MessageBox.Show("ABC");
             AuthorForm authorform = new AuthorForm();
             authorform.ShowDialog();
 
+        }
+
+        private void tileItem5_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+        {
+            PublisherForm pubForm = new PublisherForm();
+            pubForm.ShowDialog();
+        }
+
+       
+        private void tileItem2_ItemClick_1(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+        {
+            frmOrder frmO = new frmOrder();
+            frmO.ShowDialog();
         }
     }
 }

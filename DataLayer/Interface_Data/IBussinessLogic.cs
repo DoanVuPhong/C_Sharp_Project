@@ -43,14 +43,25 @@ namespace Interface_Data
 
 
 
-
-
         //Begin Bussiness Order
 
         [OperationContract]
         bool AddOrder(OrderData a);
+
         [OperationContract]
+
         bool UpdateOrder(OrderData a);
+        [OperationContract]
+        DataTable SearchByDate(DateTime date);
+
+        [OperationContract]
+        DataTable SearchByCustomerNameOrder(string name);
+
+        [OperationContract]
+        DataTable SearchByRangeDateOrder(DateTime from, DateTime to);
+
+        [OperationContract]
+        DataTable SearchByIDOrder(int ID);
         //End bussiness Order
         //Account Business Logic Implement
         [OperationContract]
@@ -58,11 +69,55 @@ namespace Interface_Data
         [OperationContract]
         bool RemoveAccount(AccountData b);
         [OperationContract]
-        bool checkLogin(string username, string password);
+        int checkLogin(string username, string password);
 
 
-        //Author Bussiness Logic Implement
+        //Begin Bussiness Publisher
+        [OperationContract]
+        bool AddPublisher(PublisherData p);
+        [OperationContract]
+        bool UpdatePublisher(PublisherData p);
+        [OperationContract]
+        bool DeletePublisher(PublisherData p);
 
+        [OperationContract]
+        DataTable GetAllPublisher();
+        //End Bussiness Publisher
 
+        //Begin Bussiness OrderDetail
+        [OperationContract]
+        bool AddOrderDetail(OrderDetailData p);
+        [OperationContract]
+        bool UpdateOrderDetail(OrderDetailData p);
+
+        [OperationContract]
+        DataTable GetAllOrderDetailByID(int ID);
+
+        //End Bussiness OrderDetail
+
+        //Book Bussiness Logic Implement
+        [OperationContract]
+        bool IAddBook(BookData b);
+        [OperationContract]
+        bool IUpdateBook(BookData b);
+        [OperationContract]
+        bool IRemoveBook(BookData b);
+        [OperationContract]
+        DataTable GetAllBook();
+        [OperationContract]
+        BookData GetBookByID(int ID);
+        [OperationContract]
+        DataTable SearchBookByAuthor(string author);
+        [OperationContract]
+        DataTable SearchBookByPublisher(string publisher);
+        [OperationContract]
+        DataTable FilterBookByCategory(string category);
+        [OperationContract]
+        List<PublisherData> getAllPublisher();
+        [OperationContract]
+        List<AuthorData> GetAllBookAuthor();
+        [OperationContract]
+        List<CategoryData> GetBookAllCategory();
+        // end business logic book
     }
 }

@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Interface_Data
 {
-   public class AuthorData
+    public class PublisherData
     {
         public int ID { get; set; }
         public string name { get; set; }
+        // test
+
     }
 }

@@ -28,9 +28,12 @@ namespace DXApp
             ChannelFactory<IBussinessLogic> chanel = new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             proxy = chanel.CreateChannel();
             getDataSource();
-            current.ID = (int)table.Rows[0][0];
-            current.name = table.Rows[0][1].ToString();
-                
+            if (table.Rows.Count > 0)
+            {
+                current.ID = (int)table.Rows[0][0];
+                current.name = table.Rows[0][1].ToString();
+            }
+
 
         }
 
@@ -40,14 +43,14 @@ namespace DXApp
         {
             try
             {
-               table = proxy.GetAllCategory();
+                table = proxy.GetAllCategory();
                 bindingTor.DataSource = table;
                 if (bindingTor != null)
                 {
                     txtName.DataBindings.Clear();
                     txtStatus.DataBindings.Clear();
-                    txtName.DataBindings.Add("Text", bindingTor, "Name");
-                    txtStatus.DataBindings.Add("Text", bindingTor, "Status");
+                    txtName.DataBindings.Add("Text", bindingTor, "name");
+                    txtStatus.DataBindings.Add("Text", bindingTor, "status");
                     dgv.DataSource = bindingTor;
                 }
             }
@@ -106,10 +109,11 @@ namespace DXApp
         private void btnDelete_Click(object sender, EventArgs e)
         {
             bool result = proxy.RemoveCategory(current);
-            if (result) {
+            if (result)
+            {
                 getDataSource();
                 MessageBox.Show("Delete Category Success!");
-              
+
             }
             else
             {
@@ -126,7 +130,8 @@ namespace DXApp
 
         }
 
-        void setCurrent() {
+        void setCurrent()
+        {
             if (dgv.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = dgv.SelectedRows[0];
@@ -145,7 +150,7 @@ namespace DXApp
 
         private void dgv_MouseClick(object sender, MouseEventArgs e)
         {
-         
+
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -157,10 +162,12 @@ namespace DXApp
             {
                 getDataSource();
                 MessageBox.Show("Update Category Success!!!");
-               
+
             }
-            else {
-                MessageBox.Show("Update Category Fail [Error]");
+            else
+            {
+                MessageBox.Show("You can not Delete This Category because this category"+
+                    "used by some book, If you want to delete this Category please remove all book relate to this category");
             }
         }
     }

@@ -7,7 +7,6 @@ using System.ServiceModel;
 using System.Text;
 using Server.Services;
 using System.Data;
-
 namespace Server
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "BussinessLogic" in both code and config file together.
@@ -34,6 +33,94 @@ namespace Server
             return result;
         }
 
+        public DataTable FilterBookByCategory(string category)
+        {
+            DataTable listBook = BookService.FilterByCategory(category);
+            Console.WriteLine("Filter Book By Category");
+            return listBook;
+        }
+
+        public DataTable GetAllBook()
+        {
+            DataTable listBook = BookService.GetAllBook();
+            return listBook;
+        }
+
+        public BookData GetBookByID(int ID)
+        {
+            Book b = BookService.GetBookByID(ID);
+            BookData book = new BookData()
+            {
+                ID = b.ID,
+                ISBN = b.ISBN,
+                Name = b.name,
+                Description = b.description,
+                Thumnail = b.thumbnail,
+                Quantity = int.Parse(b.quantity.ToString()),
+                Price = int.Parse(b.price.ToString()),
+                Status = b.status,
+                Year = b.year,
+                Publisher_ID = int.Parse(b.publisher_ID.ToString())
+            };
+            Console.WriteLine("Search Book By ID");
+            return book;
+        }
+
+        public bool IAddBook(BookData b)
+        {
+            return BookService.AddBook(b);
+        }
+
+        public bool IRemoveBook(BookData b)
+        {
+            Book book = new Book();
+            book.ID = b.ID;
+            book.name = b.Name;
+            book.description = b.Description;
+            book.thumbnail = b.Thumnail;
+            book.quantity = b.Quantity;
+            book.price = b.Price;
+            book.status = b.Status;
+            book.year = b.Year;
+            book.publisher_ID = b.Publisher_ID;
+            bool result = BookService.DeleteBook(book);
+            if (result)
+            {
+                Console.WriteLine("Delete a Book successful");
+            }
+            else
+            {
+                Console.WriteLine("Delete book fail");
+            }
+            
+            return result;
+        }
+
+        public bool IUpdateBook(BookData b)
+        {
+            Book book = new Book();
+            book.ID = b.ID;
+            book.name = b.Name;
+            book.description = b.Description;
+            book.thumbnail = b.Thumnail;
+            book.quantity = b.Quantity;
+            book.price = b.Price;
+            book.status = b.Status;
+            book.year = b.Year;
+            book.publisher_ID = b.Publisher_ID;
+            //bool result = BookService.UpdateBook(book);
+            bool result = false;
+            if (result)
+            {
+                Console.WriteLine("Update book successful");
+            }
+            else
+            {
+                Console.WriteLine("Update book fail");
+            }
+            return result;
+        }
+
         public bool AddCategory(CategoryData c)
         {
             Category category = new Category();
@@ -56,6 +143,20 @@ namespace Server
             return result;
         }
 
+        public DataTable SearchBookByAuthor(string author)
+        {
+            DataTable ListBook = BookService.SearchBookByAuthor(author);
+            Console.WriteLine("Search Book By Author");
+            return ListBook;
+        }
+
+        public DataTable SearchBookByPublisher(string publisher)
+        {
+            DataTable ListBook = BookService.SearchBookByPublisher(publisher);
+            Console.WriteLine("Search Book By Publisher");
+            return ListBook;
+        }
+
         public bool UpdateAuthor(AuthorData a)
         {
             Author author = new Author();
@@ -63,6 +164,28 @@ namespace Server
             author.ID = a.ID;
             bool result=AuthorService.Update(author);
             return result;
+        }
+        public bool RemoveCategory(CategoryData c)
+        {
+            Category category = new Category();
+            category.name = c.name;
+            category.ID = c.ID;
+            category.status = c.status;
+            return CategoryService.Remove(category);
+        }
+
+        public bool UpdateCategory(CategoryData c)
+        {
+            Category category = new Category();
+            category.ID = c.ID;
+            category.name = c.name;
+            category.status = c.status;
+            return CategoryService.Update(category);
+        }
+
+        public DataTable GetAllCategory()
+        {
+            return CategoryService.getAllCategory();
         }
 
         public bool AddOrder(OrderData od)
@@ -93,34 +216,64 @@ namespace Server
             return result;
         }
 
-        public bool RemoveCategory(CategoryData c)
+        public DataTable SearchByDate(DateTime date)
         {
-            Category category = new Category();
-            category.name = c.name;
-            category.ID = c.ID;
-            category.status = c.status;
-            return CategoryService.Remove(category);    
+            DataTable data = OrderService.SearchByDate(date);
+            return data;
         }
 
-        public bool UpdateCategory(CategoryData c)
+        public bool AddPublisher(PublisherData p)
         {
-            Category category = new Category();
-            category.ID = c.ID;
-            category.name = c.name;
-            category.status = c.status;
-            return CategoryService.Update(category);
+            return PublisherService.Add(new Publisher() {
+                ID = p.ID,
+                name = p.name
+            });
         }
 
-        public DataTable GetAllCategory()
+        public bool UpdatePublisher(PublisherData p)
         {
-            return CategoryService.getAllCategory();
+            return PublisherService.Update(new Publisher()
+            {
+                ID = p.ID,
+                name = p.name
+            });
         }
-        public bool checkLogin(string username, string password)
+
+        public bool DeletePublisher(PublisherData p)
+        {
+            return PublisherService.Delete(new Publisher()
+            {
+                ID = p.ID,
+                name = p.name
+            });
+        }
+
+        public bool AddOrderDetail(OrderDetailData od)
+        {
+            return OrderDetailService.Add(new Order_Detail() {
+                ID = od.ID,
+                book_ID = od.book_ID,
+                order_ID = od.order_ID,
+                quantity = od.quantity
+            });
+        }
+
+        public bool UpdateOrderDetail(OrderDetailData od)
+        {
+            return OrderDetailService.Update(new Order_Detail()
+            {
+                ID = od.ID,
+                book_ID = od.book_ID,
+                order_ID = od.order_ID,
+                quantity = od.quantity
+            });
+        }
+        public int checkLogin(string username, string password)
         {
             Account account = new Account();
             account.username = username;
             account.password = password;
-            bool result = AccountService.checkLogin(account.username, account.password);
+            int result = AccountService.checkLogin(account.username, account.password);
             return result;
         }
         public bool RemoveAccount(AccountData b)
@@ -136,12 +289,44 @@ namespace Server
             return result;
         }
 
-       
+        public DataTable GetAllPublisher()
+        {
+            return PublisherService.GetAll();
+        }
 
-      
+        public DataTable SearchByCustomerNameOrder(string name)
+        {
+            return OrderService.SearchByCustomerName(name);
+        }
 
+        public DataTable SearchByRangeDateOrder(DateTime from, DateTime to)
+        {
+            return OrderService.SearchByRangeDate(from, to);
+        }
 
-       
+        public DataTable SearchByIDOrder(int ID)
+        {
+            return OrderService.SearchByID(ID);
+        }
+
+        public List<PublisherData> getAllPublisher()
+        {
+            return BookService.getAllPublisher();
+        }
+        public List<CategoryData> GetBookAllCategory()
+        {
+            return BookService.GetAllBookCategoryData();
+        }
+        public DataTable GetAllOrderDetailByID(int ID)
+        {
+            return OrderDetailService.GetAllByID(ID);
+        }
+        public List<AuthorData> GetAllBookAuthor()
+        {
+            return BookService.GetAllBookAuthorData();
+        }
+
+     
 
     }
 }
