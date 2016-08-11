@@ -98,27 +98,7 @@ namespace Server
 
         public bool IUpdateBook(BookData b)
         {
-            Book book = new Book();
-            book.ID = b.ID;
-            book.name = b.Name;
-            book.description = b.Description;
-            book.thumbnail = b.Thumnail;
-            book.quantity = b.Quantity;
-            book.price = b.Price;
-            book.status = b.Status;
-            book.year = b.Year;
-            book.publisher_ID = b.Publisher_ID;
-            //bool result = BookService.UpdateBook(book);
-            bool result = false;
-            if (result)
-            {
-                Console.WriteLine("Update book successful");
-            }
-            else
-            {
-                Console.WriteLine("Update book fail");
-            }
-            return result;
+            return BookService.UpDateBook(b);
         }
 
         public bool AddCategory(CategoryData c)
@@ -326,7 +306,9 @@ namespace Server
             return BookService.GetAllBookAuthorData();
         }
 
-     
-
+        public BookData GetBookDataByID(int id)
+        {
+            return BookService.GetBookDataById(id);
+        }
     }
 }

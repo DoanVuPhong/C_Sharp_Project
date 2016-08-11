@@ -118,6 +118,10 @@ namespace Interface_Data
         List<AuthorData> GetAllBookAuthor();
         [OperationContract]
         List<CategoryData> GetBookAllCategory();
+
+        [OperationContract]
+        BookData GetBookDataByID(int id);
+
         // end business logic book
     }
 }
