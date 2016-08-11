@@ -92,6 +92,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Services\LogService.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>DataModel.tt</DependentUpon>
     </Compile>
@@ -107,6 +108,7 @@
     <Compile Include="Services\AuthorService.cs" />
     <Compile Include="Services\BookService.cs" />
     <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Services\LogService.cs" />
     <Compile Include="Services\OrderDetailService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\PublisherService.cs" />

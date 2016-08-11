@@ -13,5 +13,6 @@ namespace Interface_Data
         public string name { get; set; }
         public string status { get; set; }
 
+
     }
 }
