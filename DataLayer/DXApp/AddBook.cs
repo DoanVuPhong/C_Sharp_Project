@@ -40,12 +40,6 @@ namespace DXApp
             cboPublisher.DataSource = proxy.getAllPublisher();
             cboPublisher.DisplayMember = "name";
             cboPublisher.ValueMember = "id";
-            int i = 0;
-            foreach (var item in ListAuthors.ValueMember)
-            {
-                ListAuthors.set
-            }
-
         }
 
 

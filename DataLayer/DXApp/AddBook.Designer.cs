@@ -124,7 +124,7 @@
             // publishYearPicker
             // 
             this.publishYearPicker.Location = new System.Drawing.Point(484, 278);
-            this.publishYearPicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.publishYearPicker.Margin = new System.Windows.Forms.Padding(4);
             this.publishYearPicker.Name = "publishYearPicker";
             this.publishYearPicker.Size = new System.Drawing.Size(241, 23);
             this.publishYearPicker.TabIndex = 11;
@@ -132,7 +132,7 @@
             // txtStatus
             // 
             this.txtStatus.Location = new System.Drawing.Point(127, 325);
-            this.txtStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStatus.Margin = new System.Windows.Forms.Padding(4);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(224, 23);
             this.txtStatus.TabIndex = 10;
@@ -140,7 +140,7 @@
             // txtPrice
             // 
             this.txtPrice.Location = new System.Drawing.Point(125, 278);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(225, 23);
             this.txtPrice.TabIndex = 8;
@@ -172,7 +172,7 @@
             this.ListAuthors.FormattingEnabled = true;
             this.ListAuthors.ItemHeight = 16;
             this.ListAuthors.Location = new System.Drawing.Point(484, 192);
-            this.ListAuthors.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ListAuthors.Margin = new System.Windows.Forms.Padding(4);
             this.ListAuthors.Name = "ListAuthors";
             this.ListAuthors.Size = new System.Drawing.Size(231, 68);
             this.ListAuthors.TabIndex = 5;
@@ -182,7 +182,7 @@
             this.ListCategory.FormattingEnabled = true;
             this.ListCategory.ItemHeight = 16;
             this.ListCategory.Location = new System.Drawing.Point(127, 192);
-            this.ListCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ListCategory.Margin = new System.Windows.Forms.Padding(4);
             this.ListCategory.Name = "ListCategory";
             this.ListCategory.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.ListCategory.Size = new System.Drawing.Size(247, 68);
@@ -308,7 +308,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 507);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddBook";
             this.Text = "AddBook";
             this.Load += new System.EventHandler(this.AddBook_Load);
