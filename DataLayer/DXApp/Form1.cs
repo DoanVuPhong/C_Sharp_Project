@@ -49,14 +49,11 @@ namespace DXApp
             pubForm.ShowDialog();
         }
 
-        private void tileItem2_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+       
+        private void tileItem2_ItemClick_1(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
             frmOrder frmO = new frmOrder();
             frmO.ShowDialog();
         }
-
-       
-
-        
     }
 }
