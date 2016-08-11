@@ -22,7 +22,7 @@ namespace DXApp
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
             UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
-            Application.Run(new AddBook());
+            Application.Run(new Form1());
         }
     }
 }
