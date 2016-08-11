@@ -49,6 +49,7 @@ namespace DXApp
         private void tileItem3_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
             BookForm bookForm = new BookForm();
+           
             bookForm.ShowDialog();
         }
     }

@@ -40,6 +40,11 @@ namespace DXApp
             cboPublisher.DataSource = proxy.getAllPublisher();
             cboPublisher.DisplayMember = "name";
             cboPublisher.ValueMember = "id";
+            int i = 0;
+            foreach (var item in ListAuthors.ValueMember)
+            {
+                ListAuthors.set
+            }
 
         }
 
@@ -114,6 +119,16 @@ namespace DXApp
 
 
 
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtISBN.Text = "";
+            txtISBN.Text = "";
+            txtName.Text = "";
+            txtStatus.Text = "";
+            txtPrice.Text = "";
+            txtQuantity.Text = "";
         }
     }
 }

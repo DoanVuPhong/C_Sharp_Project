@@ -16,6 +16,7 @@ namespace DXApp
     {
         IBussinessLogic proxy;
         DataTable table = new DataTable();
+        BookData current = new BookData();
         public BookForm()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace DXApp
             this.MaximizeBox = false;
             ChannelFactory<IBussinessLogic> chanel = new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             proxy = chanel.CreateChannel();
+            getDataSource();
         }
 
         public void getDataSource()
@@ -36,24 +38,10 @@ namespace DXApp
                 bindingBook.DataSource = table;
                 if (bindingBook != null)
                 {
-                    txtName.DataBindings.Clear();
-                    txtStatus.DataBindings.Clear();
-                    txtISBN.DataBindings.Clear();
-                    txtDesc.DataBindings.Clear();
-                    txtPrice.DataBindings.Clear();
-                    txtQuantity.DataBindings.Clear();
-                    txtThumbnail.DataBindings.Clear();
-                    txtYear.DataBindings.Clear();
-                    
-                    //txtName.DataBindings.Add("Text", bindingBook, "name");
-                    //txtStatus.DataBindings.Add("Text", bindingBook, "status");
-                    //txtDesc.DataBindings.Add("Text", bindingBook, "description");
-                    //txtYear.DataBindings.Add("Text", bindingBook, "year");
-                    //txtPrice.DataBindings.Add("Text", bindingBook, "price");
-                    //txtQuantity.DataBindings.Add("Text", bindingBook, "quantity");
-                    //txtThumbnail.DataBindings.Add("Text", bindingBook, "thumbnail");
-                    //txtISBN.DataBindings.Add("Text", bindingBook, "ISBN");
-                    //cboPublisher.DataBindings.Add("Text", bindingBook, "publisher_ID");
+                    MessageBox.Show(bindingBook.ToString());
+                    txtID.DataBindings.Clear();
+
+                    txtID.DataBindings.Add("Text", bindingBook, "ID");
                     dgvBook.DataSource = bindingBook;
                 }
             }
@@ -63,32 +51,42 @@ namespace DXApp
             }
         }
 
+        void setCurrent()
+        {
+            if (dgvBook.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = dgvBook.SelectedRows[0];
+                //int id = (int)row.Cells[0].Value;
+                //current.ID = id;
+                //current.Name = row.Cells[1].Value.ToString();
+                //current.Status = row.Cells[2].Value.ToString();
+                
+            }
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            dynamic publisher = cboPublisher.SelectedItem;
-            BookData book = new BookData()
-            {
-                ISBN = txtISBN.Text,
-                Name = txtName.Text,
-                Description = txtDesc.Text.ToString(),
-                Thumnail = txtThumbnail.Text,
-                Quantity = int.Parse(txtQuantity.Text.ToString()),
-                Price = float.Parse(txtPrice.Text.ToString()),
-                //Publisher_ID = int.Parse(publisher.ID.ToString()),
-                Publisher_ID = publisher.ID,
-                Status = txtStatus.Text,
-                Year = txtYear.Text
-            };
-            proxy.IAddBook(book);
+            AddBook addBook = new AddBook();
+            addBook.ShowDialog();
         }
 
         private void BookForm_Load(object sender, EventArgs e)
         {
-            List<PublisherData> Publishers = proxy.getAllPublisher();
-            cboPublisher.DataSource = Publishers;
-            cboPublisher.DisplayMember = "name";
-            cboPublisher.ValueMember = "ID";
-            getDataSource();
+            
+        }
+
+        private void dgvBook_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            setCurrent();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            BookData b = new BookData()
+            {
+                ID = int.Parse(txtID.Text)
+            };
+            proxy.IRemoveBook(b);
         }
     }
 }

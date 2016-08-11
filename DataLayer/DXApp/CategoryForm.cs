@@ -28,9 +28,12 @@ namespace DXApp
             ChannelFactory<IBussinessLogic> chanel = new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             proxy = chanel.CreateChannel();
             getDataSource();
-            current.ID = (int)table.Rows[0][0];
-            current.name = table.Rows[0][1].ToString();
-                
+            if (table.Rows.Count > 0)
+            {
+                current.ID = (int)table.Rows[0][0];
+                current.name = table.Rows[0][1].ToString();
+            }
+
 
         }
 
@@ -46,8 +49,8 @@ namespace DXApp
                 {
                     txtName.DataBindings.Clear();
                     txtStatus.DataBindings.Clear();
-                    txtName.DataBindings.Add("Text", bindingTor, "Name");
-                    txtStatus.DataBindings.Add("Text", bindingTor, "Status");
+                    txtName.DataBindings.Add("Text", bindingTor, "name");
+                    txtStatus.DataBindings.Add("Text", bindingTor, "status");
                     dgv.DataSource = bindingTor;
                 }
             }

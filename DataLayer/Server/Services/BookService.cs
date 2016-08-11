@@ -25,11 +25,10 @@ namespace Server.Services
             {
                 using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
                 {
-                    Console.WriteLine(b.Author.Count);
                     for (int i = 0; i < b.Author.Count; i++)
                     {
                         int ID = b.Author[i].ID;
-                        Author author = context.Authors.FirstOrDefault(a => a.ID ==ID); 
+                        Author author = context.Authors.FirstOrDefault(a => a.ID == ID);
                         Book_Author BA = new Book_Author();
                         BA.Author = author;
                         BA.Book = book;
@@ -38,7 +37,7 @@ namespace Server.Services
                     for (int i = 0; i < b.Category.Count; i++)
                     {
                         int ID = b.Category[i].ID;
-                        Category category=context.Categories.FirstOrDefault(c=>c.ID==ID);
+                        Category category = context.Categories.FirstOrDefault(c => c.ID == ID);
                         Book_Category temp = new Book_Category();
                         temp.Category = category;
                         temp.Book = book;
@@ -61,26 +60,13 @@ namespace Server.Services
         {
             try
             {
+                DeleteAllCategoryAndAuthor(b.ID);
                 using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
                 {
-                    Book_Author book_author = context.Book_Author.FirstOrDefault(t => t.ID == b.ID);
-                    while (book_author != null)
-                    {
-                        context.Book_Author.Remove(book_author);
-                        context.SaveChanges();
-                        book_author = context.Book_Author.FirstOrDefault(t => t.ID == b.ID);
-                    }
-                    Book_Category book_category = context.Book_Category.FirstOrDefault(t => t.ID == b.ID);
-                    while (book_category != null)
-                    {
-                        context.Book_Category.Remove(book_category);
-                        context.SaveChanges();
-                        book_category = context.Book_Category.FirstOrDefault(t => t.ID == b.ID);
-                    }
                     Book book = context.Books.FirstOrDefault(t => t.ID == b.ID);
                     if (book != null)
                     {
-                        context.Books.Remove(b);
+                        context.Books.Remove(book);
                         context.SaveChanges();
                         return true;
                     }
@@ -88,6 +74,7 @@ namespace Server.Services
                     {
                         return false;
                     }
+                    
                 }
             }
             catch (Exception ex)
@@ -97,31 +84,31 @@ namespace Server.Services
             return false;
         }
 
-        public static bool UpdateBook(Book b)
+        public static bool DeleteAllCategoryAndAuthor(int ID)
         {
             try
             {
                 using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
                 {
-                    Book book = context.Books.FirstOrDefault(t => t.ID == b.ID);
-                    if (book != null)
+                    Book_Author book_author = context.Book_Author.FirstOrDefault(t => t.book_ID == ID);
+                    while (book_author != null)
                     {
-                        if (book.ISBN != null) book.ISBN = b.ISBN;
-                        if (book.name != null) book.name = b.name;
-                        if (book.description != null) book.description = b.description;
-                        if (book.thumbnail != null) book.thumbnail = b.thumbnail;
-                        if (book.quantity != null) book.quantity = b.quantity;
-                        if (book.price != null) book.price = b.price;
-                        if (book.status != null) book.status = b.status;
-                        if (book.year != null) book.year = b.year;
-                        if (book.publisher_ID != null) book.publisher_ID = b.publisher_ID;
+                        context.Book_Author.Remove(book_author);
                         context.SaveChanges();
+                        book_author = context.Book_Author.FirstOrDefault(t => t.book_ID == ID);
+                    }
+                    Book_Category book_category = context.Book_Category.FirstOrDefault(t => t.book_ID == ID);
+                    while (book_category != null)
+                    {
+                        context.Book_Category.Remove(book_category);
+                        context.SaveChanges();
+                        book_category = context.Book_Category.FirstOrDefault(t => t.book_ID == ID);
+                    }
+                    if(book_author == null && book_category == null)
+                    {
                         return true;
                     }
-                    else
-                    {
-                        return false;
-                    }
+                    return false;
                 }
             }
             catch (Exception ex)
@@ -129,9 +116,55 @@ namespace Server.Services
                 LogService.log("BOOK", ex.Message);
                 return false;
             }
+
         }
 
-        public static SqlConnection cnn = new SqlConnection("server = .\\SQL2012; database=Book_Sale_Manager;uid=sa;pwd=123");
+        public static bool UpdateBook(BookData b)
+        {
+            Book book = new Book();
+            book.ISBN = b.ISBN;
+            book.name = b.Name;
+            book.price = b.Price;
+            book.quantity = b.Quantity;
+            book.status = b.Status;
+            book.year = b.Year;
+            book.publisher_ID = b.Publisher_ID;
+            try
+            {
+                using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
+                {
+                    for (int i = 0; i < b.Author.Count; i++)
+                    {
+                        int ID = b.Author[i].ID;
+                        Author author = context.Authors.FirstOrDefault(a => a.ID == ID);
+                        Book_Author BA = new Book_Author();
+                        BA.Author = author;
+                        BA.Book = book;
+                        book.Book_Author.Add(BA);
+                    }
+                    for (int i = 0; i < b.Category.Count; i++)
+                    {
+                        int ID = b.Category[i].ID;
+                        Category category = context.Categories.FirstOrDefault(c => c.ID == ID);
+                        Book_Category temp = new Book_Category();
+                        temp.Category = category;
+                        temp.Book = book;
+                        book.Book_Category.Add(temp);
+                    }
+
+                    context.Books.Add(book);
+                    context.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                LogService.log("BOOK", ex.StackTrace);
+                return false;
+            }
+        }
+
+        public static SqlConnection cnn = new SqlConnection(Const.Const.ConnectionString);
 
         public static DataTable GetAllBook()
         {
