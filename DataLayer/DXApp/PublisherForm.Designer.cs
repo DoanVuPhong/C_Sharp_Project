@@ -40,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.errID = new System.Windows.Forms.ErrorProvider(this.components);
             this.errName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPublisher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errName)).BeginInit();
@@ -49,23 +50,25 @@
             // 
             this.dgvPublisher.AllowUserToAddRows = false;
             this.dgvPublisher.AllowUserToDeleteRows = false;
-            this.dgvPublisher.AllowUserToResizeColumns = false;
             this.dgvPublisher.AllowUserToResizeRows = false;
+            this.dgvPublisher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPublisher.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPublisher.Location = new System.Drawing.Point(12, 57);
             this.dgvPublisher.MultiSelect = false;
             this.dgvPublisher.Name = "dgvPublisher";
-            this.dgvPublisher.Size = new System.Drawing.Size(236, 161);
+            this.dgvPublisher.Size = new System.Drawing.Size(346, 161);
             this.dgvPublisher.TabIndex = 0;
             this.dgvPublisher.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPublisher_CellClick);
+            this.dgvPublisher.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPublisher_CellDoubleClick);
             this.dgvPublisher.Leave += new System.EventHandler(this.dgvPublisher_Leave);
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(339, 57);
+            this.txtID.Location = new System.Drawing.Point(437, 57);
             this.txtID.MaxLength = 8;
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(159, 20);
+            this.txtID.Size = new System.Drawing.Size(107, 20);
             this.txtID.TabIndex = 0;
             this.txtID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.txtID.Leave += new System.EventHandler(this.txtID_Leave);
@@ -73,16 +76,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(293, 55);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(391, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 13);
+            this.label1.Size = new System.Drawing.Size(20, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "ID";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(339, 101);
+            this.txtName.Location = new System.Drawing.Point(437, 103);
             this.txtName.MaxLength = 249;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(159, 20);
@@ -93,16 +97,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(293, 108);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(391, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Name";
             this.label2.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(339, 195);
+            this.btnUpdate.Location = new System.Drawing.Point(437, 197);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 3;
@@ -112,7 +117,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(339, 140);
+            this.btnAdd.Location = new System.Drawing.Point(437, 142);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(159, 36);
             this.btnAdd.TabIndex = 2;
@@ -122,7 +127,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(423, 195);
+            this.btnDelete.Location = new System.Drawing.Point(521, 197);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 4;
@@ -149,11 +154,23 @@
             // 
             this.errName.ContainerControl = this;
             // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessage.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lblMessage.Location = new System.Drawing.Point(434, 25);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(110, 18);
+            this.lblMessage.TabIndex = 4;
+            this.lblMessage.Text = "Publisher Detail";
+            // 
             // PublisherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(533, 261);
+            this.ClientSize = new System.Drawing.Size(647, 287);
+            this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
@@ -188,5 +205,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ErrorProvider errID;
         private System.Windows.Forms.ErrorProvider errName;
+        private System.Windows.Forms.Label lblMessage;
     }
 }

@@ -20,6 +20,9 @@ namespace DXApp
         public PublisherForm()
         {
             InitializeComponent();
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.FlatAppearance.BorderSize = 1;
+            btnAdd.FlatAppearance.BorderColor = Color.Gray;
             ChannelFactory<IBussinessLogic> chanel = new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             proxy = chanel.CreateChannel();
         }
@@ -103,6 +106,9 @@ namespace DXApp
                 txtName.Focus();
                 txtName.Text = "";
                 btnAdd.Text = "Save Publisher";
+                btnAdd.FlatAppearance.BorderSize = 2;
+                btnAdd.FlatAppearance.BorderColor = Color.Green;
+                lblMessage.Text = "Enter new Publisher";
             }
             else
             {
@@ -119,8 +125,8 @@ namespace DXApp
                         txtName.Text = "";
 
                         MessageBox.Show("Add new Publisher is successful.");
-                        int lastInt = int.Parse(datatable.Rows[datatable.Rows.Count - 1]["ID"].ToString());
-                        datatable.Rows.Add(lastInt + 2, txtName.Text.Trim());
+                        // int lastInt = int.Parse(datatable.Rows[datatable.Rows.Count - 1]["ID"].ToString());
+                        //datatable.Rows.Add(lastInt + 2, txtName.Text.Trim());
                         refeshForm();
                     }
                     else
@@ -164,8 +170,8 @@ namespace DXApp
                     });
                 if (re)
                 {
-                    DataRow row = datatable.Rows.Find(ID);
-                    row["name"] = name;
+                    //DataRow row = datatable.Rows.Find(ID);
+                    //row["name"] = name;
                     MessageBox.Show("Update is successfull");
                     refeshForm();
                 }
@@ -186,6 +192,9 @@ namespace DXApp
                 txtName.Text = Name;
                 readyAddNew = false;
                 btnAdd.Text = "Add new Publisher";
+                btnAdd.FlatAppearance.BorderSize = 1;
+                btnAdd.FlatAppearance.BorderColor = Color.Gray;
+                lblMessage.Text = "Publisher Detail";
             }
             else
             {
@@ -224,7 +233,7 @@ namespace DXApp
 
             if (re)
             {
-                DataRow row = datatable.Rows.Find(IDremove);
+                //DataRow row = datatable.Rows.Find(IDremove);
                 MessageBox.Show("Remove is successfull");
                 refeshForm();
             }
@@ -232,6 +241,11 @@ namespace DXApp
             {
                 MessageBox.Show("Remove is fail");
             }
+        }
+
+        private void dgvPublisher_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            return;
         }
     }
 }

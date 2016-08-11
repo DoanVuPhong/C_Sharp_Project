@@ -48,5 +48,11 @@ namespace DXApp
             PublisherForm pubForm = new PublisherForm();
             pubForm.ShowDialog();
         }
+
+        private void tileItem2_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+        {
+            frmOrder frmO = new frmOrder();
+            frmO.ShowDialog();
+        }
     }
 }

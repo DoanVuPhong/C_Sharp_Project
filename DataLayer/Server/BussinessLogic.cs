@@ -281,5 +281,25 @@ namespace Server
         {
             return PublisherService.GetAll();
         }
+
+        public DataTable SearchByCustomerNameOrder(string name)
+        {
+            return OrderService.SearchByCustomerName(name);
+        }
+
+        public DataTable SearchByRangeDateOrder(DateTime from, DateTime to)
+        {
+            return OrderService.SearchByRangeDate(from, to);
+        }
+
+        public DataTable SearchByIDOrder(int ID)
+        {
+            return OrderService.SearchByID(ID);
+        }
+
+        public DataTable GetAllOrderDetailByID(int ID)
+        {
+            return OrderDetailService.GetAllByID(ID);
+        }
     }
 }
