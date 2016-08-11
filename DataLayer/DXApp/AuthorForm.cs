@@ -143,5 +143,10 @@ namespace DXApp
                 MessageBox.Show("Update Fail! Please Try Again");
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
