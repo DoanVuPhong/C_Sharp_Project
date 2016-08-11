@@ -79,6 +79,7 @@
             this.panel0.Name = "panel0";
             this.panel0.Size = new System.Drawing.Size(350, 95);
             this.panel0.TabIndex = 0;
+            this.panel0.Visible = false;
             // 
             // label11
             // 
@@ -154,6 +155,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(496, 116);
             this.panel1.TabIndex = 0;
+            this.panel1.Visible = false;
             // 
             // label10
             // 
@@ -208,6 +210,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(535, 125);
             this.panel2.TabIndex = 0;
+            this.panel2.Visible = false;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label8
@@ -244,7 +247,7 @@
             // 
             // btnSearchByRangeDate
             // 
-            this.btnSearchByRangeDate.Location = new System.Drawing.Point(270, 42);
+            this.btnSearchByRangeDate.Location = new System.Drawing.Point(330, 47);
             this.btnSearchByRangeDate.Name = "btnSearchByRangeDate";
             this.btnSearchByRangeDate.Size = new System.Drawing.Size(75, 34);
             this.btnSearchByRangeDate.TabIndex = 1;
@@ -255,17 +258,17 @@
             // chDateTo
             // 
             this.chDateTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.chDateTo.Location = new System.Drawing.Point(73, 71);
+            this.chDateTo.Location = new System.Drawing.Point(112, 71);
             this.chDateTo.Name = "chDateTo";
-            this.chDateTo.Size = new System.Drawing.Size(165, 20);
+            this.chDateTo.Size = new System.Drawing.Size(160, 20);
             this.chDateTo.TabIndex = 0;
             // 
             // chDateFrom
             // 
             this.chDateFrom.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.chDateFrom.Location = new System.Drawing.Point(73, 36);
+            this.chDateFrom.Location = new System.Drawing.Point(112, 37);
             this.chDateFrom.Name = "chDateFrom";
-            this.chDateFrom.Size = new System.Drawing.Size(165, 20);
+            this.chDateFrom.Size = new System.Drawing.Size(160, 20);
             this.chDateFrom.TabIndex = 0;
             this.chDateFrom.ValueChanged += new System.EventHandler(this.chDateFrom_ValueChanged);
             // 
@@ -279,6 +282,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(295, 84);
             this.panel3.TabIndex = 0;
+            this.panel3.Visible = false;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // label9
@@ -324,7 +328,11 @@
             // 
             // dgvOrder
             // 
+            this.dgvOrder.AllowUserToAddRows = false;
+            this.dgvOrder.AllowUserToDeleteRows = false;
+            this.dgvOrder.AllowUserToResizeRows = false;
             this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrder.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dgvOrder.Location = new System.Drawing.Point(34, 201);
             this.dgvOrder.Name = "dgvOrder";
             this.dgvOrder.Size = new System.Drawing.Size(372, 152);
@@ -353,7 +361,11 @@
             // 
             // dgvOrderDetail
             // 
+            this.dgvOrderDetail.AllowUserToAddRows = false;
+            this.dgvOrderDetail.AllowUserToDeleteRows = false;
+            this.dgvOrderDetail.AllowUserToResizeRows = false;
             this.dgvOrderDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrderDetail.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dgvOrderDetail.Location = new System.Drawing.Point(471, 80);
             this.dgvOrderDetail.Name = "dgvOrderDetail";
             this.dgvOrderDetail.Size = new System.Drawing.Size(369, 275);

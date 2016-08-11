@@ -28,9 +28,18 @@ namespace DXApp
             listPanel.Add(panel1);
             listPanel.Add(panel2);
             listPanel.Add(panel3);
-            for (int i = 1; i < listPanel.Count; i++)
+            for (int i = 0; i < listPanel.Count; i++)
             {
-                listPanel[i].Visible = false;
+                
+                if (i == 3)
+                {
+                    listPanel[i].Visible = true;
+                }
+                else
+                {
+                    listPanel[i].Visible = false;
+                }
+               
             }
             chDate.CustomFormat = "yyyy/MM/dd";
             chDate.Format = DateTimePickerFormat.Custom;
@@ -43,6 +52,7 @@ namespace DXApp
             chDateTo.CustomFormat = "yyyy/MM/dd";
             chDateTo.Format = DateTimePickerFormat.Custom;
 
+            cbbChoiceSearch.SelectedIndex = 3;
             ChannelFactory<IBussinessLogic> chanel = new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             proxy = chanel.CreateChannel();
         }
