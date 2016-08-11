@@ -1,6 +1,6 @@
 ﻿namespace DXApp
 {
-    partial class AddBook
+    partial class UpdateBookForm
     {
         /// <summary>
         /// Required designer variable.
@@ -51,7 +51,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,12 +79,12 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(11, 49);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(11, 52);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(592, 352);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Book_info";
             // 
@@ -180,30 +179,28 @@
             // btnClear
             // 
             this.btnClear.Location = new System.Drawing.Point(363, 308);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(76, 19);
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(218, 308);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(76, 19);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // cboPublisher
             // 
             this.cboPublisher.FormattingEnabled = true;
             this.cboPublisher.Location = new System.Drawing.Point(94, 125);
-            this.cboPublisher.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboPublisher.Margin = new System.Windows.Forms.Padding(2);
             this.cboPublisher.Name = "cboPublisher";
             this.cboPublisher.Size = new System.Drawing.Size(187, 21);
             this.cboPublisher.TabIndex = 2;
@@ -211,7 +208,7 @@
             // txtDesc
             // 
             this.txtDesc.Location = new System.Drawing.Point(94, 51);
-            this.txtDesc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDesc.Margin = new System.Windows.Forms.Padding(2);
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(443, 54);
@@ -220,7 +217,7 @@
             // txtQuantity
             // 
             this.txtQuantity.Location = new System.Drawing.Point(363, 121);
-            this.txtQuantity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtQuantity.Margin = new System.Windows.Forms.Padding(2);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(95, 20);
             this.txtQuantity.TabIndex = 1;
@@ -228,7 +225,7 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(330, 17);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(206, 20);
             this.txtName.TabIndex = 1;
@@ -236,7 +233,7 @@
             // txtISBN
             // 
             this.txtISBN.Location = new System.Drawing.Point(94, 17);
-            this.txtISBN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtISBN.Margin = new System.Windows.Forms.Padding(2);
             this.txtISBN.Name = "txtISBN";
             this.txtISBN.Size = new System.Drawing.Size(161, 20);
             this.txtISBN.TabIndex = 1;
@@ -296,37 +293,29 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ISBN:";
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label6.Location = new System.Drawing.Point(212, 22);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(192, 25);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Book Management";
-            // 
-            // AddBook
+            // UpdateBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 412);
-            this.Controls.Add(this.label6);
+            this.ClientSize = new System.Drawing.Size(611, 419);
             this.Controls.Add(this.groupBox1);
-            this.Name = "AddBook";
-            this.Text = "AddBook";
-            this.Load += new System.EventHandler(this.AddBook_Load);
+            this.Name = "UpdateBookForm";
+            this.Text = "UpdateBookForm";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker publishYearPicker;
+        private System.Windows.Forms.TextBox txtStatus;
+        private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label Category;
         private System.Windows.Forms.ListBox ListAuthors;
@@ -343,12 +332,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPrice;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker publishYearPicker;
-        private System.Windows.Forms.TextBox txtStatus;
-        private System.Windows.Forms.Label label6;
     }
 }

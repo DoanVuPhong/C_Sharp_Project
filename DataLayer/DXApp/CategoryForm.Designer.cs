@@ -38,6 +38,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.bindingTor = new System.Windows.Forms.BindingSource(this.components);
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingTor)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +60,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(375, 39);
+            this.label1.Location = new System.Drawing.Point(375, 100);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
             this.label1.TabIndex = 1;
@@ -69,7 +70,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(375, 80);
+            this.label2.Location = new System.Drawing.Point(371, 157);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 2;
@@ -77,14 +78,14 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(418, 36);
+            this.txtName.Location = new System.Drawing.Point(422, 100);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(290, 20);
             this.txtName.TabIndex = 3;
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(422, 77);
+            this.txtStatus.Location = new System.Drawing.Point(423, 150);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(285, 20);
             this.txtStatus.TabIndex = 4;
@@ -92,7 +93,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(389, 146);
+            this.btnAdd.Location = new System.Drawing.Point(387, 204);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(89, 23);
             this.btnAdd.TabIndex = 5;
@@ -102,9 +103,9 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(510, 146);
+            this.btnDelete.Location = new System.Drawing.Point(506, 204);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(85, 23);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -112,7 +113,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(615, 145);
+            this.btnUpdate.Location = new System.Drawing.Point(615, 202);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(93, 25);
             this.btnUpdate.TabIndex = 7;
@@ -124,11 +125,23 @@
             // 
             this.bindingTor.CurrentChanged += new System.EventHandler(this.bindingTor_CurrentChanged);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.label3.Location = new System.Drawing.Point(437, 35);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(249, 25);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Category Management";
+            // 
             // CategoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(724, 306);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
@@ -158,5 +171,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.BindingSource bindingTor;
+        private System.Windows.Forms.Label label3;
     }
 }

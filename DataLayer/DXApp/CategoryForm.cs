@@ -49,8 +49,8 @@ namespace DXApp
                 {
                     txtName.DataBindings.Clear();
                     txtStatus.DataBindings.Clear();
-                    txtName.DataBindings.Add("Text", bindingTor, "Name");
-                    txtStatus.DataBindings.Add("Text", bindingTor, "Status");
+                    txtName.DataBindings.Add("Text", bindingTor, "name");
+                    txtStatus.DataBindings.Add("Text", bindingTor, "status");
                     dgv.DataSource = bindingTor;
                 }
             }

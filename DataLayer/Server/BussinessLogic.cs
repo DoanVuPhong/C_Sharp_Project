@@ -108,7 +108,8 @@ namespace Server
             book.status = b.Status;
             book.year = b.Year;
             book.publisher_ID = b.Publisher_ID;
-            bool result = BookService.UpdateBook(book);
+            //bool result = BookService.UpdateBook(book);
+            bool result = false;
             if (result)
             {
                 Console.WriteLine("Update book successful");
