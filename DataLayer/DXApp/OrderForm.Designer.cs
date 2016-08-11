@@ -328,7 +328,11 @@
             // 
             // dgvOrder
             // 
+            this.dgvOrder.AllowUserToAddRows = false;
+            this.dgvOrder.AllowUserToDeleteRows = false;
+            this.dgvOrder.AllowUserToResizeRows = false;
             this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrder.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dgvOrder.Location = new System.Drawing.Point(34, 201);
             this.dgvOrder.Name = "dgvOrder";
             this.dgvOrder.Size = new System.Drawing.Size(372, 152);
@@ -357,7 +361,11 @@
             // 
             // dgvOrderDetail
             // 
+            this.dgvOrderDetail.AllowUserToAddRows = false;
+            this.dgvOrderDetail.AllowUserToDeleteRows = false;
+            this.dgvOrderDetail.AllowUserToResizeRows = false;
             this.dgvOrderDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrderDetail.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dgvOrderDetail.Location = new System.Drawing.Point(471, 80);
             this.dgvOrderDetail.Name = "dgvOrderDetail";
             this.dgvOrderDetail.Size = new System.Drawing.Size(369, 275);
