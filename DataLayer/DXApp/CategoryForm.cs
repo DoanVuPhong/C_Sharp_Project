@@ -43,7 +43,7 @@ namespace DXApp
         {
             try
             {
-               table = proxy.GetAllCategory();
+                table = proxy.GetAllCategory();
                 bindingTor.DataSource = table;
                 if (bindingTor != null)
                 {
@@ -109,10 +109,11 @@ namespace DXApp
         private void btnDelete_Click(object sender, EventArgs e)
         {
             bool result = proxy.RemoveCategory(current);
-            if (result) {
+            if (result)
+            {
                 getDataSource();
                 MessageBox.Show("Delete Category Success!");
-              
+
             }
             else
             {
@@ -129,7 +130,8 @@ namespace DXApp
 
         }
 
-        void setCurrent() {
+        void setCurrent()
+        {
             if (dgv.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = dgv.SelectedRows[0];
@@ -148,7 +150,7 @@ namespace DXApp
 
         private void dgv_MouseClick(object sender, MouseEventArgs e)
         {
-         
+
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -160,10 +162,12 @@ namespace DXApp
             {
                 getDataSource();
                 MessageBox.Show("Update Category Success!!!");
-               
+
             }
-            else {
-                MessageBox.Show("Update Category Fail [Error]");
+            else
+            {
+                MessageBox.Show("You can not Delete This Category because this category"+
+                    "used by some book, If you want to delete this Category please remove all book relate to this category");
             }
         }
     }

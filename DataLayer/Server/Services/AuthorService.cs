@@ -22,6 +22,7 @@ namespace Server.Services
             SqlCommand prepareStatement = new SqlCommand(GET_ALL, con);
             SqlDataAdapter adapte = new SqlDataAdapter(prepareStatement);
             DataTable table = new DataTable("Author");
+           
             try
             {
                 if (con.State == ConnectionState.Closed)
@@ -34,8 +35,8 @@ namespace Server.Services
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
-                Console.WriteLine(e.StackTrace);
+
+                LogService.log("Error",e.Message);
             }
             return null;
         }
@@ -56,9 +57,9 @@ namespace Server.Services
                     return true;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                LogService.log("Error", e.Message);
                 return false;
             }
         }
@@ -77,17 +78,19 @@ namespace Server.Services
                         context.Authors.Remove(author);
                         context.SaveChanges();
                         Console.WriteLine("[AuthorService]: Remove Author Successful!" + a.name);
+
                         return true;
                     }
                     else
                     {
+                        
                         return false;
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                LogService.log("Error", e.Message);
                 return false;
             }
         }
@@ -115,9 +118,9 @@ namespace Server.Services
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                throw;
+                LogService.log("Error", e.Message);
                 return false;
             }
         }

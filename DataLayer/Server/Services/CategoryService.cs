@@ -71,8 +71,8 @@ namespace Server.Services
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
-                Console.WriteLine(e.StackTrace);
+
+                LogService.log("Error", e.Message);
                 return false;
             }
         }
@@ -94,8 +94,8 @@ namespace Server.Services
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
-                Console.WriteLine(e.StackTrace);
+
+                LogService.log("Error", e.Message);
                 return false;
             }
         }

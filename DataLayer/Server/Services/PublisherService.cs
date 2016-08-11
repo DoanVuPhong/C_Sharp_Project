@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data;
+using System.Data.SqlClient;
 namespace Server.Services
 {
     class PublisherService
@@ -72,6 +73,40 @@ namespace Server.Services
                 }
             }
             return false;
+        }
+
+        public static DataTable GetAll()
+        {
+
+            DataTable list = new DataTable("ListPublisher");
+
+            SqlConnection conn = new SqlConnection(Const.Const.ConnectionString);
+
+            SqlCommand cmd = new SqlCommand("select * from [Publisher]", conn);
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                da.Fill(list);
+                return list;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return null;
         }
     }
 }

@@ -27,11 +27,18 @@ namespace DXApp
                 new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             proxy = chanel.CreateChannel();
             getDataScource();
-            setCurrent();
-            current.ID = (int)table.Rows[0][0];
+         
+            if (table.Rows.Count > 0)
+            {
+                setCurrent();
+                current.ID = (int)table.Rows[0][0];
+
+            }
+
         }
 
-        void setCurrent() {
+        void setCurrent()
+        {
             if (dgv.SelectedRows.Count > 0)
             {
 
@@ -58,7 +65,7 @@ namespace DXApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                MessageBox.Show(ex.StackTrace);
+               
             }
         }
 
@@ -111,11 +118,11 @@ namespace DXApp
             {
                 getDataScource();
                 MessageBox.Show("Delete Author Successful!");
-                
+
             }
             else
             {
-                MessageBox.Show("Delete Fail! Please Try Again");
+                MessageBox.Show("Can not Delete this Author, Because This author is used by some Books, If you want to delete this Author please remove all book related to this author!");
 
             }
         }
@@ -129,12 +136,17 @@ namespace DXApp
             {
                 getDataScource();
                 MessageBox.Show("Update Author Successful!");
-                
+
             }
             else
             {
                 MessageBox.Show("Update Fail! Please Try Again");
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
