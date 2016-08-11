@@ -108,7 +108,6 @@
             this.tileItem3.ItemSize = DevExpress.XtraEditors.TileItemSize.Large;
             this.tileItem3.Name = "tileItem3";
             this.tileItem3.Padding = new System.Windows.Forms.Padding(0);
-            this.tileItem3.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItem3_ItemClick);
             // 
             // tileItem2
             // 
@@ -121,10 +120,7 @@
             this.tileItem2.Id = 8;
             this.tileItem2.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem2.Name = "tileItem2";
-            this.tileItem2.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItem2_ItemClick);
-            // 
-            // btnUsermanagement
-            // 
+          
             this.btnUsermanagement.AppearanceItem.Hovered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnUsermanagement.AppearanceItem.Hovered.Options.UseBackColor = true;
             this.btnUsermanagement.AppearanceItem.Normal.BackColor = System.Drawing.Color.CornflowerBlue;

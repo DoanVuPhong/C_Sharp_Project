@@ -55,16 +55,8 @@ namespace DXApp
             frmO.ShowDialog();
         }
 
-        private void tileItem2_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
-        {
+       
 
-        }
-
-        private void tileItem3_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
-        {
-            BookForm bookForm = new BookForm();
-           
-            bookForm.ShowDialog();
-        }
+        
     }
 }

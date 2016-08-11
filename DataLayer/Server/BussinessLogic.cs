@@ -309,6 +309,10 @@ namespace Server
             return OrderService.SearchByID(ID);
         }
 
+        public List<PublisherData> getAllPublisher()
+        {
+            return BookService.getAllPublisher();
+        }
         public List<CategoryData> GetBookAllCategory()
         {
             return BookService.GetAllBookCategoryData();
