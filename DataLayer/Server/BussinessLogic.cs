@@ -108,7 +108,8 @@ namespace Server
             book.status = b.Status;
             book.year = b.Year;
             book.publisher_ID = b.Publisher_ID;
-            bool result = BookService.UpdateBook(book);
+            //bool result = BookService.UpdateBook(book);
+            bool result = false;
             if (result)
             {
                 Console.WriteLine("Update book successful");
@@ -288,19 +289,44 @@ namespace Server
             return result;
         }
 
+        public DataTable GetAllPublisher()
+        {
+            return PublisherService.GetAll();
+        }
+
+        public DataTable SearchByCustomerNameOrder(string name)
+        {
+            return OrderService.SearchByCustomerName(name);
+        }
+
+        public DataTable SearchByRangeDateOrder(DateTime from, DateTime to)
+        {
+            return OrderService.SearchByRangeDate(from, to);
+        }
+
+        public DataTable SearchByIDOrder(int ID)
+        {
+            return OrderService.SearchByID(ID);
+        }
+
         public List<PublisherData> getAllPublisher()
         {
             return BookService.getAllPublisher();
         }
-
+        public List<CategoryData> GetBookAllCategory()
+        {
+            return BookService.GetAllBookCategoryData();
+        }
+        public DataTable GetAllOrderDetailByID(int ID)
+        {
+            return OrderDetailService.GetAllByID(ID);
+        }
         public List<AuthorData> GetAllBookAuthor()
         {
             return BookService.GetAllBookAuthorData();
         }
 
-        public List<CategoryData> GetBookAllCategory()
-        {
-            return BookService.GetAllBookCategoryData();
-        }
+     
+
     }
 }

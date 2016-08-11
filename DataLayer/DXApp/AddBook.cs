@@ -40,7 +40,6 @@ namespace DXApp
             cboPublisher.DataSource = proxy.getAllPublisher();
             cboPublisher.DisplayMember = "name";
             cboPublisher.ValueMember = "id";
-
         }
 
 
@@ -114,6 +113,16 @@ namespace DXApp
 
 
 
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtISBN.Text = "";
+            txtISBN.Text = "";
+            txtName.Text = "";
+            txtStatus.Text = "";
+            txtPrice.Text = "";
+            txtQuantity.Text = "";
         }
     }
 }

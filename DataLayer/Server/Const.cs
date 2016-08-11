@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Server.Const
+
 {
     public static class Const
     {

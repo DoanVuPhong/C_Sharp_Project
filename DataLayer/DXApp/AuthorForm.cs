@@ -65,7 +65,7 @@ namespace DXApp
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                MessageBox.Show(ex.StackTrace);
+               
             }
         }
 
@@ -142,6 +142,11 @@ namespace DXApp
             {
                 MessageBox.Show("Update Fail! Please Try Again");
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
