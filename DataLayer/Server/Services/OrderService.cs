@@ -83,7 +83,8 @@ namespace Server.Services
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                Console.WriteLine(e.StackTrace);
+
             }
             finally
             {

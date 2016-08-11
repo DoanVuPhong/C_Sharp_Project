@@ -22,7 +22,7 @@ namespace Server.Services
             catch (Exception ex)
             {
 
-                throw new Exception ("Can't add account to database. Detail: {0}", ex);
+                Console.WriteLine(ex.StackTrace);
                 return false;
             }           
         }
