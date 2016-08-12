@@ -56,7 +56,7 @@
             this.dgvPublisher.Location = new System.Drawing.Point(12, 57);
             this.dgvPublisher.MultiSelect = false;
             this.dgvPublisher.Name = "dgvPublisher";
-            this.dgvPublisher.Size = new System.Drawing.Size(346, 161);
+            this.dgvPublisher.Size = new System.Drawing.Size(244, 163);
             this.dgvPublisher.TabIndex = 0;
             this.dgvPublisher.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPublisher_CellClick);
             this.dgvPublisher.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPublisher_CellDoubleClick);
@@ -64,7 +64,7 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(437, 57);
+            this.txtID.Location = new System.Drawing.Point(330, 57);
             this.txtID.MaxLength = 8;
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
@@ -77,7 +77,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(391, 57);
+            this.label1.Location = new System.Drawing.Point(284, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(20, 13);
             this.label1.TabIndex = 2;
@@ -86,7 +86,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(437, 103);
+            this.txtName.Location = new System.Drawing.Point(330, 103);
             this.txtName.MaxLength = 249;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(159, 20);
@@ -98,7 +98,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(391, 110);
+            this.label2.Location = new System.Drawing.Point(284, 110);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 2;
@@ -107,7 +107,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(437, 197);
+            this.btnUpdate.Location = new System.Drawing.Point(330, 197);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 3;
@@ -117,7 +117,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(437, 142);
+            this.btnAdd.Location = new System.Drawing.Point(330, 144);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(159, 36);
             this.btnAdd.TabIndex = 2;
@@ -127,7 +127,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(521, 197);
+            this.btnDelete.Location = new System.Drawing.Point(414, 197);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 23);
             this.btnDelete.TabIndex = 4;
@@ -159,7 +159,7 @@
             this.lblMessage.AutoSize = true;
             this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessage.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lblMessage.Location = new System.Drawing.Point(434, 25);
+            this.lblMessage.Location = new System.Drawing.Point(327, 25);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(110, 18);
             this.lblMessage.TabIndex = 4;
@@ -169,7 +169,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(647, 287);
+            this.ClientSize = new System.Drawing.Size(513, 243);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnDelete);

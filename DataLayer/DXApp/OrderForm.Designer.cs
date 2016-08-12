@@ -208,7 +208,7 @@
             this.panel2.Controls.Add(this.chDateFrom);
             this.panel2.Location = new System.Drawing.Point(1, 70);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(535, 125);
+            this.panel2.Size = new System.Drawing.Size(535, 116);
             this.panel2.TabIndex = 0;
             this.panel2.Visible = false;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
@@ -333,9 +333,9 @@
             this.dgvOrder.AllowUserToResizeRows = false;
             this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrder.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.dgvOrder.Location = new System.Drawing.Point(34, 201);
+            this.dgvOrder.Location = new System.Drawing.Point(29, 192);
             this.dgvOrder.Name = "dgvOrder";
-            this.dgvOrder.Size = new System.Drawing.Size(372, 152);
+            this.dgvOrder.Size = new System.Drawing.Size(377, 184);
             this.dgvOrder.TabIndex = 3;
             this.dgvOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellContentClick);
             this.dgvOrder.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrder_CellDoubleClick);
@@ -366,7 +366,7 @@
             this.dgvOrderDetail.AllowUserToResizeRows = false;
             this.dgvOrderDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrderDetail.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.dgvOrderDetail.Location = new System.Drawing.Point(471, 80);
+            this.dgvOrderDetail.Location = new System.Drawing.Point(470, 101);
             this.dgvOrderDetail.Name = "dgvOrderDetail";
             this.dgvOrderDetail.Size = new System.Drawing.Size(369, 275);
             this.dgvOrderDetail.TabIndex = 5;
