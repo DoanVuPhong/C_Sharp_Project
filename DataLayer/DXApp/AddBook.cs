@@ -69,12 +69,7 @@ namespace DXApp
             {
                 return true;
             }
-
-
-
-
-
-
+            
         }
 
 
@@ -109,7 +104,7 @@ namespace DXApp
                 book.Author.Add(item);
             }
 
-            MessageBox.Show(proxy.IAddBook(book) + "");
+            MessageBox.Show("Add a New Book Successful");
 
 
 

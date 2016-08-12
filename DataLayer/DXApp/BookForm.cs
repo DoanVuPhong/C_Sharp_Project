@@ -55,7 +55,11 @@ namespace DXApp
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddBook AddBookForm = new AddBook();
-            AddBookForm.ShowDialog();
+            DialogResult result = AddBookForm.ShowDialog();
+            if(result == DialogResult.Cancel || result == DialogResult.OK)
+            {
+                getDataSource();
+            }
         }
 
         private void BookForm_Load(object sender, EventArgs e)
@@ -77,6 +81,7 @@ namespace DXApp
                 ID = int.Parse(txtID.Text)
             };
             proxy.IRemoveBook(b);
+            getDataSource();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)

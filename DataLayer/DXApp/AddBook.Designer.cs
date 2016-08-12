@@ -79,7 +79,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(15, 1);
+            this.groupBox1.Location = new System.Drawing.Point(22, 34);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -127,7 +127,7 @@
             this.publishYearPicker.Margin = new System.Windows.Forms.Padding(4);
             this.publishYearPicker.Name = "publishYearPicker";
             this.publishYearPicker.Size = new System.Drawing.Size(241, 23);
-            this.publishYearPicker.TabIndex = 11;
+            this.publishYearPicker.TabIndex = 9;
             // 
             // txtStatus
             // 
@@ -135,7 +135,7 @@
             this.txtStatus.Margin = new System.Windows.Forms.Padding(4);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(224, 23);
-            this.txtStatus.TabIndex = 10;
+            this.txtStatus.TabIndex = 8;
             // 
             // txtPrice
             // 
@@ -143,7 +143,7 @@
             this.txtPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(225, 23);
-            this.txtPrice.TabIndex = 8;
+            this.txtPrice.TabIndex = 7;
             // 
             // label4
             // 
@@ -175,7 +175,7 @@
             this.ListAuthors.Margin = new System.Windows.Forms.Padding(4);
             this.ListAuthors.Name = "ListAuthors";
             this.ListAuthors.Size = new System.Drawing.Size(231, 68);
-            this.ListAuthors.TabIndex = 5;
+            this.ListAuthors.TabIndex = 6;
             // 
             // ListCategory
             // 
@@ -186,7 +186,7 @@
             this.ListCategory.Name = "ListCategory";
             this.ListCategory.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.ListCategory.Size = new System.Drawing.Size(247, 68);
-            this.ListCategory.TabIndex = 4;
+            this.ListCategory.TabIndex = 5;
             // 
             // btnClear
             // 
@@ -194,7 +194,7 @@
             this.btnClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(101, 23);
-            this.btnClear.TabIndex = 3;
+            this.btnClear.TabIndex = 11;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -205,7 +205,7 @@
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(101, 23);
-            this.btnAdd.TabIndex = 3;
+            this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -217,7 +217,7 @@
             this.cboPublisher.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboPublisher.Name = "cboPublisher";
             this.cboPublisher.Size = new System.Drawing.Size(248, 24);
-            this.cboPublisher.TabIndex = 2;
+            this.cboPublisher.TabIndex = 3;
             // 
             // txtDesc
             // 
@@ -226,7 +226,7 @@
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(589, 66);
-            this.txtDesc.TabIndex = 1;
+            this.txtDesc.TabIndex = 2;
             // 
             // txtQuantity
             // 
@@ -234,7 +234,7 @@
             this.txtQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(125, 23);
-            this.txtQuantity.TabIndex = 1;
+            this.txtQuantity.TabIndex = 4;
             // 
             // txtName
             // 
@@ -250,7 +250,7 @@
             this.txtISBN.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtISBN.Name = "txtISBN";
             this.txtISBN.Size = new System.Drawing.Size(213, 23);
-            this.txtISBN.TabIndex = 1;
+            this.txtISBN.TabIndex = 0;
             // 
             // label9
             // 

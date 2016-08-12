@@ -40,14 +40,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.bindingBook = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cboCategory = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtAuthor = new System.Windows.Forms.TextBox();
+            this.btnFilterByCategory = new System.Windows.Forms.Button();
+            this.btnAuthor = new System.Windows.Forms.Button();
             this.txtPublisher = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnAuthor = new System.Windows.Forms.Button();
-            this.txtAuthor = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnFilterByCategory = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cboCategory = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingBook)).BeginInit();
@@ -59,6 +59,7 @@
             this.dgvBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBook.Location = new System.Drawing.Point(40, 36);
             this.dgvBook.Name = "dgvBook";
+            this.dgvBook.ReadOnly = true;
             this.dgvBook.RowTemplate.Height = 24;
             this.dgvBook.Size = new System.Drawing.Size(680, 556);
             this.dgvBook.TabIndex = 1;
@@ -87,7 +88,7 @@
             this.btnLoad.Location = new System.Drawing.Point(375, 66);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(101, 23);
-            this.btnLoad.TabIndex = 16;
+            this.btnLoad.TabIndex = 4;
             this.btnLoad.Text = "Load All";
             this.btnLoad.UseVisualStyleBackColor = true;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
@@ -98,7 +99,7 @@
             this.btnDelete.Location = new System.Drawing.Point(252, 66);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(101, 23);
-            this.btnDelete.TabIndex = 15;
+            this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -109,7 +110,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(136, 66);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(101, 23);
-            this.btnUpdate.TabIndex = 14;
+            this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             // 
@@ -119,7 +120,7 @@
             this.btnAdd.Location = new System.Drawing.Point(19, 66);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(101, 23);
-            this.btnAdd.TabIndex = 11;
+            this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -172,6 +173,64 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Search";
             // 
+            // cboCategory
+            // 
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.Location = new System.Drawing.Point(93, 112);
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.Size = new System.Drawing.Size(155, 24);
+            this.cboCategory.TabIndex = 4;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label3.Location = new System.Drawing.Point(6, 115);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 17);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Category:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label2.Location = new System.Drawing.Point(6, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Author:";
+            // 
+            // txtAuthor
+            // 
+            this.txtAuthor.ForeColor = System.Drawing.Color.Black;
+            this.txtAuthor.Location = new System.Drawing.Point(93, 71);
+            this.txtAuthor.Name = "txtAuthor";
+            this.txtAuthor.Size = new System.Drawing.Size(183, 23);
+            this.txtAuthor.TabIndex = 2;
+            // 
+            // btnFilterByCategory
+            // 
+            this.btnFilterByCategory.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnFilterByCategory.Location = new System.Drawing.Point(301, 112);
+            this.btnFilterByCategory.Name = "btnFilterByCategory";
+            this.btnFilterByCategory.Size = new System.Drawing.Size(175, 23);
+            this.btnFilterByCategory.TabIndex = 5;
+            this.btnFilterByCategory.Text = "Filter By Category";
+            this.btnFilterByCategory.UseVisualStyleBackColor = true;
+            this.btnFilterByCategory.Click += new System.EventHandler(this.btnFilterByCategory_Click);
+            // 
+            // btnAuthor
+            // 
+            this.btnAuthor.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnAuthor.Location = new System.Drawing.Point(301, 71);
+            this.btnAuthor.Name = "btnAuthor";
+            this.btnAuthor.Size = new System.Drawing.Size(175, 23);
+            this.btnAuthor.TabIndex = 3;
+            this.btnAuthor.Text = "Search By Author";
+            this.btnAuthor.UseVisualStyleBackColor = true;
+            this.btnAuthor.Click += new System.EventHandler(this.btnSearchByAuthor_Click);
+            // 
             // txtPublisher
             // 
             this.txtPublisher.ForeColor = System.Drawing.Color.Black;
@@ -186,68 +245,10 @@
             this.button1.Location = new System.Drawing.Point(301, 30);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(175, 23);
-            this.button1.TabIndex = 11;
+            this.button1.TabIndex = 1;
             this.button1.Text = "Search By Publisher";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btnSearchByPublisher_Click);
-            // 
-            // btnAuthor
-            // 
-            this.btnAuthor.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnAuthor.Location = new System.Drawing.Point(301, 71);
-            this.btnAuthor.Name = "btnAuthor";
-            this.btnAuthor.Size = new System.Drawing.Size(175, 23);
-            this.btnAuthor.TabIndex = 11;
-            this.btnAuthor.Text = "Search By Author";
-            this.btnAuthor.UseVisualStyleBackColor = true;
-            this.btnAuthor.Click += new System.EventHandler(this.btnSearchByAuthor_Click);
-            // 
-            // txtAuthor
-            // 
-            this.txtAuthor.ForeColor = System.Drawing.Color.Black;
-            this.txtAuthor.Location = new System.Drawing.Point(93, 71);
-            this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.Size = new System.Drawing.Size(183, 23);
-            this.txtAuthor.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label2.Location = new System.Drawing.Point(6, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Author:";
-            // 
-            // btnFilterByCategory
-            // 
-            this.btnFilterByCategory.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnFilterByCategory.Location = new System.Drawing.Point(301, 112);
-            this.btnFilterByCategory.Name = "btnFilterByCategory";
-            this.btnFilterByCategory.Size = new System.Drawing.Size(175, 23);
-            this.btnFilterByCategory.TabIndex = 11;
-            this.btnFilterByCategory.Text = "Filter By Category";
-            this.btnFilterByCategory.UseVisualStyleBackColor = true;
-            this.btnFilterByCategory.Click += new System.EventHandler(this.btnFilterByCategory_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label3.Location = new System.Drawing.Point(6, 115);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 17);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Category:";
-            // 
-            // cboCategory
-            // 
-            this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Location = new System.Drawing.Point(93, 112);
-            this.cboCategory.Name = "cboCategory";
-            this.cboCategory.Size = new System.Drawing.Size(155, 24);
-            this.cboCategory.TabIndex = 12;
             // 
             // BookForm
             // 
