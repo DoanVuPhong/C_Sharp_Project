@@ -28,12 +28,6 @@ namespace DXApp
             category.ShowDialog();
         }
 
-        private void tileItem7_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
-        {
-           
-            
-        }
-
         private void tileItem4_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
 
@@ -54,6 +48,17 @@ namespace DXApp
         {
             frmOrder frmO = new frmOrder();
             frmO.ShowDialog();
+        }
+
+        private void btnBookManager_CheckedChanged(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+        {
+
+        }
+
+        private void btnBookManager_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+        {
+            BookForm form = new BookForm();
+            form.ShowDialog();
         }
     }
 }

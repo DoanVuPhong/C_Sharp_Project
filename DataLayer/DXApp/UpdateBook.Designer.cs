@@ -1,6 +1,6 @@
 ﻿namespace DXApp
 {
-    partial class UpdateBookForm
+    partial class UpdateBook
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateBook));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -40,7 +41,7 @@
             this.ListAuthors = new System.Windows.Forms.ListBox();
             this.ListCategory = new System.Windows.Forms.ListBox();
             this.btnClear = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.cboPublisher = new System.Windows.Forms.ComboBox();
             this.txtDesc = new System.Windows.Forms.TextBox();
             this.txtQuantity = new System.Windows.Forms.TextBox();
@@ -51,11 +52,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label8);
@@ -67,7 +70,7 @@
             this.groupBox1.Controls.Add(this.ListAuthors);
             this.groupBox1.Controls.Add(this.ListCategory);
             this.groupBox1.Controls.Add(this.btnClear);
-            this.groupBox1.Controls.Add(this.btnAdd);
+            this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.cboPublisher);
             this.groupBox1.Controls.Add(this.txtDesc);
             this.groupBox1.Controls.Add(this.txtQuantity);
@@ -79,7 +82,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(11, 52);
+            this.groupBox1.Location = new System.Drawing.Point(5, 39);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -178,23 +181,25 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(363, 308);
+            this.btnClear.Location = new System.Drawing.Point(330, 307);
             this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(76, 19);
             this.btnClear.TabIndex = 3;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // btnAdd
+            // btnSave
             // 
-            this.btnAdd.Location = new System.Drawing.Point(218, 308);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(76, 19);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnSave.Location = new System.Drawing.Point(205, 307);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(76, 19);
+            this.btnSave.TabIndex = 3;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // cboPublisher
             // 
@@ -293,17 +298,32 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ISBN:";
             // 
-            // UpdateBookForm
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.OrangeRed;
+            this.label6.Location = new System.Drawing.Point(234, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(192, 25);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Book Management";
+            // 
+            // UpdateBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(611, 419);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(606, 376);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox1);
-            this.Name = "UpdateBookForm";
-            this.Text = "UpdateBookForm";
+            this.Name = "UpdateBook";
+            this.Text = "UpdateBook";
+            this.Load += new System.EventHandler(this.UpdateBook_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -321,7 +341,7 @@
         private System.Windows.Forms.ListBox ListAuthors;
         private System.Windows.Forms.ListBox ListCategory;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ComboBox cboPublisher;
         private System.Windows.Forms.TextBox txtDesc;
         private System.Windows.Forms.TextBox txtQuantity;
@@ -332,5 +352,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
     }
 }

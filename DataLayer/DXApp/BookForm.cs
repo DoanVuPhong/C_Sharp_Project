@@ -16,7 +16,7 @@ namespace DXApp
     {
         IBussinessLogic proxy;
         DataTable table = new DataTable();
-        BookData current = new BookData();
+        //BookData current = new BookData();
         public BookForm()
         {
             InitializeComponent();
@@ -35,15 +35,7 @@ namespace DXApp
             try
             {
                 table = proxy.GetAllBook();
-                bindingBook.DataSource = table;
-                if (bindingBook != null)
-                {
-                    MessageBox.Show(bindingBook.ToString());
-                    txtID.DataBindings.Clear();
-
-                    txtID.DataBindings.Add("Text", bindingBook, "ID");
-                    dgvBook.DataSource = bindingBook;
-                }
+                dgvBook.DataSource = table;
             }
             catch (Exception e)
             {
@@ -56,23 +48,21 @@ namespace DXApp
             if (dgvBook.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = dgvBook.SelectedRows[0];
-                //int id = (int)row.Cells[0].Value;
-                //current.ID = id;
-                //current.Name = row.Cells[1].Value.ToString();
-                //current.Status = row.Cells[2].Value.ToString();
-                
+                txtID.Text = row.Cells[0].Value.ToString();
             }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AddBook addBook = new AddBook();
-            addBook.ShowDialog();
+            AddBook AddBookForm = new AddBook();
+            AddBookForm.ShowDialog();
         }
 
         private void BookForm_Load(object sender, EventArgs e)
         {
-            
+            cboCategory.DataSource = proxy.GetAllCategory();
+            cboCategory.DisplayMember = "name";
+            cboCategory.ValueMember = "name";
         }
 
         private void dgvBook_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -87,6 +77,95 @@ namespace DXApp
                 ID = int.Parse(txtID.Text)
             };
             proxy.IRemoveBook(b);
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            getDataSource();
+        }
+
+        private void btnSearchByPublisher_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string publisher = txtPublisher.Text;
+                table = proxy.SearchBookByPublisher(publisher);
+                if(table.Rows.Count == 0 || table == null)
+                {
+                    MessageBox.Show("No Solution");
+                }
+                else
+                {
+                    dgvBook.DataSource = table;
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnSearchByAuthor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string author = txtAuthor.Text;
+                table = proxy.SearchBookByAuthor(author);
+                if (table.Rows.Count == 0 || table == null)
+                {
+                    MessageBox.Show("No Solution");
+                }
+                else
+                {
+                    dgvBook.DataSource = table;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnFilterByCategory_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string category = cboCategory.SelectedValue.ToString();
+                table = proxy.FilterBookByCategory(category);
+                if (table.Rows.Count == 0 || table == null)
+                {
+                    MessageBox.Show("This Category is empty");
+                }
+                else
+                {
+                    dgvBook.DataSource = table;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txtID.Text)) {
+                try
+                {
+                    UpdateBook form = new UpdateBook(int.Parse(txtID.Text));
+                    form.ShowDialog();
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Please Enter correct ISBN");
+                }
+                
+                
+
+
+            }
         }
     }
 }
