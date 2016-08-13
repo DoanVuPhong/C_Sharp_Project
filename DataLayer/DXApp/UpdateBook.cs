@@ -141,8 +141,15 @@ namespace DXApp
             {
                 book.Author.Add(item);
             }
-            MessageBox.Show(book.ID+"");
-            MessageBox.Show(proxy.IUpdateBook(book)+ "");
+
+            bool result = proxy.IUpdateBook(book);
+            if (result)
+            {
+                MessageBox.Show("Update Book Successful!");
+            }
+            else {
+                MessageBox.Show("Please Check book ISBN , This ISBN is existed!");
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -156,6 +163,7 @@ namespace DXApp
             txtStatus.Text = "";
             ListAuthors.ClearSelected();
             ListCategory.ClearSelected();
+            cboPublisher.SelectedIndex = 0;
         }
     }
 }

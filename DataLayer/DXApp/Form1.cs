@@ -57,7 +57,7 @@ namespace DXApp
 
         private void btnBookManager_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
-            AddBook form = new AddBook();
+            BookForm form = new BookForm();
             form.ShowDialog();
         }
     }

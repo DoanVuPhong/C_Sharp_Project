@@ -41,12 +41,7 @@ namespace DXApp
             cboPublisher.DisplayMember = "name";
             cboPublisher.ValueMember = "id";
             ListAuthors.ClearSelected();
-            for (int i = 2; i < 4; i++) {
-                ListAuthors.SetSelected(i, true);
-            }
-            {
-
-            }
+            
         }
 
 
@@ -115,8 +110,17 @@ namespace DXApp
             {
                 book.Author.Add(item);
             }
+            
+          bool result=proxy.IAddBook(book) ;
 
-            MessageBox.Show(proxy.IAddBook(book) + "");
+            if (result)
+            {
+                MessageBox.Show("Add Book Successful!");
+            }
+            else {
+                MessageBox.Show("Please Check book ISBN , This ISBN is existed!");
+
+            }
 
 
 
@@ -130,6 +134,10 @@ namespace DXApp
             txtStatus.Text = "";
             txtPrice.Text = "";
             txtQuantity.Text = "";
+            txtDesc.Text = "";
+            ListAuthors.ClearSelected() ;
+            ListCategory.ClearSelected();
+            cboPublisher.SelectedIndex = 0;
         }
     }
 }
