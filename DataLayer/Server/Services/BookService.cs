@@ -15,6 +15,7 @@ namespace Server.Services
         {
             Book book = new Book();
             book.ISBN = b.ISBN;
+            book.description = b.Description;
             book.name = b.Name;
             book.price = b.Price;
             book.quantity = b.Quantity;
@@ -74,15 +75,69 @@ namespace Server.Services
                     {
                         return false;
                     }
-                    
+
                 }
             }
             catch (Exception ex)
             {
-                LogService.log("BOOK", ex.Message);
+                LogService.log("BOOK", ex.StackTrace);
             }
             return false;
         }
+
+
+        public static bool UpDateBook(BookData b)
+        {
+            try
+            {
+                DeleteAllCategoryAndAuthor(b.ID);
+                Console.WriteLine("ok go here");
+                using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
+                {
+                    Book book = context.Books.FirstOrDefault(bo => bo.ID == b.ID);
+                    if (book != null)
+                    {
+                        book.ISBN = b.ISBN;
+                        book.name = b.Name;
+                        book.price = b.Price;
+                        book.quantity = b.Quantity;
+                        book.status = b.Status;
+                        book.year = b.Year;
+                        book.publisher_ID = b.Publisher_ID;
+                        book.description = b.Description;
+                        for (int i = 0; i < b.Author.Count; i++)
+                        {
+                            int ID = b.Author[i].ID;
+                            Author author = context.Authors.FirstOrDefault(a => a.ID == ID);
+                            Book_Author BA = new Book_Author();
+                            BA.Author = author;
+                            BA.Book = book;
+                            book.Book_Author.Add(BA);
+                        }
+                        for (int i = 0; i < b.Category.Count; i++)
+                        {
+                            int ID = b.Category[i].ID;
+                            Category category = context.Categories.FirstOrDefault(c => c.ID == ID);
+                            Book_Category temp = new Book_Category();
+                            temp.Category = category;
+                            temp.Book = book;
+                            book.Book_Category.Add(temp);
+                        }
+                        context.SaveChanges();
+                    }
+
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogService.log("Erro at Book Service", ex.StackTrace);
+                return false;
+            }
+        }
+
+
 
         public static bool DeleteAllCategoryAndAuthor(int ID)
         {
@@ -104,7 +159,7 @@ namespace Server.Services
                         context.SaveChanges();
                         book_category = context.Book_Category.FirstOrDefault(t => t.book_ID == ID);
                     }
-                    if(book_author == null && book_category == null)
+                    if (book_author == null && book_category == null)
                     {
                         return true;
                     }
@@ -113,56 +168,13 @@ namespace Server.Services
             }
             catch (Exception ex)
             {
-                LogService.log("BOOK", ex.Message);
-                return false;
-            }
-
-        }
-
-        public static bool UpdateBook(BookData b)
-        {
-            Book book = new Book();
-            book.ISBN = b.ISBN;
-            book.name = b.Name;
-            book.price = b.Price;
-            book.quantity = b.Quantity;
-            book.status = b.Status;
-            book.year = b.Year;
-            book.publisher_ID = b.Publisher_ID;
-            try
-            {
-                using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
-                {
-                    for (int i = 0; i < b.Author.Count; i++)
-                    {
-                        int ID = b.Author[i].ID;
-                        Author author = context.Authors.FirstOrDefault(a => a.ID == ID);
-                        Book_Author BA = new Book_Author();
-                        BA.Author = author;
-                        BA.Book = book;
-                        book.Book_Author.Add(BA);
-                    }
-                    for (int i = 0; i < b.Category.Count; i++)
-                    {
-                        int ID = b.Category[i].ID;
-                        Category category = context.Categories.FirstOrDefault(c => c.ID == ID);
-                        Book_Category temp = new Book_Category();
-                        temp.Category = category;
-                        temp.Book = book;
-                        book.Book_Category.Add(temp);
-                    }
-
-                    context.Books.Add(book);
-                    context.SaveChanges();
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
                 LogService.log("BOOK", ex.StackTrace);
                 return false;
             }
+
         }
+
+       
 
         public static SqlConnection cnn = new SqlConnection(Const.Const.ConnectionString);
 
@@ -170,7 +182,7 @@ namespace Server.Services
         {
             DataTable ListBook = new DataTable("ListAllBook");
             SqlCommand cmd = new SqlCommand("select b.ID, b.ISBN, b.description, b.name, b.price, b.quantity,"
-                + " b.status, b.thumbnail, b.year ,p.name as Publihser_Name from Book b, Publisher p where b.publisher_ID = p.ID", cnn);
+                + " b.status, b.thumbnail, b.year ,b.publisher_ID, p.name as Publihser_Name from Book b, Publisher p where b.publisher_ID = p.ID", cnn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
             try
@@ -184,7 +196,7 @@ namespace Server.Services
             }
             catch (Exception ex)
             {
-                LogService.log("BOOK", ex.Message);
+                LogService.log("BOOK", ex.StackTrace);
             }
             finally
             {
@@ -217,14 +229,13 @@ namespace Server.Services
                 b.publisher_ID = rd.GetInt32(9);
             }
             return b;
-
         }
 
         public static DataTable SearchBookByAuthor(string author)
         {
             DataTable ListBook = new DataTable("ListBookByAuthor");
             SqlCommand cmd = new SqlCommand("select b.ID, b.ISBN, b.description, b.name, b.price, b.quantity,"
-                + " b.status, b.thumbnail, b.year, p.name as 'Publisher_Name' from Book b, Publisher p "
+                + " b.status, b.thumbnail, b.year,b.publisher_ID, p.name as 'Publisher_Name' from Book b, Publisher p "
                 + "where b.ID in (select ba.book_ID from Book_Author ba where ba.author_ID in (select a.ID from Author a where a.name like @Author))"
                 + " and p.ID = b.publisher_ID", cnn);
             cmd.Parameters.AddWithValue("@Author", "%" + author + "%"
@@ -242,7 +253,7 @@ namespace Server.Services
             }
             catch (Exception ex)
             {
-                LogService.log("BOOK", ex.Message);
+                LogService.log("BOOK", ex.StackTrace);
             }
             finally
             {
@@ -256,8 +267,9 @@ namespace Server.Services
 
         public static DataTable SearchBookByPublisher(string publisher)
         {
-            DataTable ListBook = new DataTable("ListBookByAuthor");
-            SqlCommand cmd = new SqlCommand("select b.* from Book b, (select * from Publisher p where p.name like @Publisher) p where p.ID = b.publisher_ID", cnn);
+            DataTable ListBook = new DataTable("ListBookByPublisher");
+            SqlCommand cmd = new SqlCommand("select b.ID, b.ISBN, b.description, b.name, b.price, b.quantity, b.status,"
+                + "b.thumbnail, b.year ,b.publisher_ID, p.name as Publihser_Name from Book b, (select * from Publisher p where p.name like @Publisher) p where p.ID = b.publisher_ID", cnn);
             cmd.Parameters.AddWithValue("@Publisher", "%" + publisher + "%");
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             try
@@ -271,7 +283,7 @@ namespace Server.Services
             }
             catch (Exception ex)
             {
-                LogService.log("BOOK", ex.Message);
+                LogService.log("BOOK", ex.StackTrace);
             }
             finally
             {
@@ -287,10 +299,10 @@ namespace Server.Services
         {
             DataTable ListBook = new DataTable("ListBookByCategory");
             SqlCommand cmd = new SqlCommand("select b.ID, b.ISBN, b.description, b.name, b.price, b.quantity,"
-                + "b.status, b.thumbnail, b.year, p.name as 'Publisher_Name' from Book b, Publisher p"
-                + "where b.ID in (select bc.book_ID from Book_Category bc where bc.category_ID in (select c.ID from Category c where c.name like @Category))"
-                 + "and p.ID = b.publisher_ID", cnn);
-            cmd.Parameters.AddWithValue("@Category", "%" + category + "%");
+               +" b.status, b.thumbnail, b.year, b.publisher_ID, p.name as 'Publisher_Name' from Book b, Publisher p"
+               +" where b.ID in (select bc.book_ID from Book_Category bc where bc.category_ID in (select c.ID from Category c where c.name = @Category))"
+                +" and p.ID = b.publisher_ID", cnn);
+            cmd.Parameters.AddWithValue("@Category", category);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             try
             {
@@ -303,7 +315,7 @@ namespace Server.Services
             }
             catch (Exception ex)
             {
-                LogService.log("BOOK", ex.Message);
+                LogService.log("BOOK", ex.StackTrace);
             }
             finally
             {
@@ -370,11 +382,59 @@ namespace Server.Services
                 }
                 return result;
             }
+        }
 
+        public static BookData GetBookDataById(int id)
+        {
+            using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
+            {
+                Book book = context.Books.FirstOrDefault(b => b.ID == id);
+                if (book != null)
+                {
+                    BookData result = ConvertBookToBookData(book);
+                    return result;
+                }
+            }
+            return null;
+        }
 
+        private static BookData ConvertBookToBookData(Book b)
+        {
+            BookData result = new BookData();
+            result.ID = b.ID;
+            result.Name = b.name;
+            result.ISBN = b.ISBN;
+            result.Price = (double)b.price;
+            result.Quantity = (int)b.quantity;
+            result.Status = b.status;
+            result.Thumnail = b.thumbnail;
+            result.Description = b.description;
+            result.Publisher_ID = (int)b.publisher_ID;
+            result.Year = b.year;
+            result.Author = new List<AuthorData>();
 
+            foreach (Book_Author item in b.Book_Author)
+            {
+                AuthorData temp = new AuthorData();
+                temp.ID = (int)item.Author.ID;
+                temp.name = item.Author.name;
+                result.Author.Add(temp);
+            }
+            result.Category = new List<CategoryData>();
+            foreach (Book_Category item in b.Book_Category)
+            {
+                CategoryData temp = new CategoryData();
+                temp.ID = item.Category.ID;
+                temp.name = item.Category.name;
+                temp.status = item.Category.status;
+                result.Category.Add(temp);
+            }
 
+            return result;
 
         }
+
+
+
     }
 }
