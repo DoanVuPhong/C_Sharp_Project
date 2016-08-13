@@ -13,7 +13,7 @@ using System.ServiceModel;
 
 namespace DXApp
 {
-    
+
     public partial class frmOrder : Form
     {
         IBussinessLogic proxy;
@@ -30,7 +30,7 @@ namespace DXApp
             listPanel.Add(panel3);
             for (int i = 0; i < listPanel.Count; i++)
             {
-                
+
                 if (i == 3)
                 {
                     listPanel[i].Visible = true;
@@ -39,7 +39,7 @@ namespace DXApp
                 {
                     listPanel[i].Visible = false;
                 }
-               
+
             }
             chDate.CustomFormat = "yyyy/MM/dd";
             chDate.Format = DateTimePickerFormat.Custom;
@@ -61,7 +61,7 @@ namespace DXApp
         {
             if (string.IsNullOrEmpty(txtSearchByName.Text))
             {
-                errName.SetError(txtSearchByName,"Name is not empty.");
+                errName.SetError(txtSearchByName, "Name is not empty.");
                 return;
             }
             else
@@ -84,7 +84,8 @@ namespace DXApp
             int pos = cbbChoiceSearch.SelectedIndex;
             for (int i = 0; i < listPanel.Count; i++)
             {
-                if (pos == i) {
+                if (pos == i)
+                {
                     listPanel[i].Visible = true;
                 }
                 else
@@ -129,12 +130,14 @@ namespace DXApp
             catch (Exception)
             {
                 errID.SetError(txtSearchByID, "ID not null or empty.");
-                
+
                 return;
             }
             int ID = int.Parse(txtSearchByID.Text);
             datatable = proxy.SearchByIDOrder(ID);
             dgvOrder.DataSource = datatable;
+
+
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -174,7 +177,7 @@ namespace DXApp
 
         private void dgvOrderDetail_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void dgvOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
