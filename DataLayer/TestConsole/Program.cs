@@ -26,17 +26,23 @@ namespace TestConsole
             //b.Publisher_ID = 1;
             //b.Quantity = 3;
             //b.Status = "C#";
+            /*
             string publisher = "LT";
             DataTable rs = proxy.SearchBookByPublisher(publisher);
             foreach (DataRow item in rs.Rows)
             {
                 Console.WriteLine(item["ID"].ToString());
             }
-
+           
 
             //bool rs = proxy.IAddBook(b);
             Console.WriteLine(rs);
             Console.ReadLine();
+             */
+            Console.WriteLine(proxy.AddAccount(new AccountData() {
+                username ="abc",
+                password ="123"
+            }));
         }
     }
 }
