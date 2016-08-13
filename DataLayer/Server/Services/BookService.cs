@@ -80,7 +80,7 @@ namespace Server.Services
             }
             catch (Exception ex)
             {
-                LogService.log("BOOK", ex.Message);
+                LogService.log("BOOK", ex.StackTrace);
             }
             return false;
         }
@@ -168,7 +168,7 @@ namespace Server.Services
             }
             catch (Exception ex)
             {
-                LogService.log("BOOK", ex.Message);
+                LogService.log("BOOK", ex.StackTrace);
                 return false;
             }
 
@@ -182,7 +182,7 @@ namespace Server.Services
         {
             DataTable ListBook = new DataTable("ListAllBook");
             SqlCommand cmd = new SqlCommand("select b.ID, b.ISBN, b.description, b.name, b.price, b.quantity,"
-                + " b.status, b.thumbnail, b.year ,p.name as Publihser_Name from Book b, Publisher p where b.publisher_ID = p.ID", cnn);
+                + " b.status, b.thumbnail, b.year ,b.publisher_ID, p.name as Publihser_Name from Book b, Publisher p where b.publisher_ID = p.ID", cnn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
             try
@@ -196,7 +196,7 @@ namespace Server.Services
             }
             catch (Exception ex)
             {
-                LogService.log("BOOK", ex.Message);
+                LogService.log("BOOK", ex.StackTrace);
             }
             finally
             {
@@ -235,7 +235,7 @@ namespace Server.Services
         {
             DataTable ListBook = new DataTable("ListBookByAuthor");
             SqlCommand cmd = new SqlCommand("select b.ID, b.ISBN, b.description, b.name, b.price, b.quantity,"
-                + " b.status, b.thumbnail, b.year, p.name as 'Publisher_Name' from Book b, Publisher p "
+                + " b.status, b.thumbnail, b.year,b.publisher_ID, p.name as 'Publisher_Name' from Book b, Publisher p "
                 + "where b.ID in (select ba.book_ID from Book_Author ba where ba.author_ID in (select a.ID from Author a where a.name like @Author))"
                 + " and p.ID = b.publisher_ID", cnn);
             cmd.Parameters.AddWithValue("@Author", "%" + author + "%"
@@ -253,7 +253,7 @@ namespace Server.Services
             }
             catch (Exception ex)
             {
-                LogService.log("BOOK", ex.Message);
+                LogService.log("BOOK", ex.StackTrace);
             }
             finally
             {
@@ -267,8 +267,9 @@ namespace Server.Services
 
         public static DataTable SearchBookByPublisher(string publisher)
         {
-            DataTable ListBook = new DataTable("ListBookByAuthor");
-            SqlCommand cmd = new SqlCommand("select b.* from Book b, (select * from Publisher p where p.name like @Publisher) p where p.ID = b.publisher_ID", cnn);
+            DataTable ListBook = new DataTable("ListBookByPublisher");
+            SqlCommand cmd = new SqlCommand("select b.ID, b.ISBN, b.description, b.name, b.price, b.quantity, b.status,"
+                + "b.thumbnail, b.year ,b.publisher_ID, p.name as Publihser_Name from Book b, (select * from Publisher p where p.name like @Publisher) p where p.ID = b.publisher_ID", cnn);
             cmd.Parameters.AddWithValue("@Publisher", "%" + publisher + "%");
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             try
@@ -282,7 +283,7 @@ namespace Server.Services
             }
             catch (Exception ex)
             {
-                LogService.log("BOOK", ex.Message);
+                LogService.log("BOOK", ex.StackTrace);
             }
             finally
             {
@@ -298,10 +299,10 @@ namespace Server.Services
         {
             DataTable ListBook = new DataTable("ListBookByCategory");
             SqlCommand cmd = new SqlCommand("select b.ID, b.ISBN, b.description, b.name, b.price, b.quantity,"
-                + "b.status, b.thumbnail, b.year, p.name as 'Publisher_Name' from Book b, Publisher p"
-                + "where b.ID in (select bc.book_ID from Book_Category bc where bc.category_ID in (select c.ID from Category c where c.name like @Category))"
-                 + "and p.ID = b.publisher_ID", cnn);
-            cmd.Parameters.AddWithValue("@Category", "%" + category + "%");
+               +" b.status, b.thumbnail, b.year, b.publisher_ID, p.name as 'Publisher_Name' from Book b, Publisher p"
+               +" where b.ID in (select bc.book_ID from Book_Category bc where bc.category_ID in (select c.ID from Category c where c.name = @Category))"
+                +" and p.ID = b.publisher_ID", cnn);
+            cmd.Parameters.AddWithValue("@Category", category);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             try
             {
@@ -314,7 +315,7 @@ namespace Server.Services
             }
             catch (Exception ex)
             {
-                LogService.log("BOOK", ex.Message);
+                LogService.log("BOOK", ex.StackTrace);
             }
             finally
             {
