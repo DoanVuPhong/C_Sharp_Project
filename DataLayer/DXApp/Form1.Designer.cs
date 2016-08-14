@@ -35,6 +35,7 @@
             DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
             this.tileGroup1 = new DevExpress.XtraEditors.TileGroup();
+            this.btnBookOrder = new System.Windows.Forms.Button();
             this.btnCategory = new DevExpress.XtraEditors.TileControl();
             this.tileGroup3 = new DevExpress.XtraEditors.TileGroup();
             this.btnBookManager = new DevExpress.XtraEditors.TileItem();
@@ -48,6 +49,16 @@
             // tileGroup1
             // 
             this.tileGroup1.Name = "tileGroup1";
+            // 
+            // btnBookOrder
+            // 
+            this.btnBookOrder.Location = new System.Drawing.Point(571, 322);
+            this.btnBookOrder.Name = "btnBookOrder";
+            this.btnBookOrder.Size = new System.Drawing.Size(75, 23);
+            this.btnBookOrder.TabIndex = 1;
+            this.btnBookOrder.Text = "Book Order";
+            this.btnBookOrder.UseVisualStyleBackColor = true;
+            this.btnBookOrder.Click += new System.EventHandler(this.btnBookOrder_Click);
             // 
             // btnCategory
             // 
@@ -175,6 +186,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(812, 478);
+            this.Controls.Add(this.btnBookOrder);
             this.Controls.Add(this.btnCategory);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -194,6 +206,7 @@
         private DevExpress.XtraEditors.TileItem btnCagatory;
         private DevExpress.XtraEditors.TileGroup tileGroup1;
         private DevExpress.XtraEditors.TileGroup tileGroup2;
+        private System.Windows.Forms.Button btnBookOrder;
     }
 }
 

@@ -311,5 +311,23 @@ namespace Server
         {
             return BookService.GetBookDataById(id);
         }
+
+        public DataTable CustomSearchBook(string ISBN, string Bookname, string authorName)
+        {
+            return BookService.CustomSearch(ISBN, Bookname, authorName);
+        }
+
+        public int AddReturnIDOrder(OrderData od)
+        {
+            Order o = new Order()
+            {
+                ID = od.ID,
+                account_ID = od.account_ID,
+                customer_name = od.customer_name,
+                status = od.status,
+                date = od.date
+            };
+            return OrderService.AddReturnID(o);
+        }
     }
 }

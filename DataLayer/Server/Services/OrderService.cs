@@ -29,6 +29,26 @@ namespace Server.Services
             }
             return false;
         }
+
+        public static int AddReturnID(Order o)
+        {
+            try
+            {
+                using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
+                {
+                    context.Orders.Add(o);
+                    context.SaveChanges();
+                    
+                    return o.ID;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Can't add order to database. Detail: {0}", ex);
+            }
+            return -1;
+        }
+
         public static bool Update(Order o)
         {
             using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
