@@ -12,41 +12,84 @@ using System.ServiceModel;
 
 namespace DXApp
 {
-    public partial class AddBook : Form
+    public partial class UpdateBook : Form
     {
-        public AddBook()
+
+        BookData book = new BookData();
+        IBussinessLogic proxy;
+        BindingSource bidding = new BindingSource();
+
+
+        public UpdateBook(int ID)
         {
             InitializeComponent();
-            ChannelFactory<IBussinessLogic> chanel =
-                new ChannelFactory<IBussinessLogic>("ClientEndPoint");
+            ChannelFactory<IBussinessLogic> chanel = new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             proxy = chanel.CreateChannel();
-        }
-
-        IBussinessLogic proxy;
-
-        private void AddBook_Load(object sender, EventArgs e)
-        {
+            book = proxy.GetBookDataByID(ID);
             ListAuthors.DataSource = proxy.GetAllBookAuthor();
-            ListAuthors.DisplayMember = "Name";
-            ListAuthors.ValueMember = "Id";
+            ListAuthors.DisplayMember = "name";
+            ListAuthors.ValueMember = "id";
             ListCategory.DataSource = proxy.GetBookAllCategory();
             ListCategory.DisplayMember = "name";
-            ListCategory.ValueMember = "Id";
-            ListCategory.SelectionMode = SelectionMode.MultiExtended;
-            ListAuthors.SelectionMode = SelectionMode.MultiExtended;
-            publishYearPicker.Format = DateTimePickerFormat.Custom;
-            publishYearPicker.CustomFormat = "yyyy";
-            publishYearPicker.ShowUpDown = true;
+            ListCategory.ValueMember = "id";
             cboPublisher.DataSource = proxy.getAllPublisher();
             cboPublisher.DisplayMember = "name";
             cboPublisher.ValueMember = "id";
             ListAuthors.ClearSelected();
-            
+            ListCategory.ClearSelected();
+            ListAuthors.SelectionMode = SelectionMode.MultiExtended;
+            ListCategory.SelectionMode = SelectionMode.MultiExtended;
+        }
+
+        private void UpdateBook_Load(object sender, EventArgs e)
+        {
+            txtISBN.Text = book.ISBN;
+            txtName.Text = book.Name;
+            txtPrice.Text = book.Price.ToString();
+            txtQuantity.Text = book.Quantity.ToString();
+            txtDesc.Text = book.Description;
+            txtPrice.Text = book.Price.ToString();
+            txtStatus.Text = book.Status;
+          
+
+            for (int i = 0; i < ListAuthors.Items.Count; i++)
+            {
+                int count = 0;
+                for (int t = count; t < book.Author.Count; t++)
+                {
+                    if (book.Author[t].ID == ((AuthorData)ListAuthors.Items[i]).ID)
+                    {
+                        ListAuthors.SetSelected(i, true);
+                        count = t;
+                        break;
+                    }
+                }
+            }
+
+            for (int i = 0; i < ListCategory.Items.Count; i++)
+            {
+                for (int t = 0; t < book.Category.Count; t++)
+                {
+                    if (((CategoryData)ListCategory.Items[i]).ID == book.Category[t].ID)
+                    {
+                        ListCategory.SetSelected(i, true);
+                        break;
+                    }
+                }
+            }
+            for (int i = 0; i <cboPublisher.Items.Count; i++)
+            {
+                if (book.Publisher_ID == ((PublisherData)cboPublisher.Items[i]).ID) {
+                    cboPublisher.SelectedIndex = i;
+                }
+            }
+
+
+
         }
 
 
 
-        // validate if empty or can not part return true . if valid return false;
         bool validate()
         {
             try
@@ -71,22 +114,15 @@ namespace DXApp
             {
                 return true;
             }
-            
         }
 
-
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
-
             if (validate())
             {
                 MessageBox.Show("Your input is not valid please check again (Not leave field empty or too long)");
                 return;
-
             }
-
-
-            BookData book = new BookData();
             book.Author = new List<AuthorData>();
             book.Category = new List<CategoryData>();
             book.Name = txtName.Text;
@@ -105,32 +141,27 @@ namespace DXApp
             {
                 book.Author.Add(item);
             }
-            
-          bool result=proxy.IAddBook(book) ;
 
+            bool result = proxy.IUpdateBook(book);
             if (result)
             {
-                MessageBox.Show("Add Book Successful!");
+                MessageBox.Show("Update Book Successful!");
             }
             else {
                 MessageBox.Show("Please Check book ISBN , This ISBN is existed!");
-
             }
-
-
-
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtISBN.Text = "";
-            txtISBN.Text = "";
+            txtISBN.Text ="";
             txtName.Text = "";
-            txtStatus.Text = "";
             txtPrice.Text = "";
             txtQuantity.Text = "";
             txtDesc.Text = "";
-            ListAuthors.ClearSelected() ;
+            txtPrice.Text = "";
+            txtStatus.Text = "";
+            ListAuthors.ClearSelected();
             ListCategory.ClearSelected();
             cboPublisher.SelectedIndex = 0;
         }

@@ -28,29 +28,37 @@ namespace DXApp
             category.ShowDialog();
         }
 
-        private void tileItem7_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
-        {
-           
-            
-        }
-
         private void tileItem4_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
+
+            //MessageBox.Show("ABC");
             AuthorForm authorform = new AuthorForm();
             authorform.ShowDialog();
 
         }
 
-        private void tileItem2_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+        private void tileItem5_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+        {
+            PublisherForm pubForm = new PublisherForm();
+            pubForm.ShowDialog();
+        }
+
+       
+        private void tileItem2_ItemClick_1(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+        {
+            frmOrder frmO = new frmOrder();
+            frmO.ShowDialog();
+        }
+
+        private void btnBookManager_CheckedChanged(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
 
         }
 
-        private void tileItem3_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+        private void btnBookManager_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
-            BookForm bookForm = new BookForm();
-           
-            bookForm.ShowDialog();
+            BookForm form = new BookForm();
+            form.ShowDialog();
         }
     }
 }

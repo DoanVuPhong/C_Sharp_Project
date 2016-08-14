@@ -66,10 +66,44 @@ namespace Server.Services
 
             DataTable listOrder = new DataTable("OrderByDate");
 
-            SqlConnection conn = new SqlConnection("server=.\\SQL2012;database=Book_Sale_Manager;uid=sa;pwd=123");
+            SqlConnection conn = new SqlConnection(Const.Const.ConnectionString);
 
-            SqlCommand cmd = new SqlCommand("select * from [Order] where [date] = @datetime", conn);
-            cmd.Parameters.AddWithValue("@datetime", date.ToString());
+            SqlCommand cmd = new SqlCommand("select * from [Order] where [date] = @date", conn);
+            cmd.Parameters.AddWithValue("@date", date.ToString());
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                da.Fill(listOrder);
+                return listOrder;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+
+            }
+            finally
+            {
+                if (conn!=null){
+                    conn.Close();
+                }
+            }
+            return null;
+        }
+
+        public static DataTable SearchByCustomerName(string name)
+        {
+
+            DataTable listOrder = new DataTable("OrderByDate");
+
+            SqlConnection conn = new SqlConnection(Const.Const.ConnectionString);
+
+            SqlCommand cmd = new SqlCommand("select * from [Order] where [customer_name] like @name", conn);
+            cmd.Parameters.AddWithValue("@name", "%" + name+"%");
 
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
@@ -88,13 +122,82 @@ namespace Server.Services
             }
             finally
             {
-                if (conn!=null){
+                if (conn != null)
+                {
                     conn.Close();
                 }
             }
             return null;
         }
 
+        public static DataTable SearchByRangeDate(DateTime from, DateTime to)
+        {
 
+
+
+            DataTable listOrder = new DataTable("OrderByDate");
+
+            SqlConnection conn = new SqlConnection(Const.Const.ConnectionString);
+
+            SqlCommand cmd = new SqlCommand("select * from [Order] where [date] >= @from AND [date] <= @to", conn);
+            cmd.Parameters.AddWithValue("@from", from.ToString());
+            cmd.Parameters.AddWithValue("@to", to.ToString());
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                da.Fill(listOrder);
+                return listOrder;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return null;
+        }
+
+        public static DataTable SearchByID(int ID)
+        {
+            DataTable listOrder = new DataTable("OrderByDate");
+
+            SqlConnection conn = new SqlConnection(Const.Const.ConnectionString);
+
+            SqlCommand cmd = new SqlCommand("select * from [Order] where ID = @ID", conn);
+            cmd.Parameters.AddWithValue("@ID", ID);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                da.Fill(listOrder);
+                return listOrder;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return null;
+        }
     }
 }

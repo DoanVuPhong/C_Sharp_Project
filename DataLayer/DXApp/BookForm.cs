@@ -152,5 +152,25 @@ namespace DXApp
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(txtID.Text)) {
+                try
+                {
+                    UpdateBook form = new UpdateBook(int.Parse(txtID.Text));
+                    form.ShowDialog();
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Please Enter correct ISBN");
+                }
+                
+                
+
+
+            }
+        }
     }
 }

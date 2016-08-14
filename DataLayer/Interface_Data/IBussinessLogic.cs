@@ -54,6 +54,14 @@ namespace Interface_Data
         [OperationContract]
         DataTable SearchByDate(DateTime date);
 
+        [OperationContract]
+        DataTable SearchByCustomerNameOrder(string name);
+
+        [OperationContract]
+        DataTable SearchByRangeDateOrder(DateTime from, DateTime to);
+
+        [OperationContract]
+        DataTable SearchByIDOrder(int ID);
         //End bussiness Order
         //Account Business Logic Implement
         [OperationContract]
@@ -61,7 +69,7 @@ namespace Interface_Data
         [OperationContract]
         bool RemoveAccount(AccountData b);
         [OperationContract]
-        bool checkLogin(string username, string password);
+        int checkLogin(string username, string password);
 
 
         //Begin Bussiness Publisher
@@ -72,6 +80,8 @@ namespace Interface_Data
         [OperationContract]
         bool DeletePublisher(PublisherData p);
 
+        [OperationContract]
+        DataTable GetAllPublisher();
         //End Bussiness Publisher
 
         //Begin Bussiness OrderDetail
@@ -79,6 +89,9 @@ namespace Interface_Data
         bool AddOrderDetail(OrderDetailData p);
         [OperationContract]
         bool UpdateOrderDetail(OrderDetailData p);
+
+        [OperationContract]
+        DataTable GetAllOrderDetailByID(int ID);
 
         //End Bussiness OrderDetail
 
@@ -105,6 +118,10 @@ namespace Interface_Data
         List<AuthorData> GetAllBookAuthor();
         [OperationContract]
         List<CategoryData> GetBookAllCategory();
+
+        [OperationContract]
+        BookData GetBookDataByID(int id);
+
         // end business logic book
     }
 }
