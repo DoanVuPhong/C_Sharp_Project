@@ -63,6 +63,10 @@ namespace Interface_Data
 
         [OperationContract]
         DataTable SearchByIDOrder(int ID);
+
+        [OperationContract]
+        DataTable CustomSearchOrder(string ID, string customerName, DateTime from, DateTime to);
+
         //End bussiness Order
         //Account Business Logic Implement
         [OperationContract]

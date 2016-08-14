@@ -329,5 +329,10 @@ namespace Server
             };
             return OrderService.AddReturnID(o);
         }
+
+        public DataTable CustomSearchOrder(string ID, string customerName, DateTime from, DateTime to)
+        {
+            return OrderService.CustomSearch(ID, customerName, from, to);
+        }
     }
 }
