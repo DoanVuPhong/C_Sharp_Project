@@ -166,11 +166,17 @@ namespace DXApp
 
                     MessageBox.Show("Please Enter correct ISBN");
                 }
-                
-                
-
-
             }
+            else
+            {
+                MessageBox.Show("Please choose a Book!!!");
+            }
+        }
+
+        private void dgvBook_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            UpdateBook form = new UpdateBook(int.Parse(txtID.Text));
+            form.ShowDialog();
         }
     }
 }
