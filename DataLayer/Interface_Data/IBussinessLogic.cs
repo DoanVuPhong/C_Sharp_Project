@@ -49,6 +49,7 @@ namespace Interface_Data
         bool AddOrder(OrderData a);
 
         [OperationContract]
+        int AddReturnIDOrder(OrderData o);
 
         bool UpdateOrder(OrderData a);
         [OperationContract]
@@ -62,6 +63,10 @@ namespace Interface_Data
 
         [OperationContract]
         DataTable SearchByIDOrder(int ID);
+
+        [OperationContract]
+        DataTable CustomSearchOrder(string ID, string customerName, DateTime from, DateTime to);
+
         //End bussiness Order
         //Account Business Logic Implement
         [OperationContract]
@@ -122,6 +127,8 @@ namespace Interface_Data
         [OperationContract]
         BookData GetBookDataByID(int id);
 
+        [OperationContract]
+        DataTable CustomSearchBook(string ISBN, string Bookname, string authorName);
         // end business logic book
     }
 }

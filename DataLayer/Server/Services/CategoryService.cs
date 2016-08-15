@@ -20,7 +20,8 @@ namespace Server.Services
             DataTable result = new DataTable("Categories");
             try
             {
-                if (con.State == ConnectionState.Closed) {
+                if (con.State == ConnectionState.Closed)
+                {
                     con.Open();
                 }
                 adapter.Fill(result);
@@ -28,7 +29,7 @@ namespace Server.Services
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                LogService.log("error", e.Message);
             }
             return null;
         }
@@ -43,13 +44,14 @@ namespace Server.Services
                     context.Categories.Add(c);
                     context.SaveChanges();
                     Console.WriteLine("[Category Add Successful!]"+ c.name);
+                    context.Dispose();
                     return true;
                 }
 
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                LogService.log("Error", e.Message);
                 Console.WriteLine(e.StackTrace);
                 return false;
             }
@@ -65,6 +67,7 @@ namespace Server.Services
                     context.Categories.Remove(category);
                     context.SaveChanges();
                     Console.WriteLine("[Category Remove Successful!]" + c.name);
+                    context.Dispose();
                     return true;
                 }
 
@@ -96,6 +99,7 @@ namespace Server.Services
             {
 
                 LogService.log("Error", e.Message);
+              
                 return false;
             }
         }

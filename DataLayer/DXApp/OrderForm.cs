@@ -24,10 +24,7 @@ namespace DXApp
         {
             InitializeComponent();
 
-            listPanel.Add(panel0);
-            listPanel.Add(panel1);
-            listPanel.Add(panel2);
-            listPanel.Add(panel3);
+
             for (int i = 0; i < listPanel.Count; i++)
             {
 
@@ -41,8 +38,7 @@ namespace DXApp
                 }
 
             }
-            chDate.CustomFormat = "yyyy/MM/dd";
-            chDate.Format = DateTimePickerFormat.Custom;
+
             //chDate.Format = DateTimePickerFormat.Time;
 
             chDateFrom.CustomFormat = "yyyy/MM/dd";
@@ -52,7 +48,6 @@ namespace DXApp
             chDateTo.CustomFormat = "yyyy/MM/dd";
             chDateTo.Format = DateTimePickerFormat.Custom;
 
-            cbbChoiceSearch.SelectedIndex = 3;
             ChannelFactory<IBussinessLogic> chanel = new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             proxy = chanel.CreateChannel();
         }
@@ -81,25 +76,12 @@ namespace DXApp
 
         private void cbbChoiceSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int pos = cbbChoiceSearch.SelectedIndex;
-            for (int i = 0; i < listPanel.Count; i++)
-            {
-                if (pos == i)
-                {
-                    listPanel[i].Visible = true;
-                }
-                else
-                {
-                    listPanel[i].Visible = false;
-                }
-            }
+            
         }
 
         private void txtSearchByDate_Click(object sender, EventArgs e)
         {
-            DateTime date = chDate.Value;
-            datatable = proxy.SearchByDate(date);
-            dgvOrder.DataSource = datatable;
+            
         }
 
         private void chDate_ValueChanged(object sender, EventArgs e)
@@ -109,10 +91,7 @@ namespace DXApp
 
         private void btnSearchByRangeDate_Click(object sender, EventArgs e)
         {
-            DateTime from = chDateFrom.Value;
-            DateTime to = chDateTo.Value;
-            datatable = proxy.SearchByRangeDateOrder(from, to);
-            dgvOrder.DataSource = datatable;
+            
         }
 
         private void chDateFrom_ValueChanged(object sender, EventArgs e)
@@ -122,20 +101,7 @@ namespace DXApp
 
         private void btnSearchByID_Click(object sender, EventArgs e)
         {
-            try
-            {
-                int.Parse(txtSearchByID.Text);
-                errID.Clear();
-            }
-            catch (Exception)
-            {
-                errID.SetError(txtSearchByID, "ID not null or empty.");
-
-                return;
-            }
-            int ID = int.Parse(txtSearchByID.Text);
-            datatable = proxy.SearchByIDOrder(ID);
-            dgvOrder.DataSource = datatable;
+            
 
 
         }
@@ -193,6 +159,27 @@ namespace DXApp
         private void dgvOrderDetail_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearchByName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCustomSearch_Click(object sender, EventArgs e)
+        {
+            string ID = txtSearchByID.Text;
+            string customerName = txtSearchByName.Text;
+            DateTime from = chDateFrom.Value;
+            DateTime to = chDateTo.Value;
+
+            datatable = proxy.CustomSearchOrder(ID,customerName, from, to);
+            dgvOrder.DataSource = datatable;
         }
     }
 }

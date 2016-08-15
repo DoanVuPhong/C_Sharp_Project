@@ -29,6 +29,26 @@ namespace Server.Services
             }
             return false;
         }
+
+        public static int AddReturnID(Order o)
+        {
+            try
+            {
+                using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
+                {
+                    context.Orders.Add(o);
+                    context.SaveChanges();
+                    
+                    return o.ID;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Can't add order to database. Detail: {0}", ex);
+            }
+            return -1;
+        }
+
         public static bool Update(Order o)
         {
             using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
@@ -199,5 +219,52 @@ namespace Server.Services
             }
             return null;
         }
+
+        public static DataTable CustomSearch(string ID, string customerName, DateTime from, DateTime to)
+        {
+            DataTable list = new DataTable("CustomSearchOrder");
+            string Query = "";
+            SqlConnection conn = new SqlConnection(Const.Const.ConnectionString);
+
+            Query = "Select ID,customer_name as 'Customer Name', date as 'Date' from[Order] where ID = @ID";
+            SqlCommand cmd = new SqlCommand(Query, conn);
+            cmd.Parameters.AddWithValue("@ID", ID);
+            if (string.IsNullOrEmpty(ID))
+            {
+                Query = "Select ID,customer_name as 'Customer Name', date as 'Date' from[Order] where customer_name like @customer_name AND date >= @from AND date <= @to";
+                cmd = new SqlCommand(Query, conn);
+                cmd.Parameters.AddWithValue("@customer_name", "%" + customerName + "%");
+                cmd.Parameters.AddWithValue("@from", from.ToString());
+                cmd.Parameters.AddWithValue("@to", to.ToString());
+            }
+
+
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                da.Fill(list);
+                return list;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return null;
+        }
+
+
     }
 }

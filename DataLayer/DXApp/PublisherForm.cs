@@ -25,6 +25,8 @@ namespace DXApp
             btnAdd.FlatAppearance.BorderColor = Color.Gray;
             ChannelFactory<IBussinessLogic> chanel = new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             proxy = chanel.CreateChannel();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
         private bool loadData()
         {

@@ -39,6 +39,8 @@ namespace DXApp
             ListCategory.ClearSelected();
             ListAuthors.SelectionMode = SelectionMode.MultiExtended;
             ListCategory.SelectionMode = SelectionMode.MultiExtended;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
 
         private void UpdateBook_Load(object sender, EventArgs e)
