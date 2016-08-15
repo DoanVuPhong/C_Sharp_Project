@@ -138,6 +138,15 @@ namespace DXApp
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
+            if (OrderList.Count <= 0)
+            {
+                errOrder.SetError(dgvOrderBook, "Empty Book in Order list.");
+                return;
+            }
+            else
+            {
+                errOrder.Clear();
+            }
             if (string.IsNullOrEmpty(txtCustomerName.Text.Trim()))
             {
                 errCustomerName.SetError(txtCustomerName, "Customer name not empty!");
@@ -175,6 +184,12 @@ namespace DXApp
             if (check == true)
             {
                 MessageBox.Show("Check Out Successful");
+                OrderList.Clear();
+
+                var bindingList = new BindingList<BookOrderObj>(OrderList);
+                dynamic source = new BindingSource(bindingList, null);
+                dgvOrderBook.DataSource = source;
+                txtCustomerName.Text = "";
             }
             else
             {

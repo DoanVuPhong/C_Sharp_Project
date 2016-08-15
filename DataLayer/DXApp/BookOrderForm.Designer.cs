@@ -46,10 +46,12 @@
             this.txtCustomerName = new System.Windows.Forms.TextBox();
             this.errCustomerName = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnRemove = new System.Windows.Forms.Button();
+            this.errOrder = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderBook)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errCustomerName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errOrder)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvBook
@@ -241,6 +243,10 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.button1_Click);
             // 
+            // errOrder
+            // 
+            this.errOrder.ContainerControl = this;
+            // 
             // BookOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,6 +269,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderBook)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errCustomerName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errOrder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,5 +294,6 @@
         private System.Windows.Forms.TextBox txtCustomerName;
         private System.Windows.Forms.ErrorProvider errCustomerName;
         private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.ErrorProvider errOrder;
     }
 }
