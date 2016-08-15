@@ -226,17 +226,22 @@ namespace DXApp
             {
                 int ID = int.Parse(dgvOrderBook.Rows[current].Cells["ID"].Value.ToString());
 
-                BookOrderObj re = OrderList.SingleOrDefault(o => o.ID == ID);
-                if (re != null)
-                {
+                DialogResult r = MessageBox.Show("Do you want delete this items?", "Confirm Delete", MessageBoxButtons.YesNo);
 
-                    OrderList.Remove(re);
-                }
-                else
+                if (r == DialogResult.Yes)
                 {
-                    return;
+                    BookOrderObj re = OrderList.SingleOrDefault(o => o.ID == ID);
+                    if (re != null)
+                    {
+                        OrderList.Remove(re);
+                    }
+                    else
+                    {
+                        return;
+                    } 
                 }
 
+                
                 var bindingList = new BindingList<BookOrderObj>(OrderList);
                 dynamic source = new BindingSource(bindingList, null);
                 dgvOrderBook.DataSource = source;

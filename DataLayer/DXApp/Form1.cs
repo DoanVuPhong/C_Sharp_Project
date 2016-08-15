@@ -63,6 +63,11 @@ namespace DXApp
 
         private void btnBookOrder_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void tileItem1_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+        {
             BookOrderForm frmBookOrder = new BookOrderForm();
             frmBookOrder.ShowDialog();
         }

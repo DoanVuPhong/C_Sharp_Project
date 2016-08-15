@@ -126,21 +126,21 @@
             this.publishYearPicker.Location = new System.Drawing.Point(363, 226);
             this.publishYearPicker.Name = "publishYearPicker";
             this.publishYearPicker.Size = new System.Drawing.Size(182, 20);
-            this.publishYearPicker.TabIndex = 11;
+            this.publishYearPicker.TabIndex = 8;
             // 
             // txtStatus
             // 
             this.txtStatus.Location = new System.Drawing.Point(95, 264);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(169, 20);
-            this.txtStatus.TabIndex = 10;
+            this.txtStatus.TabIndex = 9;
             // 
             // txtPrice
             // 
             this.txtPrice.Location = new System.Drawing.Point(94, 226);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(170, 20);
-            this.txtPrice.TabIndex = 8;
+            this.txtPrice.TabIndex = 7;
             // 
             // label4
             // 
@@ -168,7 +168,7 @@
             this.ListAuthors.Location = new System.Drawing.Point(363, 156);
             this.ListAuthors.Name = "ListAuthors";
             this.ListAuthors.Size = new System.Drawing.Size(174, 56);
-            this.ListAuthors.TabIndex = 5;
+            this.ListAuthors.TabIndex = 6;
             // 
             // ListCategory
             // 
@@ -177,7 +177,7 @@
             this.ListCategory.Name = "ListCategory";
             this.ListCategory.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.ListCategory.Size = new System.Drawing.Size(186, 56);
-            this.ListCategory.TabIndex = 4;
+            this.ListCategory.TabIndex = 5;
             // 
             // btnClear
             // 
@@ -185,7 +185,7 @@
             this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(76, 19);
-            this.btnClear.TabIndex = 3;
+            this.btnClear.TabIndex = 11;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -196,7 +196,7 @@
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(76, 19);
-            this.btnAdd.TabIndex = 3;
+            this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -208,7 +208,7 @@
             this.cboPublisher.Margin = new System.Windows.Forms.Padding(2);
             this.cboPublisher.Name = "cboPublisher";
             this.cboPublisher.Size = new System.Drawing.Size(187, 21);
-            this.cboPublisher.TabIndex = 2;
+            this.cboPublisher.TabIndex = 3;
             // 
             // txtDesc
             // 
@@ -217,7 +217,7 @@
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(443, 54);
-            this.txtDesc.TabIndex = 1;
+            this.txtDesc.TabIndex = 2;
             // 
             // txtQuantity
             // 
@@ -225,7 +225,7 @@
             this.txtQuantity.Margin = new System.Windows.Forms.Padding(2);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(95, 20);
-            this.txtQuantity.TabIndex = 1;
+            this.txtQuantity.TabIndex = 4;
             // 
             // txtName
             // 
@@ -241,7 +241,7 @@
             this.txtISBN.Margin = new System.Windows.Forms.Padding(2);
             this.txtISBN.Name = "txtISBN";
             this.txtISBN.Size = new System.Drawing.Size(161, 20);
-            this.txtISBN.TabIndex = 1;
+            this.txtISBN.TabIndex = 0;
             // 
             // label9
             // 
