@@ -83,6 +83,12 @@ namespace DXApp
                 MessageBox.Show("Category name Must not Empty");
                 return;
             }
+
+            if (status.Length >= 10) {
+                MessageBox.Show("Status must less thang 10 charactor!");
+                return;
+            }
+
             CategoryData category = new CategoryData();
             category.name = name;
             category.status = status;
@@ -156,6 +162,17 @@ namespace DXApp
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(txtName.Text))
+            {
+                MessageBox.Show("Category name Must not Empty");
+                return;
+            }
+
+            if (txtStatus.Text.Length >= 10)
+            {
+                MessageBox.Show("Status must less thang 10 charactor!");
+                return;
+            }
             current.name = txtName.Text;
             current.status = txtStatus.Text;
             bool result = proxy.UpdateCategory(current);
