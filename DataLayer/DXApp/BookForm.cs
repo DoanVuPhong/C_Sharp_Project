@@ -56,7 +56,7 @@ namespace DXApp
         {
             AddBook AddBookForm = new AddBook();
             DialogResult result = AddBookForm.ShowDialog();
-            if(result == DialogResult.Cancel || result == DialogResult.OK)
+            if (result == DialogResult.Cancel || result == DialogResult.OK)
             {
                 getDataSource();
             }
@@ -76,12 +76,20 @@ namespace DXApp
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            BookData b = new BookData()
+            if (string.IsNullOrEmpty(txtID.Text))
             {
-                ID = int.Parse(txtID.Text)
-            };
-            proxy.IRemoveBook(b);
-            getDataSource();
+                MessageBox.Show("Please choose a Book to Delete");
+            }
+            else
+            {
+                BookData b = new BookData()
+                {
+                    ID = int.Parse(txtID.Text)
+                };
+                proxy.IRemoveBook(b);
+                getDataSource();
+            }
+
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -95,7 +103,7 @@ namespace DXApp
             {
                 string publisher = txtPublisher.Text;
                 table = proxy.SearchBookByPublisher(publisher);
-                if(table.Rows.Count == 0 || table == null)
+                if (table.Rows.Count == 0 || table == null)
                 {
                     MessageBox.Show("No Solution");
                 }
@@ -103,7 +111,7 @@ namespace DXApp
                 {
                     dgvBook.DataSource = table;
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -155,7 +163,8 @@ namespace DXApp
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtID.Text)) {
+            if (!String.IsNullOrEmpty(txtID.Text))
+            {
                 try
                 {
                     UpdateBook form = new UpdateBook(int.Parse(txtID.Text));
