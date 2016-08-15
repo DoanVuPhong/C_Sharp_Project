@@ -10,7 +10,7 @@ namespace Server.Const
     public static class Const
     {
 
-    public static  String ConnectionString = @"server=.;database=Book_Sale_Manager;uid=sa;pwd=123456";
+    public static  String ConnectionString = @"server=.\SQL2012;database=Book_Sale_Manager;uid=sa;pwd=123";
 
 
 

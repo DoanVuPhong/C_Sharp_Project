@@ -117,7 +117,8 @@ namespace DXApp
             }
             else
             {
-                MessageBox.Show("Remove Category Fail [Error]");
+                MessageBox.Show("You can not Delete This Category because this category" +
+                     "used by some book, If you want to delete this Category please remove all book relate to this category");
 
             }
         }
@@ -166,8 +167,7 @@ namespace DXApp
             }
             else
             {
-                MessageBox.Show("You can not Delete This Category because this category"+
-                    "used by some book, If you want to delete this Category please remove all book relate to this category");
+                MessageBox.Show("ERROR CODE: 500");
             }
         }
     }
