@@ -55,7 +55,11 @@ namespace DXApp
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddBook AddBookForm = new AddBook();
-            AddBookForm.ShowDialog();
+            DialogResult result = AddBookForm.ShowDialog();
+            if (result == DialogResult.Cancel || result == DialogResult.OK)
+            {
+                getDataSource();
+            }
         }
 
         private void BookForm_Load(object sender, EventArgs e)
@@ -72,11 +76,20 @@ namespace DXApp
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            BookData b = new BookData()
+            if (string.IsNullOrEmpty(txtID.Text))
             {
-                ID = int.Parse(txtID.Text)
-            };
-            proxy.IRemoveBook(b);
+                MessageBox.Show("Please choose a Book to Delete");
+            }
+            else
+            {
+                BookData b = new BookData()
+                {
+                    ID = int.Parse(txtID.Text)
+                };
+                proxy.IRemoveBook(b);
+                getDataSource();
+            }
+
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
@@ -89,16 +102,25 @@ namespace DXApp
             try
             {
                 string publisher = txtPublisher.Text;
-                table = proxy.SearchBookByPublisher(publisher);
-                if(table.Rows.Count == 0 || table == null)
+
+                if (string.IsNullOrEmpty(publisher))
                 {
-                    MessageBox.Show("No Solution");
+                    MessageBox.Show("Please input a Publisher");
                 }
                 else
                 {
-                    dgvBook.DataSource = table;
+                    table = proxy.SearchBookByPublisher(publisher);
+                    if (table.Rows.Count == 0 || table == null)
+                    {
+                        MessageBox.Show("No Solution");
+                    }
+                    else
+                    {
+                        dgvBook.DataSource = table;
+                    }
                 }
-                
+
+
             }
             catch (Exception ex)
             {
@@ -111,15 +133,23 @@ namespace DXApp
             try
             {
                 string author = txtAuthor.Text;
-                table = proxy.SearchBookByAuthor(author);
-                if (table.Rows.Count == 0 || table == null)
+                if (string.IsNullOrEmpty(author))
                 {
-                    MessageBox.Show("No Solution");
+                    MessageBox.Show("Please input a Author's Name");
                 }
                 else
                 {
-                    dgvBook.DataSource = table;
+                    table = proxy.SearchBookByAuthor(author);
+                    if (table.Rows.Count == 0 || table == null)
+                    {
+                        MessageBox.Show("No Solution");
+                    }
+                    else
+                    {
+                        dgvBook.DataSource = table;
+                    }
                 }
+                
             }
             catch (Exception ex)
             {
@@ -150,7 +180,8 @@ namespace DXApp
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtID.Text)) {
+            if (!String.IsNullOrEmpty(txtID.Text))
+            {
                 try
                 {
                     UpdateBook form = new UpdateBook(int.Parse(txtID.Text));
@@ -161,11 +192,17 @@ namespace DXApp
 
                     MessageBox.Show("Please Enter correct ISBN");
                 }
-                
-                
-
-
             }
+            else
+            {
+                MessageBox.Show("Please choose a Book!!!");
+            }
+        }
+
+        private void dgvBook_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            UpdateBook form = new UpdateBook(int.Parse(txtID.Text));
+            form.ShowDialog();
         }
     }
 }
