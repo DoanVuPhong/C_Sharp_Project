@@ -174,7 +174,7 @@ namespace Server.Services
 
         }
 
-       
+
 
         public static SqlConnection cnn = new SqlConnection(Const.Const.ConnectionString);
 
@@ -299,9 +299,9 @@ namespace Server.Services
         {
             DataTable ListBook = new DataTable("ListBookByCategory");
             SqlCommand cmd = new SqlCommand("select b.ID, b.ISBN, b.description, b.name, b.price, b.quantity,"
-               +" b.status, b.thumbnail, b.year, b.publisher_ID, p.name as 'Publisher_Name' from Book b, Publisher p"
-               +" where b.ID in (select bc.book_ID from Book_Category bc where bc.category_ID in (select c.ID from Category c where c.name = @Category))"
-                +" and p.ID = b.publisher_ID", cnn);
+               + " b.status, b.thumbnail, b.year, b.publisher_ID, p.name as 'Publisher_Name' from Book b, Publisher p"
+               + " where b.ID in (select bc.book_ID from Book_Category bc where bc.category_ID in (select c.ID from Category c where c.name = @Category))"
+                + " and p.ID = b.publisher_ID", cnn);
             cmd.Parameters.AddWithValue("@Category", category);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             try
@@ -432,6 +432,50 @@ namespace Server.Services
 
             return result;
 
+        }
+
+        public static DataTable CustomSearch(string ISBN, string bookName, string authorName)
+        {
+            DataTable list = new DataTable("CustomSearchBook");
+            string Query = "";
+            SqlConnection conn = new SqlConnection(Const.Const.ConnectionString);
+
+            Query = "Select b.ID, b.ISBN, b.name As 'Name', b.description as 'Description', b.quantity as'Quantity', b.year as 'Year', a.name as'Author' From Book b, Book_Author ba , Author a Where b.ISBN = @ISBN  AND ba.book_ID = b.ID AND ba.author_ID = a.ID";
+            SqlCommand cmd = new SqlCommand(Query, conn);
+            cmd.Parameters.AddWithValue("@ISBN", ISBN);
+            if (string.IsNullOrEmpty(ISBN))
+            {
+                Query = "Select b.ID, b.ISBN, b.name As 'Name', b.description as 'Description', b.quantity as'Quantity', b.year as 'Year', a.name as'Author' From Book b, Book_Author ba , Author a Where b.name like @BookName AND a.name like @BookAuthor AND ba.book_ID = b.ID AND ba.author_ID = a.ID";
+                cmd = new SqlCommand(Query, conn);
+                cmd.Parameters.AddWithValue("@BookName", "%" + bookName + "%");
+                cmd.Parameters.AddWithValue("@BookAuthor", "%" + authorName + "%");
+            }
+            
+            
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                da.Fill(list);
+                return list;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+            return null;
         }
 
 

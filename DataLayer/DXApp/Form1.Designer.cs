@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement8 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement9 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement10 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement11 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement12 = new DevExpress.XtraEditors.TileItemElement();
             this.tileGroup1 = new DevExpress.XtraEditors.TileGroup();
             this.btnCategory = new DevExpress.XtraEditors.TileControl();
             this.tileGroup3 = new DevExpress.XtraEditors.TileGroup();
@@ -43,6 +44,7 @@
             this.tileGroup2 = new DevExpress.XtraEditors.TileGroup();
             this.btnCagatory = new DevExpress.XtraEditors.TileItem();
             this.tileItem5 = new DevExpress.XtraEditors.TileItem();
+            this.tileItem1 = new DevExpress.XtraEditors.TileItem();
             this.SuspendLayout();
             // 
             // tileGroup1
@@ -73,7 +75,7 @@
             this.btnCategory.Groups.Add(this.tileGroup2);
             this.btnCategory.ItemTextShowMode = DevExpress.XtraEditors.TileItemContentShowMode.Always;
             this.btnCategory.Location = new System.Drawing.Point(0, 0);
-            this.btnCategory.MaxId = 17;
+            this.btnCategory.MaxId = 18;
             this.btnCategory.Name = "btnCategory";
             this.btnCategory.Size = new System.Drawing.Size(812, 478);
             this.btnCategory.TabIndex = 0;
@@ -92,12 +94,12 @@
             this.btnBookManager.AppearanceItem.Normal.Font = new System.Drawing.Font("Tahoma", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBookManager.AppearanceItem.Normal.Options.UseBackColor = true;
             this.btnBookManager.AppearanceItem.Normal.Options.UseFont = true;
-            tileItemElement1.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement1.Image")));
-            tileItemElement1.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileItemElement1.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.NoScale;
-            tileItemElement1.Text = "Book Management";
-            tileItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
-            this.btnBookManager.Elements.Add(tileItemElement1);
+            tileItemElement7.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement7.Image")));
+            tileItemElement7.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileItemElement7.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.NoScale;
+            tileItemElement7.Text = "Book Management";
+            tileItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
+            this.btnBookManager.Elements.Add(tileItemElement7);
             this.btnBookManager.Id = 9;
             this.btnBookManager.ItemSize = DevExpress.XtraEditors.TileItemSize.Large;
             this.btnBookManager.Name = "btnBookManager";
@@ -109,10 +111,10 @@
             // 
             this.tileItem2.AppearanceItem.Normal.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.tileItem2.AppearanceItem.Normal.Options.UseBackColor = true;
-            tileItemElement2.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement2.Image")));
-            tileItemElement2.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
-            tileItemElement2.Text = "";
-            this.tileItem2.Elements.Add(tileItemElement2);
+            tileItemElement8.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement8.Image")));
+            tileItemElement8.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomInside;
+            tileItemElement8.Text = "";
+            this.tileItem2.Elements.Add(tileItemElement8);
             this.tileItem2.Id = 8;
             this.tileItem2.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem2.Name = "tileItem2";
@@ -122,10 +124,10 @@
             // 
             this.tileItem4.AppearanceItem.Normal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.tileItem4.AppearanceItem.Normal.Options.UseFont = true;
-            tileItemElement3.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement3.Image")));
-            tileItemElement3.Text = "Author Management";
-            tileItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomCenter;
-            this.tileItem4.Elements.Add(tileItemElement3);
+            tileItemElement9.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement9.Image")));
+            tileItemElement9.Text = "Author Management";
+            tileItemElement9.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomCenter;
+            this.tileItem4.Elements.Add(tileItemElement9);
             this.tileItem4.Id = 11;
             this.tileItem4.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem4.Name = "tileItem4";
@@ -136,14 +138,15 @@
             // 
             this.tileGroup2.Items.Add(this.btnCagatory);
             this.tileGroup2.Items.Add(this.tileItem5);
+            this.tileGroup2.Items.Add(this.tileItem1);
             this.tileGroup2.Name = "tileGroup2";
             // 
             // btnCagatory
             // 
-            tileItemElement4.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement4.Image")));
-            tileItemElement4.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomOutside;
-            tileItemElement4.Text = "Category";
-            this.btnCagatory.Elements.Add(tileItemElement4);
+            tileItemElement10.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement10.Image")));
+            tileItemElement10.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.ZoomOutside;
+            tileItemElement10.Text = "Category";
+            this.btnCagatory.Elements.Add(tileItemElement10);
             this.btnCagatory.Id = 15;
             this.btnCagatory.ItemSize = DevExpress.XtraEditors.TileItemSize.Large;
             this.btnCagatory.Name = "btnCagatory";
@@ -160,15 +163,28 @@
             this.tileItem5.AppearanceItem.Normal.Options.UseTextOptions = true;
             this.tileItem5.AppearanceItem.Normal.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.tileItem5.AppearanceItem.Normal.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            tileItemElement5.Image = global::DXApp.Properties.Resources.print;
-            tileItemElement5.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            tileItemElement5.Text = "Publisher";
-            tileItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomCenter;
-            this.tileItem5.Elements.Add(tileItemElement5);
+            tileItemElement11.Image = global::DXApp.Properties.Resources.print;
+            tileItemElement11.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileItemElement11.Text = "Publisher";
+            tileItemElement11.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomCenter;
+            this.tileItem5.Elements.Add(tileItemElement11);
             this.tileItem5.Id = 12;
             this.tileItem5.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem5.Name = "tileItem5";
             this.tileItem5.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItem5_ItemClick);
+            // 
+            // tileItem1
+            // 
+            tileItemElement12.Image = ((System.Drawing.Image)(resources.GetObject("tileItemElement12.Image")));
+            tileItemElement12.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Stretch;
+            tileItemElement12.Text = "Book Order";
+            tileItemElement12.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.BottomCenter;
+            this.tileItem1.Elements.Add(tileItemElement12);
+            this.tileItem1.Id = 17;
+            this.tileItem1.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
+            this.tileItem1.Name = "tileItem1";
+            this.tileItem1.Padding = new System.Windows.Forms.Padding(0);
+            this.tileItem1.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItem1_ItemClick);
             // 
             // Form1
             // 
@@ -194,6 +210,7 @@
         private DevExpress.XtraEditors.TileItem btnCagatory;
         private DevExpress.XtraEditors.TileGroup tileGroup1;
         private DevExpress.XtraEditors.TileGroup tileGroup2;
+        private DevExpress.XtraEditors.TileItem tileItem1;
     }
 }
 

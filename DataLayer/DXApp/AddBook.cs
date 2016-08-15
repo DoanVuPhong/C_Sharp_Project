@@ -20,6 +20,8 @@ namespace DXApp
             ChannelFactory<IBussinessLogic> chanel =
                 new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             proxy = chanel.CreateChannel();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
 
         IBussinessLogic proxy;

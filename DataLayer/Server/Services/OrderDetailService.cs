@@ -59,7 +59,7 @@ namespace Server.Services
 
             SqlConnection conn = new SqlConnection(Const.Const.ConnectionString);
 
-            SqlCommand cmd = new SqlCommand("select b.ISBN as 'Book ISBN', b.name as 'Name', b.description as 'Description', b.price as 'Price', b.year as'Year', od.quantity as 'Quantity' from [Order_Detail] od, Book b where od.order_ID = @ID AND od.book_ID = b.ID ", conn);
+            SqlCommand cmd = new SqlCommand("select b.ISBN as 'ISBN', b.name as 'Name', od.quantity as 'Quantity', b.price as 'Price' from [Order_Detail] od, Book b where od.order_ID = @ID AND od.book_ID = b.ID ", conn);
             cmd.Parameters.AddWithValue("@ID", ID);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
