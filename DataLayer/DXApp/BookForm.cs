@@ -102,15 +102,24 @@ namespace DXApp
             try
             {
                 string publisher = txtPublisher.Text;
-                table = proxy.SearchBookByPublisher(publisher);
-                if (table.Rows.Count == 0 || table == null)
+
+                if (string.IsNullOrEmpty(publisher))
                 {
-                    MessageBox.Show("No Solution");
+                    MessageBox.Show("Please input a Publisher");
                 }
                 else
                 {
-                    dgvBook.DataSource = table;
+                    table = proxy.SearchBookByPublisher(publisher);
+                    if (table.Rows.Count == 0 || table == null)
+                    {
+                        MessageBox.Show("No Solution");
+                    }
+                    else
+                    {
+                        dgvBook.DataSource = table;
+                    }
                 }
+
 
             }
             catch (Exception ex)
@@ -124,15 +133,23 @@ namespace DXApp
             try
             {
                 string author = txtAuthor.Text;
-                table = proxy.SearchBookByAuthor(author);
-                if (table.Rows.Count == 0 || table == null)
+                if (string.IsNullOrEmpty(author))
                 {
-                    MessageBox.Show("No Solution");
+                    MessageBox.Show("Please input a Author's Name");
                 }
                 else
                 {
-                    dgvBook.DataSource = table;
+                    table = proxy.SearchBookByAuthor(author);
+                    if (table.Rows.Count == 0 || table == null)
+                    {
+                        MessageBox.Show("No Solution");
+                    }
+                    else
+                    {
+                        dgvBook.DataSource = table;
+                    }
                 }
+                
             }
             catch (Exception ex)
             {
