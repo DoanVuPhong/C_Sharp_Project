@@ -73,7 +73,6 @@ namespace Server.Services
             }
             catch (Exception ex)
             {
-
                 LogService.log("Infor", username + "Login Fail!");
                 return -1;
             }

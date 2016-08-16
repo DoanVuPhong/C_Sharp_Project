@@ -48,12 +48,13 @@ namespace DXApp
             }
             else if (result == 0)
             {
-                MessageBox.Show("Normal User Login");
-                this.Close();
+                EmployeeForm form = new EmployeeForm();
+                this.Hide();
+                form.Show();
             }
             else {
                 MessageBox.Show("Logoin Fail! Please Try Again!");
-                this.Dispose();
+             
             }
             
         }
