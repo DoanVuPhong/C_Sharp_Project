@@ -19,7 +19,7 @@ namespace DXApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void btnCagatory_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
