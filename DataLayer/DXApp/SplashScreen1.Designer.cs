@@ -38,7 +38,7 @@
             // labelControl1
             // 
             this.labelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelControl1.Location = new System.Drawing.Point(18, 286);
+            this.labelControl1.Location = new System.Drawing.Point(191, 343);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(115, 13);
             this.labelControl1.TabIndex = 6;
@@ -47,14 +47,14 @@
             // pictureEdit2
             // 
             this.pictureEdit2.EditValue = ((object)(resources.GetObject("pictureEdit2.EditValue")));
-            this.pictureEdit2.Location = new System.Drawing.Point(12, 12);
+            this.pictureEdit2.Location = new System.Drawing.Point(0, -7);
             this.pictureEdit2.Name = "pictureEdit2";
             this.pictureEdit2.Properties.AllowFocused = false;
             this.pictureEdit2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pictureEdit2.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit2.Properties.ShowMenu = false;
-            this.pictureEdit2.Size = new System.Drawing.Size(426, 180);
+            this.pictureEdit2.Size = new System.Drawing.Size(467, 260);
             this.pictureEdit2.TabIndex = 9;
             // 
             // progressPanel1
@@ -65,7 +65,7 @@
             this.progressPanel1.AppearanceCaption.Options.UseFont = true;
             this.progressPanel1.AppearanceDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.progressPanel1.AppearanceDescription.Options.UseFont = true;
-            this.progressPanel1.Location = new System.Drawing.Point(12, 214);
+            this.progressPanel1.Location = new System.Drawing.Point(153, 259);
             this.progressPanel1.Name = "progressPanel1";
             this.progressPanel1.Size = new System.Drawing.Size(246, 66);
             this.progressPanel1.TabIndex = 10;
@@ -75,7 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 320);
+            this.ClientSize = new System.Drawing.Size(468, 370);
             this.Controls.Add(this.progressPanel1);
             this.Controls.Add(this.pictureEdit2);
             this.Controls.Add(this.labelControl1);
