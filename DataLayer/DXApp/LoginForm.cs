@@ -32,7 +32,10 @@ namespace DXApp
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            
+            for (int i = 0; i < 100; i++)
+            {
+                Thread.Sleep(100);
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

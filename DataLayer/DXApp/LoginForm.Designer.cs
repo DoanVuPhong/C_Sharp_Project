@@ -40,7 +40,7 @@
             // 
             // splashScreenManager1
             // 
-            splashScreenManager1.ClosingDelay = 5000;
+            splashScreenManager1.ClosingDelay = 50;
             // 
             // label1
             // 
