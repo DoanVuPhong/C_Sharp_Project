@@ -63,9 +63,11 @@
             // 
             // dgvBook
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Blue;
+            this.dgvBook.AllowUserToResizeColumns = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Lavender;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.MintCream;
             this.dgvBook.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBook.BackgroundColor = System.Drawing.Color.Silver;
             this.dgvBook.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -110,7 +112,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.groupBox1.Controls.Add(this.btnLoad);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.btnUpdate);
@@ -130,10 +132,10 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.BackColor = System.Drawing.Color.Teal;
+            this.btnLoad.BackColor = System.Drawing.Color.SlateGray;
             this.btnLoad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnLoad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLoad.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.btnLoad.ForeColor = System.Drawing.Color.MintCream;
             this.btnLoad.Location = new System.Drawing.Point(377, 87);
             this.btnLoad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLoad.Name = "btnLoad";
@@ -145,10 +147,10 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.Teal;
+            this.btnDelete.BackColor = System.Drawing.Color.SlateGray;
             this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.btnDelete.ForeColor = System.Drawing.Color.MintCream;
             this.btnDelete.Location = new System.Drawing.Point(254, 87);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete.Name = "btnDelete";
@@ -160,10 +162,10 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.Teal;
+            this.btnUpdate.BackColor = System.Drawing.Color.SlateGray;
             this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdate.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.btnUpdate.ForeColor = System.Drawing.Color.MintCream;
             this.btnUpdate.Location = new System.Drawing.Point(138, 87);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
@@ -175,10 +177,10 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.Teal;
+            this.btnAdd.BackColor = System.Drawing.Color.SlateGray;
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.btnAdd.ForeColor = System.Drawing.Color.MintCream;
             this.btnAdd.Location = new System.Drawing.Point(21, 87);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
@@ -194,34 +196,34 @@
             this.txtID.Location = new System.Drawing.Point(145, 30);
             this.txtID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(111, 23);
+            this.txtID.Size = new System.Drawing.Size(111, 20);
             this.txtID.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
             this.label1.Location = new System.Drawing.Point(49, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 17);
+            this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID_Book:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.label9.ForeColor = System.Drawing.Color.Gainsboro;
             this.label9.Location = new System.Drawing.Point(5, 33);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(81, 17);
+            this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 0;
             this.label9.Text = "Publisher:";
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.groupBox2.Controls.Add(this.cboCategory);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
@@ -248,28 +250,28 @@
             this.cboCategory.Location = new System.Drawing.Point(93, 112);
             this.cboCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cboCategory.Name = "cboCategory";
-            this.cboCategory.Size = new System.Drawing.Size(155, 24);
+            this.cboCategory.Size = new System.Drawing.Size(155, 21);
             this.cboCategory.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.label3.ForeColor = System.Drawing.Color.Gainsboro;
             this.label3.Location = new System.Drawing.Point(5, 114);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 17);
+            this.label3.Size = new System.Drawing.Size(61, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Category:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
             this.label2.Location = new System.Drawing.Point(5, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 17);
+            this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Author:";
             // 
@@ -279,15 +281,15 @@
             this.txtAuthor.Location = new System.Drawing.Point(93, 71);
             this.txtAuthor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.Size = new System.Drawing.Size(183, 23);
+            this.txtAuthor.Size = new System.Drawing.Size(183, 20);
             this.txtAuthor.TabIndex = 2;
             // 
             // btnFilterByCategory
             // 
-            this.btnFilterByCategory.BackColor = System.Drawing.Color.Teal;
+            this.btnFilterByCategory.BackColor = System.Drawing.Color.SlateGray;
             this.btnFilterByCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnFilterByCategory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFilterByCategory.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.btnFilterByCategory.ForeColor = System.Drawing.Color.MintCream;
             this.btnFilterByCategory.Location = new System.Drawing.Point(301, 108);
             this.btnFilterByCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFilterByCategory.Name = "btnFilterByCategory";
@@ -299,10 +301,10 @@
             // 
             // btnAuthor
             // 
-            this.btnAuthor.BackColor = System.Drawing.Color.Teal;
+            this.btnAuthor.BackColor = System.Drawing.Color.SlateGray;
             this.btnAuthor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAuthor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAuthor.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.btnAuthor.ForeColor = System.Drawing.Color.MintCream;
             this.btnAuthor.Location = new System.Drawing.Point(301, 66);
             this.btnAuthor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAuthor.Name = "btnAuthor";
@@ -318,15 +320,15 @@
             this.txtPublisher.Location = new System.Drawing.Point(93, 30);
             this.txtPublisher.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPublisher.Name = "txtPublisher";
-            this.txtPublisher.Size = new System.Drawing.Size(183, 23);
+            this.txtPublisher.Size = new System.Drawing.Size(183, 20);
             this.txtPublisher.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Teal;
+            this.button1.BackColor = System.Drawing.Color.SlateGray;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.button1.ForeColor = System.Drawing.Color.MintCream;
             this.button1.Location = new System.Drawing.Point(301, 27);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
@@ -339,18 +341,18 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Font = new System.Drawing.Font("Wide Latin", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label4.Location = new System.Drawing.Point(426, 221);
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Harrington", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.label4.Location = new System.Drawing.Point(492, 213);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(377, 42);
+            this.label4.Size = new System.Drawing.Size(277, 53);
             this.label4.TabIndex = 3;
             this.label4.Text = "Book Center";
             // 
             // BookForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
