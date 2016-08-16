@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,7 +32,7 @@ namespace DXApp
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -43,12 +44,15 @@ namespace DXApp
             {
                 Form1 form= new Form1();
                 this.Hide();
+                form.WindowState = FormWindowState.Maximized;
                 form.Show();
                 
             }
             else if (result == 0)
             {
                 EmployeeForm form = new EmployeeForm();
+                form.WindowState = FormWindowState.Maximized;
+
                 this.Hide();
                 form.Show();
             }

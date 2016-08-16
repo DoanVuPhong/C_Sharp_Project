@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::DXApp.SplashScreen1), true, true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,6 +37,10 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // splashScreenManager1
+            // 
+            splashScreenManager1.ClosingDelay = 5000;
             // 
             // label1
             // 
@@ -106,6 +111,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
