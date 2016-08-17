@@ -49,7 +49,6 @@ namespace Server.Services
 
         public static int checkLogin(string username, string password)
         {
-            return 1;
             try
             {
                 using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
@@ -57,9 +56,10 @@ namespace Server.Services
                     Account account = context.Accounts.FirstOrDefault(temp => temp.username.ToLower().Equals(username.ToLower()) && temp.password.Equals(password));
                     if (account != null)
                     {
-                        if (account.type.ToLower().Equals("admin"))
+
+                        if (account.type == "ADMIN")
                         {
-                            LogService.log("Info",username+"Login Successful");
+                            LogService.log("Info", username + "Login Successful");
                             return 1;
                         }
 
@@ -68,6 +68,9 @@ namespace Server.Services
                             LogService.log("Info", username + "Login Successful");
                             return 0;
                         }
+
+
+
                     }
                     return -1;
                 }
