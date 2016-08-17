@@ -38,6 +38,7 @@
             DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement8 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement9 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement10 = new DevExpress.XtraEditors.TileItemElement();
             this.tileGroup1 = new DevExpress.XtraEditors.TileGroup();
             this.btnCategory = new DevExpress.XtraEditors.TileControl();
             this.tileGroup3 = new DevExpress.XtraEditors.TileGroup();
@@ -48,6 +49,7 @@
             this.tileItem5 = new DevExpress.XtraEditors.TileItem();
             this.tileItem4 = new DevExpress.XtraEditors.TileItem();
             this.btnCagatory = new DevExpress.XtraEditors.TileItem();
+            this.tileItem3 = new DevExpress.XtraEditors.TileItem();
             this.SuspendLayout();
             // 
             // tileGroup1
@@ -81,7 +83,7 @@
             this.btnCategory.Groups.Add(this.tileGroup2);
             this.btnCategory.ItemTextShowMode = DevExpress.XtraEditors.TileItemContentShowMode.Always;
             this.btnCategory.Location = new System.Drawing.Point(0, 0);
-            this.btnCategory.MaxId = 19;
+            this.btnCategory.MaxId = 20;
             this.btnCategory.Name = "btnCategory";
             this.btnCategory.Size = new System.Drawing.Size(812, 478);
             this.btnCategory.TabIndex = 0;
@@ -158,6 +160,7 @@
             this.tileGroup2.Items.Add(this.tileItem5);
             this.tileGroup2.Items.Add(this.tileItem4);
             this.tileGroup2.Items.Add(this.btnCagatory);
+            this.tileGroup2.Items.Add(this.tileItem3);
             this.tileGroup2.Name = "tileGroup2";
             // 
             // tileItem5
@@ -226,6 +229,17 @@
             this.btnCagatory.Padding = new System.Windows.Forms.Padding(0);
             this.btnCagatory.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.btnCagatory_ItemClick);
             // 
+            // tileItem3
+            // 
+            this.tileItem3.AppearanceItem.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tileItem3.AppearanceItem.Normal.Options.UseFont = true;
+            tileItemElement10.Text = "Logout";
+            this.tileItem3.Elements.Add(tileItemElement10);
+            this.tileItem3.Id = 19;
+            this.tileItem3.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
+            this.tileItem3.Name = "tileItem3";
+            this.tileItem3.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItem3_ItemClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,6 +265,7 @@
         private DevExpress.XtraEditors.TileGroup tileGroup1;
         private DevExpress.XtraEditors.TileGroup tileGroup2;
         private DevExpress.XtraEditors.TileItem tileItem1;
+        private DevExpress.XtraEditors.TileItem tileItem3;
     }
 }
 
