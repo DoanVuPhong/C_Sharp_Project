@@ -128,13 +128,14 @@
             // 
             this.btnCustomSearch.BackColor = System.Drawing.Color.SlateGray;
             this.btnCustomSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCustomSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnCustomSearch.ForeColor = System.Drawing.Color.MintCream;
             this.btnCustomSearch.Location = new System.Drawing.Point(123, 182);
             this.btnCustomSearch.Name = "btnCustomSearch";
             this.btnCustomSearch.Size = new System.Drawing.Size(88, 33);
             this.btnCustomSearch.TabIndex = 14;
             this.btnCustomSearch.Text = "Search";
             this.btnCustomSearch.UseVisualStyleBackColor = false;
+            this.btnCustomSearch.Click += new System.EventHandler(this.btnCustomSearch_Click_1);
             // 
             // label11
             // 

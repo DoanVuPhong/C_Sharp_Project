@@ -135,6 +135,11 @@ namespace DXApp
             book.Publisher_ID = (int)cboPublisher.SelectedValue;
             book.Status = txtStatus.Text;
             book.Year = publishYearPicker.Value.ToString("yyyy");
+            if (book.Price < 0 || book.Quantity < 0)
+            {
+                MessageBox.Show("quantity and price must not negative");
+                return;
+            }
             foreach (CategoryData item in ListCategory.SelectedItems)
             {
                 book.Category.Add(item);
@@ -167,5 +172,7 @@ namespace DXApp
             ListCategory.ClearSelected();
             cboPublisher.SelectedIndex = 0;
         }
+
+       
     }
 }

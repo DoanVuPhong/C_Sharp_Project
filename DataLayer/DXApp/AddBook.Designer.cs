@@ -168,7 +168,7 @@
             // 
             this.btnClear.BackColor = System.Drawing.Color.SlateGray;
             this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnClear.ForeColor = System.Drawing.Color.MintCream;
             this.btnClear.Location = new System.Drawing.Point(346, 356);
             this.btnClear.Margin = new System.Windows.Forms.Padding(2);
             this.btnClear.Name = "btnClear";
@@ -181,7 +181,7 @@
             // 
             this.btnAdd.BackColor = System.Drawing.Color.SlateGray;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btnAdd.ForeColor = System.Drawing.Color.MintCream;
             this.btnAdd.Location = new System.Drawing.Point(201, 356);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";

@@ -173,12 +173,17 @@ namespace DXApp
 
         private void btnCustomSearch_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnCustomSearch_Click_1(object sender, EventArgs e)
+        {
             string ID = txtSearchByID.Text;
             string customerName = txtSearchByName.Text;
             DateTime from = chDateFrom.Value;
             DateTime to = chDateTo.Value;
 
-            datatable = proxy.CustomSearchOrder(ID,customerName, from, to);
+            datatable = proxy.CustomSearchOrder(ID, customerName, from, to);
             dgvOrder.DataSource = datatable;
         }
     }

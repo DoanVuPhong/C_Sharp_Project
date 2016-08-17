@@ -96,6 +96,10 @@ namespace DXApp
             book.Description = txtDesc.Text;
             book.Price = int.Parse(txtPrice.Text);
             book.Quantity = int.Parse(txtQuantity.Text);
+            if (book.Price < 0 || book.Quantity < 0) {
+                MessageBox.Show("quantity and price must not negative");
+                return;
+            }
             book.Publisher_ID = (int)cboPublisher.SelectedValue;
             book.Status = txtStatus.Text;
             book.Year = publishYearPicker.Value.ToString("yyyy");
@@ -135,6 +139,11 @@ namespace DXApp
             ListAuthors.ClearSelected() ;
             ListCategory.ClearSelected();
             cboPublisher.SelectedIndex = 0;
+        }
+
+        private void btnAdd_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
