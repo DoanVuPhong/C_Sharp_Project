@@ -439,12 +439,12 @@ namespace Server.Services
             string Query = "";
             SqlConnection conn = new SqlConnection(Const.Const.ConnectionString);
 
-            Query = "Select b.ID, b.ISBN, b.name As 'Name', b.price as 'Price', b.quantity as'Quantity', b.year as 'Year', a.name as'Author' From Book b, Book_Author ba , Author a Where b.ISBN = @ISBN  AND ba.book_ID = b.ID AND ba.author_ID = a.ID";
+            Query = "Select DISTINCT b.ID, b.ISBN, b.name As 'Name', b.price as 'Price', b.quantity as'Quantity', b.year as 'Year' From Book b, Book_Author ba , Author a Where b.ISBN = @ISBN  AND ba.book_ID = b.ID AND ba.author_ID = a.ID  AND b.Quantity >0";
             SqlCommand cmd = new SqlCommand(Query, conn);
             cmd.Parameters.AddWithValue("@ISBN", ISBN);
             if (string.IsNullOrEmpty(ISBN))
             {
-                Query = "Select b.ID, b.ISBN, b.name As 'Name', b.price as 'Price', b.quantity as'Quantity', b.year as 'Year', a.name as'Author' From Book b, Book_Author ba , Author a Where b.name like @BookName AND a.name like @BookAuthor AND ba.book_ID = b.ID AND ba.author_ID = a.ID";
+                Query = "Select DISTINCT b.ID, b.ISBN, b.name As 'Name', b.price as 'Price', b.quantity as'Quantity', b.year as 'Year' From Book b, Book_Author ba , Author a Where b.name like @BookName AND a.name like @BookAuthor AND ba.book_ID = b.ID AND ba.author_ID = a.ID AND b.Quantity >0";
                 cmd = new SqlCommand(Query, conn);
                 cmd.Parameters.AddWithValue("@BookName", "%" + bookName + "%");
                 cmd.Parameters.AddWithValue("@BookAuthor", "%" + authorName + "%");
@@ -477,7 +477,29 @@ namespace Server.Services
             return null;
         }
 
+        public static bool UpdateQuantity(int ID ,int Quantity)
+        {
+            try
+            {
+                using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
+                {
+                    Book book = context.Books.FirstOrDefault(bo => bo.ID == ID);
+                    if (book != null)
+                    {
+                        book.quantity = Quantity;
+                        context.SaveChanges();
+                    }
 
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                LogService.log("Erro at Book Service", ex.StackTrace);
+                return false;
+            }
+        }
 
     }
 }

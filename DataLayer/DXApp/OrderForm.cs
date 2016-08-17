@@ -143,7 +143,7 @@ namespace DXApp
                 }
                 lblCustomerName.Text = "Customer Name: " + CusName;
                 lblDate.Text ="Date: " +  Date;
-                lblTotal.Text = "Total Price: "+ TotalPrice.ToString();
+                lblTotal.Text = "Total Price: "+ TotalPrice.ToString() + " $";
             }
             else
             {
