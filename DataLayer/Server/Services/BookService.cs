@@ -182,7 +182,7 @@ namespace Server.Services
         {
             DataTable ListBook = new DataTable("ListAllBook");
             SqlCommand cmd = new SqlCommand("select b.ID, b.ISBN, b.description, b.name, b.price, b.quantity,"
-                + "  b.year , p.name as Publihser_Name from Book b, Publisher p where b.publisher_ID = p.ID", cnn);
+                + "  b.year , p.name as Publisher_Name from Book b, Publisher p where b.publisher_ID = p.ID", cnn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
             try
