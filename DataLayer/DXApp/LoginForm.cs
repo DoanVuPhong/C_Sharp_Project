@@ -43,7 +43,6 @@ namespace DXApp
             string username = txtUsername.Text;
             string password = txtPassword.Text;
             int result=proxy.checkLogin(username, password);
-            result = 1;
             if (result == 1)
             {
                 Form1 form= new Form1();
@@ -54,11 +53,11 @@ namespace DXApp
             }
             else if (result == 0)
             {
-                EmployeeForm form = new EmployeeForm();
-                form.WindowState = FormWindowState.Maximized;
+                EmployeeForm form2 = new EmployeeForm();
+                form2.WindowState = FormWindowState.Maximized;
 
                 this.Hide();
-                form.Show();
+                form2.Show();
             }
             else {
                 MessageBox.Show("Logoin Fail! Please Try Again!");
