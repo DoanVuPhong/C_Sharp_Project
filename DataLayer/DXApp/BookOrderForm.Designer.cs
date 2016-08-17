@@ -73,7 +73,7 @@
             this.dgvBook.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvBook.Location = new System.Drawing.Point(12, 217);
             this.dgvBook.Name = "dgvBook";
-            this.dgvBook.Size = new System.Drawing.Size(415, 220);
+            this.dgvBook.Size = new System.Drawing.Size(539, 220);
             this.dgvBook.TabIndex = 0;
             this.dgvBook.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBook_CellDoubleClick);
             // 
@@ -91,7 +91,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.MintCream;
             this.groupBox1.Location = new System.Drawing.Point(12, 63);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(415, 137);
+            this.groupBox1.Size = new System.Drawing.Size(539, 148);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Custom Search";
@@ -101,7 +101,7 @@
             // 
             this.btnCustomSearch.BackColor = System.Drawing.Color.SlateGray;
             this.btnCustomSearch.ForeColor = System.Drawing.Color.MintCream;
-            this.btnCustomSearch.Location = new System.Drawing.Point(104, 103);
+            this.btnCustomSearch.Location = new System.Drawing.Point(160, 102);
             this.btnCustomSearch.Name = "btnCustomSearch";
             this.btnCustomSearch.Size = new System.Drawing.Size(75, 29);
             this.btnCustomSearch.TabIndex = 3;
@@ -191,7 +191,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.MintCream;
             this.dgvOrderBook.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOrderBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrderBook.Location = new System.Drawing.Point(471, 92);
+            this.dgvOrderBook.Location = new System.Drawing.Point(589, 92);
             this.dgvOrderBook.Name = "dgvOrderBook";
             this.dgvOrderBook.Size = new System.Drawing.Size(476, 233);
             this.dgvOrderBook.TabIndex = 3;
@@ -210,7 +210,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Harrington", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.MintCream;
-            this.label5.Location = new System.Drawing.Point(465, 42);
+            this.label5.Location = new System.Drawing.Point(593, 42);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(168, 37);
             this.label5.TabIndex = 2;
@@ -222,7 +222,7 @@
             this.btnCheckOut.BackColor = System.Drawing.Color.SlateGray;
             this.btnCheckOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckOut.ForeColor = System.Drawing.Color.MintCream;
-            this.btnCheckOut.Location = new System.Drawing.Point(600, 400);
+            this.btnCheckOut.Location = new System.Drawing.Point(727, 400);
             this.btnCheckOut.Name = "btnCheckOut";
             this.btnCheckOut.Size = new System.Drawing.Size(130, 37);
             this.btnCheckOut.TabIndex = 1;
@@ -236,7 +236,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.MintCream;
-            this.label6.Location = new System.Drawing.Point(468, 367);
+            this.label6.Location = new System.Drawing.Point(586, 364);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label6.Size = new System.Drawing.Size(118, 16);
@@ -246,7 +246,7 @@
             // txtCustomerName
             // 
             this.txtCustomerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCustomerName.Location = new System.Drawing.Point(600, 367);
+            this.txtCustomerName.Location = new System.Drawing.Point(774, 364);
             this.txtCustomerName.MaxLength = 250;
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.Size = new System.Drawing.Size(291, 21);
@@ -261,7 +261,7 @@
             this.btnRemove.BackColor = System.Drawing.Color.SlateGray;
             this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.Color.MintCream;
-            this.btnRemove.Location = new System.Drawing.Point(856, 55);
+            this.btnRemove.Location = new System.Drawing.Point(974, 52);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(91, 31);
             this.btnRemove.TabIndex = 5;
@@ -277,7 +277,7 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(830, 337);
+            this.lblTotal.Location = new System.Drawing.Point(939, 337);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(61, 18);
             this.lblTotal.TabIndex = 6;
@@ -289,7 +289,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1004, 456);
+            this.ClientSize = new System.Drawing.Size(1095, 456);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnCheckOut);

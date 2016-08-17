@@ -129,6 +129,8 @@ namespace Interface_Data
 
         [OperationContract]
         DataTable CustomSearchBook(string ISBN, string Bookname, string authorName);
+        [OperationContract]
+        bool UpdateQuantityBook(int ID, int Quantity);
         // end business logic book
     }
 }
