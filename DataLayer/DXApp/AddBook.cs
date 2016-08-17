@@ -162,9 +162,6 @@ namespace DXApp
             txtStatus.Text = "";
         }
 
-        private void btnAdd_Click_1(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }
