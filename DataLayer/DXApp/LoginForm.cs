@@ -34,7 +34,7 @@ namespace DXApp
         {
             for (int i = 0; i < 100; i++)
             {
-                Thread.Sleep(100);
+                Thread.Sleep(5);
             }
         }
 
