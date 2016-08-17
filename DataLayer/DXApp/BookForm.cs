@@ -28,6 +28,7 @@ namespace DXApp
             ChannelFactory<IBussinessLogic> chanel = new ChannelFactory<IBussinessLogic>("ClientEndPoint");
             proxy = chanel.CreateChannel();
             getDataSource();
+            lbNumOfBook.Text = "Number of Book: "+ table.Rows.Count.ToString();
         }
 
         public void getDataSource()
@@ -64,9 +65,7 @@ namespace DXApp
 
         private void BookForm_Load(object sender, EventArgs e)
         {
-            cboCategory.DataSource = proxy.GetAllCategory();
-            cboCategory.DisplayMember = "name";
-            cboCategory.ValueMember = "name";
+            cboSearch.SelectedIndex = 0;
         }
 
         private void dgvBook_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -97,78 +96,40 @@ namespace DXApp
             getDataSource();
         }
 
-        private void btnSearchByPublisher_Click(object sender, EventArgs e)
+
+        private void btnFilter_Click(object sender, EventArgs e)
         {
             try
             {
-                string publisher = txtPublisher.Text;
-
-                if (string.IsNullOrEmpty(publisher))
+                int searchIndex = cboSearch.SelectedIndex;
+                string searchText = cboSearch.SelectedItem.ToString();
+                string search = txtSearch.Text;
+                table = proxy.FilterBookByCategory(search);
+                if (string.IsNullOrEmpty(search))
                 {
-                    MessageBox.Show("Please input a Publisher");
+                    MessageBox.Show("Please input a " + searchText);
+                    txtSearch.Focus();
+                    return;
                 }
-                else
+                if (searchIndex == 0)
                 {
-                    table = proxy.SearchBookByPublisher(publisher);
-                    if (table.Rows.Count == 0 || table == null)
-                    {
-                        MessageBox.Show("No Solution");
-                    }
-                    else
-                    {
-                        dgvBook.DataSource = table;
-                    }
+                    table = proxy.SearchBookByAuthor(search);
                 }
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btnSearchByAuthor_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string author = txtAuthor.Text;
-                if (string.IsNullOrEmpty(author))
+                else if (searchIndex == 1)
                 {
-                    MessageBox.Show("Please input a Author's Name");
+                    table = proxy.SearchBookByPublisher(search);
                 }
-                else
+                else if (searchIndex == 2)
                 {
-                    table = proxy.SearchBookByAuthor(author);
-                    if (table.Rows.Count == 0 || table == null)
-                    {
-                        MessageBox.Show("No Solution");
-                    }
-                    else
-                    {
-                        dgvBook.DataSource = table;
-                    }
+                    table = proxy.FilterBookByCategory(search);
                 }
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void btnFilterByCategory_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string category = cboCategory.SelectedValue.ToString();
-                table = proxy.FilterBookByCategory(category);
                 if (table.Rows.Count == 0 || table == null)
                 {
-                    MessageBox.Show("This Category is empty");
+                    MessageBox.Show("This " + searchText + " is empty");
                 }
                 else
                 {
+                    lbNumOfBook.Text = "Number of Book: " + table.Rows.Count.ToString();
                     dgvBook.DataSource = table;
                 }
             }

@@ -83,6 +83,10 @@ namespace DXApp
                 MessageBox.Show("Category name Must not Empty");
                 return;
             }
+            if (txtName.Text.Length > 200) {
+                MessageBox.Show("name lenght too long ,lenght must <200");
+                return;
+            }
 
             if (status.Length >= 10) {
                 MessageBox.Show("Status must less thang 10 charactor!");

@@ -46,15 +46,11 @@
             this.label9 = new System.Windows.Forms.Label();
             this.bindingBook = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cboCategory = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtAuthor = new System.Windows.Forms.TextBox();
-            this.btnFilterByCategory = new System.Windows.Forms.Button();
-            this.btnAuthor = new System.Windows.Forms.Button();
-            this.txtPublisher = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cboSearch = new System.Windows.Forms.ComboBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnFilter = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.lbNumOfBook = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingBook)).BeginInit();
@@ -90,8 +86,8 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvBook.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBook.GridColor = System.Drawing.Color.Silver;
-            this.dgvBook.Location = new System.Drawing.Point(35, 278);
-            this.dgvBook.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvBook.Location = new System.Drawing.Point(47, 407);
+            this.dgvBook.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.dgvBook.Name = "dgvBook";
             this.dgvBook.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -105,7 +101,7 @@
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.Silver;
             this.dgvBook.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvBook.RowTemplate.Height = 24;
-            this.dgvBook.Size = new System.Drawing.Size(1151, 278);
+            this.dgvBook.Size = new System.Drawing.Size(850, 277);
             this.dgvBook.TabIndex = 2;
             this.dgvBook.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBook_CellClick);
             this.dgvBook.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBook_CellDoubleClick);
@@ -121,14 +117,14 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.DarkGray;
-            this.groupBox1.Location = new System.Drawing.Point(107, 41);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Location = new System.Drawing.Point(133, 100);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(499, 162);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.groupBox1.Size = new System.Drawing.Size(665, 146);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Book_Detail";
+            this.groupBox1.Text = "Book";
             // 
             // btnLoad
             // 
@@ -136,10 +132,10 @@
             this.btnLoad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnLoad.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLoad.ForeColor = System.Drawing.Color.MintCream;
-            this.btnLoad.Location = new System.Drawing.Point(377, 87);
-            this.btnLoad.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLoad.Location = new System.Drawing.Point(504, 81);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(101, 28);
+            this.btnLoad.Size = new System.Drawing.Size(135, 34);
             this.btnLoad.TabIndex = 4;
             this.btnLoad.Text = "Load All";
             this.btnLoad.UseVisualStyleBackColor = false;
@@ -151,10 +147,10 @@
             this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.ForeColor = System.Drawing.Color.MintCream;
-            this.btnDelete.Location = new System.Drawing.Point(254, 87);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDelete.Location = new System.Drawing.Point(340, 81);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(101, 28);
+            this.btnDelete.Size = new System.Drawing.Size(135, 34);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -166,10 +162,10 @@
             this.btnUpdate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.ForeColor = System.Drawing.Color.MintCream;
-            this.btnUpdate.Location = new System.Drawing.Point(138, 87);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUpdate.Location = new System.Drawing.Point(185, 81);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(101, 28);
+            this.btnUpdate.Size = new System.Drawing.Size(135, 34);
             this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
@@ -181,10 +177,10 @@
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.ForeColor = System.Drawing.Color.MintCream;
-            this.btnAdd.Location = new System.Drawing.Point(21, 87);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAdd.Location = new System.Drawing.Point(29, 81);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(101, 28);
+            this.btnAdd.Size = new System.Drawing.Size(135, 34);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -193,10 +189,10 @@
             // txtID
             // 
             this.txtID.ForeColor = System.Drawing.Color.Black;
-            this.txtID.Location = new System.Drawing.Point(145, 30);
-            this.txtID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtID.Location = new System.Drawing.Point(193, 37);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(111, 20);
+            this.txtID.Size = new System.Drawing.Size(147, 23);
             this.txtID.TabIndex = 0;
             // 
             // label1
@@ -204,9 +200,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(49, 33);
+            this.label1.Location = new System.Drawing.Point(65, 41);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID_Book:";
             // 
@@ -215,128 +212,68 @@
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.label9.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label9.Location = new System.Drawing.Point(5, 33);
+            this.label9.Location = new System.Drawing.Point(7, 41);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(63, 13);
+            this.label9.Size = new System.Drawing.Size(73, 17);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Publisher:";
+            this.label9.Text = "Filter By:";
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.groupBox2.Controls.Add(this.cboCategory);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.txtAuthor);
+            this.groupBox2.Controls.Add(this.lbNumOfBook);
+            this.groupBox2.Controls.Add(this.cboSearch);
+            this.groupBox2.Controls.Add(this.txtSearch);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.btnFilterByCategory);
-            this.groupBox2.Controls.Add(this.btnAuthor);
-            this.groupBox2.Controls.Add(this.txtPublisher);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnFilter);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.DarkGray;
-            this.groupBox2.Location = new System.Drawing.Point(631, 41);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Location = new System.Drawing.Point(133, 269);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(483, 162);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.groupBox2.Size = new System.Drawing.Size(665, 119);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Search";
             // 
-            // cboCategory
+            // cboSearch
             // 
-            this.cboCategory.FormattingEnabled = true;
-            this.cboCategory.Location = new System.Drawing.Point(93, 112);
-            this.cboCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cboCategory.Name = "cboCategory";
-            this.cboCategory.Size = new System.Drawing.Size(155, 21);
-            this.cboCategory.TabIndex = 4;
+            this.cboSearch.FormattingEnabled = true;
+            this.cboSearch.Items.AddRange(new object[] {
+            "Author",
+            "Publisher",
+            "Category"});
+            this.cboSearch.Location = new System.Drawing.Point(88, 38);
+            this.cboSearch.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.cboSearch.Name = "cboSearch";
+            this.cboSearch.Size = new System.Drawing.Size(145, 24);
+            this.cboSearch.TabIndex = 4;
             // 
-            // label3
+            // txtSearch
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label3.Location = new System.Drawing.Point(5, 114);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Category:";
+            this.txtSearch.ForeColor = System.Drawing.Color.Black;
+            this.txtSearch.Location = new System.Drawing.Point(268, 38);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(243, 23);
+            this.txtSearch.TabIndex = 2;
             // 
-            // label2
+            // btnFilter
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label2.Location = new System.Drawing.Point(5, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Author:";
-            // 
-            // txtAuthor
-            // 
-            this.txtAuthor.ForeColor = System.Drawing.Color.Black;
-            this.txtAuthor.Location = new System.Drawing.Point(93, 71);
-            this.txtAuthor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.Size = new System.Drawing.Size(183, 20);
-            this.txtAuthor.TabIndex = 2;
-            // 
-            // btnFilterByCategory
-            // 
-            this.btnFilterByCategory.BackColor = System.Drawing.Color.SlateGray;
-            this.btnFilterByCategory.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnFilterByCategory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFilterByCategory.ForeColor = System.Drawing.Color.MintCream;
-            this.btnFilterByCategory.Location = new System.Drawing.Point(301, 108);
-            this.btnFilterByCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnFilterByCategory.Name = "btnFilterByCategory";
-            this.btnFilterByCategory.Size = new System.Drawing.Size(175, 28);
-            this.btnFilterByCategory.TabIndex = 5;
-            this.btnFilterByCategory.Text = "Filter By Category";
-            this.btnFilterByCategory.UseVisualStyleBackColor = false;
-            this.btnFilterByCategory.Click += new System.EventHandler(this.btnFilterByCategory_Click);
-            // 
-            // btnAuthor
-            // 
-            this.btnAuthor.BackColor = System.Drawing.Color.SlateGray;
-            this.btnAuthor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnAuthor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAuthor.ForeColor = System.Drawing.Color.MintCream;
-            this.btnAuthor.Location = new System.Drawing.Point(301, 66);
-            this.btnAuthor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnAuthor.Name = "btnAuthor";
-            this.btnAuthor.Size = new System.Drawing.Size(175, 28);
-            this.btnAuthor.TabIndex = 3;
-            this.btnAuthor.Text = "Search By Author";
-            this.btnAuthor.UseVisualStyleBackColor = false;
-            this.btnAuthor.Click += new System.EventHandler(this.btnSearchByAuthor_Click);
-            // 
-            // txtPublisher
-            // 
-            this.txtPublisher.ForeColor = System.Drawing.Color.Black;
-            this.txtPublisher.Location = new System.Drawing.Point(93, 30);
-            this.txtPublisher.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtPublisher.Name = "txtPublisher";
-            this.txtPublisher.Size = new System.Drawing.Size(183, 20);
-            this.txtPublisher.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.SlateGray;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.ForeColor = System.Drawing.Color.MintCream;
-            this.button1.Location = new System.Drawing.Point(301, 27);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 28);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Search By Publisher";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.btnSearchByPublisher_Click);
+            this.btnFilter.BackColor = System.Drawing.Color.SlateGray;
+            this.btnFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnFilter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFilter.ForeColor = System.Drawing.Color.MintCream;
+            this.btnFilter.Location = new System.Drawing.Point(539, 32);
+            this.btnFilter.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(100, 34);
+            this.btnFilter.TabIndex = 5;
+            this.btnFilter.Text = "Filter";
+            this.btnFilter.UseVisualStyleBackColor = false;
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // label4
             // 
@@ -344,20 +281,31 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Harrington", 33.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(492, 213);
+            this.label4.Location = new System.Drawing.Point(285, 9);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(277, 53);
+            this.label4.Size = new System.Drawing.Size(349, 67);
             this.label4.TabIndex = 3;
             this.label4.Text = "Book Center";
             // 
+            // lbNumOfBook
+            // 
+            this.lbNumOfBook.AutoSize = true;
+            this.lbNumOfBook.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbNumOfBook.Location = new System.Drawing.Point(7, 90);
+            this.lbNumOfBook.Name = "lbNumOfBook";
+            this.lbNumOfBook.Size = new System.Drawing.Size(52, 17);
+            this.lbNumOfBook.TabIndex = 6;
+            this.lbNumOfBook.Text = "label2";
+            // 
             // BookForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkBlue;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1226, 585);
+            this.ClientSize = new System.Drawing.Size(949, 720);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -365,7 +313,7 @@
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "BookForm";
             this.Text = "Book_Management";
             this.Load += new System.EventHandler(this.BookForm_Load);
@@ -393,14 +341,10 @@
         private System.Windows.Forms.BindingSource bindingBook;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtPublisher;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtAuthor;
-        private System.Windows.Forms.Button btnAuthor;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnFilterByCategory;
-        private System.Windows.Forms.ComboBox cboCategory;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnFilter;
+        private System.Windows.Forms.ComboBox cboSearch;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbNumOfBook;
     }
 }

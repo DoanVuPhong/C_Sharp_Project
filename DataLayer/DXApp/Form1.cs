@@ -72,9 +72,11 @@ namespace DXApp
             frmBookOrder.ShowDialog();
         }
 
-        private void btnCategory_Click(object sender, EventArgs e)
+        private void tileItem3_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
-
+            this.Hide();
+            LoginForm form = new LoginForm();
+            form.ShowDialog();
         }
     }
 }

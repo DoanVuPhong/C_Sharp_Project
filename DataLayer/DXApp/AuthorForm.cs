@@ -69,9 +69,27 @@ namespace DXApp
             }
         }
 
+        bool validate() {
+            if (String.IsNullOrEmpty(txtName.Text)) {
+                MessageBox.Show("name must not empty");
+                return false;
+            }
+            if (txtName.Text.Length > 250) {
+                MessageBox.Show("Name Lenght too long [lenght must <250]");
+            }
+
+            return true;
+
+        }
+
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+
+            if (!validate()) {
+                return;
+            }
 
             if (String.IsNullOrEmpty(txtName.Text))
             {
@@ -129,7 +147,9 @@ namespace DXApp
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            if (!validate()) {
+                return;
+            }
             current.name = txtName.Text;
             bool result = proxy.UpdateAuthor(current);
             if (result)

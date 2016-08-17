@@ -173,6 +173,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen1.resx">
       <DependentUpon>SplashScreen1.cs</DependentUpon>
+      <SubType>Code</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateBook.resx">
       <DependentUpon>UpdateBook.cs</DependentUpon>

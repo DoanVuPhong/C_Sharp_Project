@@ -28,10 +28,5 @@ namespace DXApp
         public enum SplashScreenCommand
         {
         }
-
-        private void SplashScreen1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
