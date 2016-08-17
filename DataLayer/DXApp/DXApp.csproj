@@ -98,12 +98,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginForm.Designer.cs">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="OrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,12 +111,6 @@
     </Compile>
     <Compile Include="PublisherForm.Designer.cs">
       <DependentUpon>PublisherForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SplashScreen1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SplashScreen1.Designer.cs">
-      <DependentUpon>SplashScreen1.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateBook.cs">
       <SubType>Form</SubType>
@@ -151,9 +139,6 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm.resx">
-      <DependentUpon>LoginForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="OrderForm.resx">
       <DependentUpon>OrderForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,9 +155,6 @@
     </Compile>
     <EmbeddedResource Include="PublisherForm.resx">
       <DependentUpon>PublisherForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SplashScreen1.resx">
-      <DependentUpon>SplashScreen1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateBook.resx">
       <DependentUpon>UpdateBook.cs</DependentUpon>
