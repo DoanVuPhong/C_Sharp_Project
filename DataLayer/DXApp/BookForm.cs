@@ -17,6 +17,7 @@ namespace DXApp
         IBussinessLogic proxy;
         DataTable table = new DataTable();
         //BookData current = new BookData();
+        DataView dvBook = new DataView();
         public BookForm()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace DXApp
             proxy = chanel.CreateChannel();
             getDataSource();
             lbNumOfBook.Text = "Number of Book: "+ table.Rows.Count.ToString();
+            dvBook = new DataView(table);
         }
 
         public void getDataSource()
@@ -117,7 +119,9 @@ namespace DXApp
                 }
                 else if (searchIndex == 1)
                 {
-                    table = proxy.SearchBookByPublisher(search);
+                    dvBook.RowFilter = "Publisher_Name like '%" + search + "%'";
+                    table = dvBook.ToTable();
+                    //table = proxy.SearchBookByPublisher(search);
                 }
                 else if (searchIndex == 2)
                 {
@@ -130,7 +134,7 @@ namespace DXApp
                 else
                 {
                     lbNumOfBook.Text = "Number of Book: " + table.Rows.Count.ToString();
-                    dgvBook.DataSource = table;
+                    dgvBook.DataSource = dvBook;
                 }
             }
             catch (Exception ex)
