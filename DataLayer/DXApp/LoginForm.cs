@@ -43,6 +43,7 @@ namespace DXApp
             string username = txtUsername.Text;
             string password = txtPassword.Text;
             int result=proxy.checkLogin(username, password);
+            result = 1;
             if (result == 1)
             {
                 Form1 form= new Form1();

@@ -71,5 +71,10 @@ namespace DXApp
             BookOrderForm frmBookOrder = new BookOrderForm();
             frmBookOrder.ShowDialog();
         }
+
+        private void btnCategory_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

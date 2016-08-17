@@ -50,6 +50,7 @@
             this.errCustomerName = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnRemove = new System.Windows.Forms.Button();
             this.errOrder = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderBook)).BeginInit();
@@ -192,10 +193,12 @@
             this.dgvOrderBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrderBook.Location = new System.Drawing.Point(471, 92);
             this.dgvOrderBook.Name = "dgvOrderBook";
-            this.dgvOrderBook.Size = new System.Drawing.Size(420, 233);
+            this.dgvOrderBook.Size = new System.Drawing.Size(476, 233);
             this.dgvOrderBook.TabIndex = 3;
             this.dgvOrderBook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderBook_CellContentClick);
             this.dgvOrderBook.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderBook_CellDoubleClick);
+            this.dgvOrderBook.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderBook_CellEndEdit);
+            this.dgvOrderBook.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvOrderBook_CellValidating);
             this.dgvOrderBook.DragOver += new System.Windows.Forms.DragEventHandler(this.dgvOrderBook_DragOver);
             this.dgvOrderBook.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvOrderBook_KeyDown);
             this.dgvOrderBook.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgvOrderBook_KeyUp);
@@ -219,7 +222,7 @@
             this.btnCheckOut.BackColor = System.Drawing.Color.SlateGray;
             this.btnCheckOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCheckOut.ForeColor = System.Drawing.Color.MintCream;
-            this.btnCheckOut.Location = new System.Drawing.Point(600, 389);
+            this.btnCheckOut.Location = new System.Drawing.Point(600, 400);
             this.btnCheckOut.Name = "btnCheckOut";
             this.btnCheckOut.Size = new System.Drawing.Size(130, 37);
             this.btnCheckOut.TabIndex = 1;
@@ -233,7 +236,7 @@
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.MintCream;
-            this.label6.Location = new System.Drawing.Point(476, 351);
+            this.label6.Location = new System.Drawing.Point(468, 367);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label6.Size = new System.Drawing.Size(118, 16);
@@ -243,7 +246,7 @@
             // txtCustomerName
             // 
             this.txtCustomerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCustomerName.Location = new System.Drawing.Point(600, 348);
+            this.txtCustomerName.Location = new System.Drawing.Point(600, 367);
             this.txtCustomerName.MaxLength = 250;
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.Size = new System.Drawing.Size(291, 21);
@@ -258,7 +261,7 @@
             this.btnRemove.BackColor = System.Drawing.Color.SlateGray;
             this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemove.ForeColor = System.Drawing.Color.MintCream;
-            this.btnRemove.Location = new System.Drawing.Point(800, 55);
+            this.btnRemove.Location = new System.Drawing.Point(856, 55);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(91, 31);
             this.btnRemove.TabIndex = 5;
@@ -270,13 +273,24 @@
             // 
             this.errOrder.ContainerControl = this;
             // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(830, 337);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(61, 18);
+            this.lblTotal.TabIndex = 6;
+            this.lblTotal.Text = "Total : 0";
+            // 
             // BookOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(924, 456);
+            this.ClientSize = new System.Drawing.Size(1004, 456);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnCheckOut);
             this.Controls.Add(this.txtCustomerName);
@@ -320,5 +334,6 @@
         private System.Windows.Forms.ErrorProvider errCustomerName;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.ErrorProvider errOrder;
+        private System.Windows.Forms.Label lblTotal;
     }
 }

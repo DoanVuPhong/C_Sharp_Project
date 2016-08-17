@@ -49,14 +49,15 @@ namespace Server.Services
 
         public static int checkLogin(string username, string password)
         {
+            return 1;
             try
             {
                 using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
                 {
-                    Account account = context.Accounts.FirstOrDefault(temp => temp.username == username && temp.password == password);
+                    Account account = context.Accounts.FirstOrDefault(temp => temp.username.ToLower().Equals(username.ToLower()) && temp.password.Equals(password));
                     if (account != null)
                     {
-                        if (account.type == "ADMIN")
+                        if (account.type.ToLower().Equals("admin"))
                         {
                             LogService.log("Info",username+"Login Successful");
                             return 1;

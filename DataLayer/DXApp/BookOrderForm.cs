@@ -60,6 +60,7 @@ namespace DXApp
                 int ID = int.Parse(dgvBook.Rows[e.RowIndex].Cells["ID"].Value.ToString());
                 string ISBN = dgvBook.Rows[e.RowIndex].Cells["ISBN"].Value.ToString();
                 string Name = dgvBook.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+                double Price = float.Parse( dgvBook.Rows[e.RowIndex].Cells["Price"].Value.ToString());
                 int OrderQuantity = 1;
                 BookOrderObj re = OrderList.SingleOrDefault(o => o.ID == ID);
                 if (re != null)
@@ -74,12 +75,23 @@ namespace DXApp
                         ID = ID,
                         ISBN = ISBN,
                         Name = Name,
-                        Quantity = 1
+                        Quantity = 1,
+                        Price = Price
+                        
                     });
                 }
 
+                
                 var bindingList = new BindingList<BookOrderObj>(OrderList);
                 dynamic source = new BindingSource(bindingList, null);
+
+                double TotalPrice = 0;
+                foreach (var item in OrderList)
+                {
+                    TotalPrice += (item.Price * item.Quantity);
+                }
+
+                lblTotal.Text = "Total: " + TotalPrice + " VND";
                 dgvOrderBook.DataSource = source;
             }
             else
@@ -190,6 +202,16 @@ namespace DXApp
                 dynamic source = new BindingSource(bindingList, null);
                 dgvOrderBook.DataSource = source;
                 txtCustomerName.Text = "";
+
+                double TotalPrice = 0;
+                foreach (var item in OrderList)
+                {
+                    TotalPrice += (item.Price * item.Quantity);
+                }
+
+                lblTotal.Text = "Total: " + TotalPrice + " VND";
+                dgvOrderBook.DataSource = source;
+
             }
             else
             {
@@ -260,6 +282,17 @@ namespace DXApp
                 var bindingList = new BindingList<BookOrderObj>(OrderList);
                 dynamic source = new BindingSource(bindingList, null);
                 dgvOrderBook.DataSource = source;
+
+                double TotalPrice = 0;
+                foreach (var item in OrderList)
+                {
+                    TotalPrice += (item.Price * item.Quantity);
+                }
+
+                lblTotal.Text = "Total: " + TotalPrice + " VND";
+                dgvOrderBook.DataSource = source;
+
+
             }
             else
             {
@@ -303,6 +336,68 @@ namespace DXApp
                 return;
             }
             */
+        }
+
+        private void dgvOrderBook_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            string columnName = this.dgvOrderBook.Columns[e.ColumnIndex].Name;
+
+            int temp = -1;
+            if (columnName.Equals("Quantity"))
+            {
+                if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
+                {
+                    this.dgvOrderBook.Rows[e.RowIndex].ErrorText = "Quantity could not be empty.";
+                    e.Cancel = true;
+                }
+                else
+                {
+                    bool check = false;
+                    try
+                    {
+                         temp = int.Parse(e.FormattedValue.ToString());
+                    }
+                    catch (Exception)
+                    {
+                        
+                    }
+                    if ( temp > 0)
+                    {
+                        check = true;
+                        int current = dgvOrderBook.CurrentCell.RowIndex;
+
+                        int ID = int.Parse(dgvOrderBook.Rows[current].Cells["ID"].Value.ToString());
+                        BookOrderObj re = OrderList.SingleOrDefault(o => o.ID == ID);
+                        if (re != null)
+                        {
+                            re.Quantity = temp;
+
+                            double TotalPrice = 0;
+                            foreach (var item in OrderList)
+                            {
+                                TotalPrice += (item.Price * item.Quantity);
+                            }
+
+                            lblTotal.Text = "Total: " + TotalPrice + " VND";
+
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
+                    if (check==false)
+                    {
+                        this.dgvOrderBook.Rows[e.RowIndex].ErrorText = "Quantity only number and large than zero.";
+                        e.Cancel = true;
+                    }         
+                }
+            }
+        }
+
+        private void dgvOrderBook_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            this.dgvOrderBook.Rows[e.RowIndex].ErrorText = string.Empty;
         }
     }
 }
