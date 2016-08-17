@@ -266,6 +266,10 @@ namespace DXApp
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (dgvOrderBook.Rows.Count <= 0)
+            {
+                return;
+            }
             int current = dgvOrderBook.CurrentCell.RowIndex;
 
             if (current >= 0)
