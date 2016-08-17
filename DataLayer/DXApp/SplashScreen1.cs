@@ -28,7 +28,5 @@ namespace DXApp
         public enum SplashScreenCommand
         {
         }
-
-       
     }
 }

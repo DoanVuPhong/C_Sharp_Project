@@ -71,5 +71,12 @@ namespace DXApp
             BookOrderForm frmBookOrder = new BookOrderForm();
             frmBookOrder.ShowDialog();
         }
+
+        private void tileItem3_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+        {
+            this.Hide();
+            LoginForm form = new LoginForm();
+            form.ShowDialog();
+        }
     }
 }

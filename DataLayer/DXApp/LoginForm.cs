@@ -53,7 +53,7 @@ namespace DXApp
             }
             else if (result == 0)
             {
-                EmployeeForm form = new EmployeeForm();
+                Employee form = new Employee();
                 form.WindowState = FormWindowState.Maximized;
 
                 this.Hide();

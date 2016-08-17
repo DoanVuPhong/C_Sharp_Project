@@ -130,7 +130,7 @@ namespace DXApp
                 int a = int.Parse(txtQuantity.Text);
                 if (a < 0)
                 {
-                    MessageBox.Show("Quantity Must Be Integer Number");
+                    MessageBox.Show("Quantity Must Be Positive Number");
                     return false;
                 }
             }
@@ -144,7 +144,7 @@ namespace DXApp
                 int b = int.Parse(txtPrice.Text);
                 if (b < 0)
                 {
-                    MessageBox.Show("Price must be float number");
+                    MessageBox.Show("Price must be Positive  number");
                     return false;
                 }
             }
