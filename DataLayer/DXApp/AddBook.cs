@@ -51,29 +51,13 @@ namespace DXApp
         // validate if empty or can not part return true . if valid return false;
         bool validate()
         {
-            try
-            {
-                int.Parse(txtPrice.Text);
-                int.Parse(txtQuantity.Text);
-                bool isEmpty = String.IsNullOrEmpty(txtISBN.Text)
-            || String.IsNullOrEmpty(txtPrice.Text)
-            || String.IsNullOrEmpty(txtQuantity.Text)
-            || String.IsNullOrEmpty(txtName.Text)
-            || String.IsNullOrEmpty(txtDesc.Text)
-            || String.IsNullOrEmpty(txtStatus.Text);
-
-                bool isTooLong = txtISBN.Text.Length > 250
-                                    || txtDesc.Text.Length > 4000
-                                    || txtName.Text.Length > 1000
-                                    || txtStatus.Text.Length > 10;
-
-                return isEmpty || isTooLong;
+            if (String.IsNullOrEmpty(txtISBN.Text)) {
+                MessageBox.Show("ISBN must not empty");
+                return false;
             }
-            catch
-            {
-                return true;
-            }
-            
+
+
+            return true;    
         }
 
 
@@ -135,6 +119,11 @@ namespace DXApp
             ListAuthors.ClearSelected() ;
             ListCategory.ClearSelected();
             cboPublisher.SelectedIndex = 0;
+        }
+
+        private void btnAdd_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
