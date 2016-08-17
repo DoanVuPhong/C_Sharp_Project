@@ -1,6 +1,6 @@
 ﻿namespace DXApp
 {
-    partial class Employee
+    partial class EmployeeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employee));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeForm));
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
             this.btnCategory = new DevExpress.XtraEditors.TileControl();
             this.tileGroup3 = new DevExpress.XtraEditors.TileGroup();
@@ -41,8 +39,6 @@
             this.tileItem2 = new DevExpress.XtraEditors.TileItem();
             this.tileGroup2 = new DevExpress.XtraEditors.TileGroup();
             this.tileItem3 = new DevExpress.XtraEditors.TileItem();
-            this.tileItem4 = new DevExpress.XtraEditors.TileItem();
-            this.tileItem5 = new DevExpress.XtraEditors.TileItem();
             this.SuspendLayout();
             // 
             // btnCategory
@@ -74,7 +70,7 @@
             this.btnCategory.Location = new System.Drawing.Point(0, 0);
             this.btnCategory.MaxId = 20;
             this.btnCategory.Name = "btnCategory";
-            this.btnCategory.Size = new System.Drawing.Size(821, 490);
+            this.btnCategory.Size = new System.Drawing.Size(813, 458);
             this.btnCategory.TabIndex = 1;
             this.btnCategory.Text = "Category";
             // 
@@ -124,48 +120,28 @@
             // 
             // tileGroup2
             // 
-            this.tileGroup2.Items.Add(this.tileItem5);
+            this.tileGroup2.Items.Add(this.tileItem3);
             this.tileGroup2.Name = "tileGroup2";
             // 
             // tileItem3
             // 
             this.tileItem3.AppearanceItem.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tileItem3.AppearanceItem.Normal.Options.UseFont = true;
-            tileItemElement5.Text = "Logout";
-            this.tileItem3.Elements.Add(tileItemElement5);
+            tileItemElement4.Text = "Logout";
+            this.tileItem3.Elements.Add(tileItemElement4);
             this.tileItem3.Id = 19;
             this.tileItem3.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem3.Name = "tileItem3";
+            this.tileItem3.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItem3_ItemClick);
             // 
-            // tileItem4
-            // 
-            this.tileItem4.AppearanceItem.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileItem4.AppearanceItem.Normal.Options.UseFont = true;
-            tileItemElement6.Text = "Logout";
-            this.tileItem4.Elements.Add(tileItemElement6);
-            this.tileItem4.Id = 19;
-            this.tileItem4.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
-            this.tileItem4.Name = "tileItem4";
-            // 
-            // tileItem5
-            // 
-            this.tileItem5.AppearanceItem.Normal.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tileItem5.AppearanceItem.Normal.Options.UseFont = true;
-            tileItemElement4.Text = "Logout";
-            this.tileItem5.Elements.Add(tileItemElement4);
-            this.tileItem5.Id = 19;
-            this.tileItem5.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
-            this.tileItem5.Name = "tileItem5";
-            this.tileItem5.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItem5_ItemClick);
-            // 
-            // Employee
+            // EmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 490);
+            this.ClientSize = new System.Drawing.Size(813, 458);
             this.Controls.Add(this.btnCategory);
-            this.Name = "Employee";
-            this.Text = "Employee";
+            this.Name = "EmployeeForm";
+            this.Text = "EmployeeForm";
             this.ResumeLayout(false);
 
         }
@@ -178,7 +154,5 @@
         private DevExpress.XtraEditors.TileItem tileItem2;
         private DevExpress.XtraEditors.TileGroup tileGroup2;
         private DevExpress.XtraEditors.TileItem tileItem3;
-        private DevExpress.XtraEditors.TileItem tileItem5;
-        private DevExpress.XtraEditors.TileItem tileItem4;
     }
 }

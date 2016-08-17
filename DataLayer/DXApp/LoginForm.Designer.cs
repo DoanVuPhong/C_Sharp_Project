@@ -38,10 +38,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // splashScreenManager1
-            // 
-            splashScreenManager1.ClosingDelay = 5;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -97,6 +93,10 @@
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // splashScreenManager1
+            // 
+            splashScreenManager1.ClosingDelay = 5;
             // 
             // LoginForm
             // 

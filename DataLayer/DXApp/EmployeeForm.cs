@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DXApp
 {
-    public partial class Employee : Form
+    public partial class EmployeeForm : Form
     {
-        public Employee()
+        public EmployeeForm()
         {
             InitializeComponent();
         }
@@ -29,7 +29,7 @@ namespace DXApp
             frmO.ShowDialog();
         }
 
-        private void tileItem5_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+        private void tileItem3_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
             this.Hide();
             LoginForm form = new LoginForm();
