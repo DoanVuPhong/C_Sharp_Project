@@ -60,11 +60,17 @@ namespace DXApp
                 int ID = int.Parse(dgvBook.Rows[e.RowIndex].Cells["ID"].Value.ToString());
                 string ISBN = dgvBook.Rows[e.RowIndex].Cells["ISBN"].Value.ToString();
                 string Name = dgvBook.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+                int MaxQuantity = int.Parse(dgvBook.Rows[e.RowIndex].Cells["Quantity"].Value.ToString());
                 double Price = float.Parse(dgvBook.Rows[e.RowIndex].Cells["Price"].Value.ToString());
                 int OrderQuantity = 1;
                 BookOrderObj re = OrderList.SingleOrDefault(o => o.ID == ID);
                 if (re != null)
                 {
+                    if(MaxQuantity == re.Quantity)
+                    {
+                        MessageBox.Show("You can add more quantity.");
+                        return;
+                    }
                     OrderQuantity = re.Quantity + 1;
                     re.Quantity = OrderQuantity;
                 }
@@ -91,7 +97,7 @@ namespace DXApp
                     TotalPrice += (item.Price * item.Quantity);
                 }
 
-                lblTotal.Text = "Total: " + TotalPrice + " VND";
+                lblTotal.Text = "Total: " + TotalPrice + " $";
                 dgvOrderBook.DataSource = source;
             }
             else
@@ -212,7 +218,7 @@ namespace DXApp
                     TotalPrice += (item.Price * item.Quantity);
                 }
 
-                lblTotal.Text = "Total: " + TotalPrice + " VND";
+                lblTotal.Text = "Total: " + TotalPrice + " $";
                 dgvOrderBook.DataSource = source;
 
                 string ISBN = txtISBN.Text;
@@ -268,6 +274,7 @@ namespace DXApp
         {
             if (dgvOrderBook.Rows.Count <= 0)
             {
+                MessageBox.Show("Please choose one item.");
                 return;
             }
             int current = dgvOrderBook.CurrentCell.RowIndex;
@@ -302,7 +309,7 @@ namespace DXApp
                     TotalPrice += (item.Price * item.Quantity);
                 }
 
-                lblTotal.Text = "Total: " + TotalPrice + " VND";
+                lblTotal.Text = "Total: " + TotalPrice + " $";
                 dgvOrderBook.DataSource = source;
 
 
@@ -397,7 +404,7 @@ namespace DXApp
                                     TotalPrice += (item.Price * item.Quantity);
                                 }
 
-                                lblTotal.Text = "Total: " + TotalPrice + " VND";
+                                lblTotal.Text = "Total: " + TotalPrice + " $";
                             }
                         }
               
