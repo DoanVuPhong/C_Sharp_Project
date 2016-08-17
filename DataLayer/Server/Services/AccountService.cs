@@ -68,9 +68,6 @@ namespace Server.Services
                             LogService.log("Info", username + "Login Successful");
                             return 0;
                         }
-
-
-
                     }
                     return -1;
                 }
