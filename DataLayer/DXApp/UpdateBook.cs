@@ -176,6 +176,12 @@ namespace DXApp
 
         private void btnSave_Click_1(object sender, EventArgs e)
         {
+
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
             if (!validate())
             {
                 return;
@@ -208,6 +214,20 @@ namespace DXApp
             {
                 MessageBox.Show("Please Check book ISBN , This ISBN is existed!");
             }
+        }
+
+        private void btnClear_Click_1(object sender, EventArgs e)
+        {
+            txtISBN.Text = "";
+            txtName.Text = "";
+            txtPrice.Text = "";
+            txtQuantity.Text = "";
+            txtDesc.Text = "";
+            txtPrice.Text = "";
+            txtStatus.Text = "";
+            ListAuthors.ClearSelected();
+            ListCategory.ClearSelected();
+            cboPublisher.SelectedIndex = 0;
         }
     }
 }
