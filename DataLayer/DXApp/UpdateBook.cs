@@ -52,7 +52,7 @@ namespace DXApp
             txtDesc.Text = book.Description;
             txtPrice.Text = book.Price.ToString();
             txtStatus.Text = book.Status;
-          
+
 
             for (int i = 0; i < ListAuthors.Items.Count; i++)
             {
@@ -79,9 +79,10 @@ namespace DXApp
                     }
                 }
             }
-            for (int i = 0; i <cboPublisher.Items.Count; i++)
+            for (int i = 0; i < cboPublisher.Items.Count; i++)
             {
-                if (book.Publisher_ID == ((PublisherData)cboPublisher.Items[i]).ID) {
+                if (book.Publisher_ID == ((PublisherData)cboPublisher.Items[i]).ID)
+                {
                     cboPublisher.SelectedIndex = i;
                 }
             }
@@ -94,35 +95,89 @@ namespace DXApp
 
         bool validate()
         {
+            if (String.IsNullOrEmpty(txtISBN.Text))
+            {
+                MessageBox.Show("ISBN must not Empty!");
+                return false;
+            }
+            if (String.IsNullOrEmpty(txtName.Text))
+            {
+                MessageBox.Show("Name must not Empty!");
+                return false;
+            }
+            if (String.IsNullOrEmpty(txtDesc.Text))
+            {
+                MessageBox.Show("Description Must not Empty!");
+                return false;
+            }
+            if (String.IsNullOrEmpty(txtQuantity.Text))
+            {
+                MessageBox.Show("Quantity Must not Empty!");
+                return false;
+            }
+            if (String.IsNullOrEmpty(txtPrice.Text))
+            {
+                MessageBox.Show("Price must not Empty!");
+                return false;
+            }
+            if (String.IsNullOrEmpty(txtStatus.Text))
+            {
+                MessageBox.Show("Status must not Empty!");
+                return false;
+            }
             try
             {
-                int.Parse(txtPrice.Text);
-                int.Parse(txtQuantity.Text);
-                bool isEmpty = String.IsNullOrEmpty(txtISBN.Text)
-            || String.IsNullOrEmpty(txtPrice.Text)
-            || String.IsNullOrEmpty(txtQuantity.Text)
-            || String.IsNullOrEmpty(txtName.Text)
-            || String.IsNullOrEmpty(txtDesc.Text)
-            || String.IsNullOrEmpty(txtStatus.Text);
-
-                bool isTooLong = txtISBN.Text.Length > 250
-                                    || txtDesc.Text.Length > 4000
-                                    || txtName.Text.Length > 1000
-                                    || txtStatus.Text.Length > 10;
-
-                return isEmpty || isTooLong;
+                int a = int.Parse(txtQuantity.Text);
+                if (a < 0)
+                {
+                    MessageBox.Show("Quantity Must Be Positive Number");
+                    return false;
+                }
             }
-            catch
+            catch (Exception)
             {
-                return true;
+                MessageBox.Show("Quantity Number!");
+                return false;
             }
+            try
+            {
+                int b = int.Parse(txtPrice.Text);
+                if (b < 0)
+                {
+                    MessageBox.Show("Price must be Positive  number");
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Price must be Integer number");
+                return false;
+            }
+            return true;
+
+
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+       
+
+        private void btnClear_Click(object sender, EventArgs e)
         {
-            if (validate())
+            txtISBN.Text = "";
+            txtName.Text = "";
+            txtPrice.Text = "";
+            txtQuantity.Text = "";
+            txtDesc.Text = "";
+            txtPrice.Text = "";
+            txtStatus.Text = "";
+            ListAuthors.ClearSelected();
+            ListCategory.ClearSelected();
+            cboPublisher.SelectedIndex = 0;
+        }
+
+        private void btnSave_Click_1(object sender, EventArgs e)
+        {
+            if (!validate())
             {
-                MessageBox.Show("Your input is not valid please check again (Not leave field empty or too long)");
                 return;
             }
             book.Author = new List<AuthorData>();
@@ -149,23 +204,10 @@ namespace DXApp
             {
                 MessageBox.Show("Update Book Successful!");
             }
-            else {
+            else
+            {
                 MessageBox.Show("Please Check book ISBN , This ISBN is existed!");
             }
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            txtISBN.Text ="";
-            txtName.Text = "";
-            txtPrice.Text = "";
-            txtQuantity.Text = "";
-            txtDesc.Text = "";
-            txtPrice.Text = "";
-            txtStatus.Text = "";
-            ListAuthors.ClearSelected();
-            ListCategory.ClearSelected();
-            cboPublisher.SelectedIndex = 0;
         }
     }
 }
