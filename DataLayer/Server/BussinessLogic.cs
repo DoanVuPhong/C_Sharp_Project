@@ -334,5 +334,10 @@ namespace Server
         {
             return OrderService.CustomSearch(ID, customerName, from, to);
         }
+
+        public bool UpdateQuantityBook(int ID, int Quantity)
+        {
+            return BookService.UpdateQuantity(ID, Quantity);
+        }
     }
 }

@@ -130,9 +130,20 @@ namespace DXApp
             if (e.RowIndex >= 0)
             {
                 string textID = dgvOrder.Rows[e.RowIndex].Cells["ID"].Value.ToString();
+                string CusName = dgvOrder.Rows[e.RowIndex].Cells["Customer Name"].Value.ToString();
+                string Date = dgvOrder.Rows[e.RowIndex].Cells["Date"].Value.ToString();
                 int ID = int.Parse(textID);
                 datatable = proxy.GetAllOrderDetailByID(ID);
                 dgvOrderDetail.DataSource = datatable;
+                double TotalPrice = 0;
+                foreach (DataGridViewRow row in dgvOrderDetail.Rows)
+                {
+                    TotalPrice += int.Parse(row.Cells["Quantity"].Value.ToString()) * double.Parse(row.Cells["Price"].Value.ToString());
+                    //More code here
+                }
+                lblCustomerName.Text = "Customer Name: " + CusName;
+                lblDate.Text ="Date: " +  Date;
+                lblTotal.Text = "Total Price: "+ TotalPrice.ToString() + " $";
             }
             else
             {
@@ -172,13 +183,23 @@ namespace DXApp
 
         private void btnCustomSearch_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnCustomSearch_Click_1(object sender, EventArgs e)
+        {
             string ID = txtSearchByID.Text;
             string customerName = txtSearchByName.Text;
             DateTime from = chDateFrom.Value;
             DateTime to = chDateTo.Value;
 
-            datatable = proxy.CustomSearchOrder(ID,customerName, from, to);
+            datatable = proxy.CustomSearchOrder(ID, customerName, from, to);
             dgvOrder.DataSource = datatable;
+        }
+
+        private void dgvOrderDetail_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            
         }
     }
 }

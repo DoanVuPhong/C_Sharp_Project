@@ -39,7 +39,7 @@
             this.dgvOrderDetail = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
             this.btnCustomSearch = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblCustomerName = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -47,6 +47,8 @@
             this.txtSearchByID = new System.Windows.Forms.TextBox();
             this.chDateFrom = new System.Windows.Forms.DateTimePicker();
             this.chDateTo = new System.Windows.Forms.DateTimePicker();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.lblTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errID)).BeginInit();
@@ -104,13 +106,14 @@
             this.dgvOrderDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOrderDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrderDetail.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvOrderDetail.Location = new System.Drawing.Point(420, 75);
+            this.dgvOrderDetail.Location = new System.Drawing.Point(420, 122);
             this.dgvOrderDetail.Name = "dgvOrderDetail";
             this.dgvOrderDetail.ReadOnly = true;
-            this.dgvOrderDetail.Size = new System.Drawing.Size(446, 301);
+            this.dgvOrderDetail.Size = new System.Drawing.Size(446, 226);
             this.dgvOrderDetail.TabIndex = 5;
             this.dgvOrderDetail.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetail_CellContentClick);
             this.dgvOrderDetail.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrderDetail_CellDoubleClick);
+            this.dgvOrderDetail.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvOrderDetail_CellValidating);
             // 
             // label12
             // 
@@ -118,7 +121,7 @@
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("Harrington", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.MintCream;
-            this.label12.Location = new System.Drawing.Point(416, 39);
+            this.label12.Location = new System.Drawing.Point(414, 10);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(170, 32);
             this.label12.TabIndex = 4;
@@ -128,25 +131,25 @@
             // 
             this.btnCustomSearch.BackColor = System.Drawing.Color.SlateGray;
             this.btnCustomSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCustomSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btnCustomSearch.Location = new System.Drawing.Point(123, 182);
+            this.btnCustomSearch.ForeColor = System.Drawing.Color.MintCream;
+            this.btnCustomSearch.Location = new System.Drawing.Point(140, 186);
             this.btnCustomSearch.Name = "btnCustomSearch";
             this.btnCustomSearch.Size = new System.Drawing.Size(88, 33);
             this.btnCustomSearch.TabIndex = 14;
             this.btnCustomSearch.Text = "Search";
             this.btnCustomSearch.UseVisualStyleBackColor = false;
+            this.btnCustomSearch.Click += new System.EventHandler(this.btnCustomSearch_Click_1);
             // 
-            // label11
+            // lblCustomerName
             // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.MintCream;
-            this.label11.Location = new System.Drawing.Point(44, 94);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(110, 15);
-            this.label11.TabIndex = 12;
-            this.label11.Text = "Customer Name";
+            this.lblCustomerName.AutoSize = true;
+            this.lblCustomerName.BackColor = System.Drawing.Color.Transparent;
+            this.lblCustomerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerName.ForeColor = System.Drawing.Color.MintCream;
+            this.lblCustomerName.Location = new System.Drawing.Point(417, 58);
+            this.lblCustomerName.Name = "lblCustomerName";
+            this.lblCustomerName.Size = new System.Drawing.Size(0, 15);
+            this.lblCustomerName.TabIndex = 12;
             // 
             // label8
             // 
@@ -219,6 +222,28 @@
             this.chDateTo.Size = new System.Drawing.Size(148, 20);
             this.chDateTo.TabIndex = 9;
             // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.BackColor = System.Drawing.Color.Transparent;
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.ForeColor = System.Drawing.Color.MintCream;
+            this.lblDate.Location = new System.Drawing.Point(417, 94);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(0, 15);
+            this.lblDate.TabIndex = 12;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.ForeColor = System.Drawing.Color.MintCream;
+            this.lblTotal.Location = new System.Drawing.Point(702, 361);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(0, 15);
+            this.lblTotal.TabIndex = 12;
+            // 
             // frmOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -227,7 +252,9 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(890, 402);
             this.Controls.Add(this.btnCustomSearch);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.lblTotal);
+            this.Controls.Add(this.lblDate);
+            this.Controls.Add(this.lblCustomerName);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
@@ -259,7 +286,7 @@
         private System.Windows.Forms.DataGridView dgvOrderDetail;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnCustomSearch;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblCustomerName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
@@ -267,5 +294,7 @@
         private System.Windows.Forms.TextBox txtSearchByID;
         private System.Windows.Forms.DateTimePicker chDateFrom;
         private System.Windows.Forms.DateTimePicker chDateTo;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.Label lblDate;
     }
 }

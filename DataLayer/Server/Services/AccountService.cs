@@ -53,12 +53,13 @@ namespace Server.Services
             {
                 using (Book_Sale_ManagerEntities context = new Book_Sale_ManagerEntities())
                 {
-                    Account account = context.Accounts.FirstOrDefault(temp => temp.username == username && temp.password == password);
+                    Account account = context.Accounts.FirstOrDefault(temp => temp.username.ToLower().Equals(username.ToLower()) && temp.password.Equals(password));
                     if (account != null)
                     {
+
                         if (account.type == "ADMIN")
                         {
-                            LogService.log("Info",username+"Login Successful");
+                            LogService.log("Info", username + "Login Successful");
                             return 1;
                         }
 

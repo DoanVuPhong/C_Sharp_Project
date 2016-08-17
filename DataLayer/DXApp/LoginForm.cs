@@ -53,17 +53,22 @@ namespace DXApp
             }
             else if (result == 0)
             {
-                EmployeeForm form = new EmployeeForm();
-                form.WindowState = FormWindowState.Maximized;
+                EmployeeForm form2 = new EmployeeForm();
+                form2.WindowState = FormWindowState.Maximized;
 
                 this.Hide();
-                form.Show();
+                form2.Show();
             }
             else {
                 MessageBox.Show("Logoin Fail! Please Try Again!");
              
             }
             
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
