@@ -104,7 +104,6 @@ namespace DXApp
                 int searchIndex = cboSearch.SelectedIndex;
                 string searchText = cboSearch.SelectedItem.ToString();
                 string search = txtSearch.Text;
-                table = proxy.FilterBookByCategory(search);
                 if (string.IsNullOrEmpty(search))
                 {
                     MessageBox.Show("Please input a " + searchText);
